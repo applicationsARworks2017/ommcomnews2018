@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/tools"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_above="@+id/hint2"
+        android:background="@android:color/white"
+        >
+
+        <RelativeLayout
+            android:id="@+id/slider_image"
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+            <com.daimajia.slider.library.SliderLayout
+                android:id="@+id/slider"
+                android:layout_width="match_parent"
+                custom:pager_animation="Accordion"
+                custom:auto_cycle="true"
+                custom:indicator_visibility="visible"
+                custom:pager_animation_span="1100"
+                android:layout_height="200dp"/>
+
+            <com.daimajia.slider.library.Indicators.PagerIndicator
+                android:id="@+id/custom_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                custom:selected_color="#0095BF"
+                custom:unselected_color="#55333333"
+                custom:selected_drawable="@drawable/empty"
+                custom:shape="oval"
+                custom:selected_padding_left="5dp"
+                custom:selected_padding_right="5dp"
+                custom:unselected_padding_left="5dp"
+                custom:unselected_padding_right="5dp"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                custom:selected_width="6dp"
+                custom:selected_height="6dp"
+                custom:unselected_width="6dp"
+                custom:unselected_height="6dp"
+                android:layout_marginBottom="20dp"
+                />
+            <com.daimajia.slider.library.Indicators.PagerIndicator
+                android:id="@+id/custom_indicator2"
+                style="@style/AndroidImageSlider_Corner_Oval_Orange"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="20dp"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/mainl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:layout_below="@+id/slider_image">
+
+
+            <RelativeLayout
+                android:id="@+id/d_layout"
+                android:layout_width="match_parent"
+                android:gravity="center_vertical"
+                android:visibility="gone"
+                android:background="@color/light_gray_news_details"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imgShare"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@mipmap/share_icon"
+                    android:layout_margin="12dp"/>
+
+                <ImageView
+                    android:id="@+id/imgComment"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:layout_margin="12dp"
+                    android:layout_toRightOf="@+id/imgShare"
+                    android:src="@mipmap/comment_icon"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/tvNewsCount"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="12dp"
+                    android:textColor="@android:color/black"
+                    android:layout_centerVertical="true"/>
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="12dp"
+            android:baselineAligned="false">
+            <com.lipl.ommcom.util.CustomTextView
+                android:id="@+id/description_with_img_only"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:customFont="@string/text_font_family_for_news_long_desc"
+                android:textColor="@android:color/black"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <com.lipl.ommcom.util.CustomTextView
+        android:id="@+id/pageNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:text="hgg"
+        android:visibility="invisible"
+        android:padding="12dp"/>
+
+    <com.lipl.ommcom.util.CustomTextView
+        android:id="@+id/hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingBottom="12dp"
+        android:visibility="invisible"
+        android:layout_toLeftOf="@+id/pageNumber"
+        android:text="Slide up to go next page and down to go previous page"/>
+
+    <com.lipl.ommcom.util.CustomTextView
+        android:id="@+id/hint2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingBottom="12dp"
+        android:visibility="invisible"
+        android:layout_toLeftOf="@+id/pageNumber"
+        android:text="Slide up to go next page and down to go previous page"/>
+
+</RelativeLayout>

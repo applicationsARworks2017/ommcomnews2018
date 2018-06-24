@@ -1,0 +1,12 @@
+<component name="libraryTable">
+  <library name="com.anthonycr.grant:permissions-1.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.android/build-cache/b0932d6d1465bc31f72c04c356d1423aadb1252e/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/b0932d6d1465bc31f72c04c356d1423aadb1252e/output/res" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.anthonycr.grant/permissions/1.0/afc6574a361e793c171dd0bc1fa0732b3c193557/permissions-1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

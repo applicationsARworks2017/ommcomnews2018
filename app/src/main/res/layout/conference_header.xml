@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/layoutImage"
+        android:layout_width="match_parent"
+        android:layout_height="240dip">
+
+        <!--<io.vov.vitamio.widget.VideoView--><VideoView
+            android:id="@+id/videoViewMainScreen"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="bottom"
+            android:background="@drawable/text_background_gradient"
+            android:orientation="vertical"
+            android:padding="18dp"
+            android:layout_alignBottom="@+id/imgHeader">
+
+            <com.lipl.ommcom.util.CustomTextView
+                android:id="@+id/tvNewsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:textAppearanceLarge"
+                android:textColor="@color/news_title_color"/>
+
+            <com.lipl.ommcom.util.CustomTextView
+                android:id="@+id/tvNewsPostedAt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:textAppearanceSmall"
+                android:textColor="@color/news_title_color"/>
+
+        </LinearLayout>
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:visibility="gone"/>
+    </RelativeLayout>
+    <LinearLayout
+        android:id="@+id/countLayout"
+        android:layout_below="@+id/layoutImage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/sample_blue"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:layout_margin="12dp"
+        android:padding="12dp">
+
+        <TextView
+            android:id="@+id/tvConferenceTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GLOBAL WARMING"
+            android:layout_marginLeft="12dp"
+            android:textAppearance="@android:style/TextAppearance.Large"
+            android:textColor="@android:color/white"/>
+        <TextView
+            android:id="@+id/tvConferenceFlashoutMessage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:visibility="gone"
+            android:textAppearance="@android:style/TextAppearance.Large"
+            android:textColor="@android:color/white"/>
+
+    </LinearLayout>
+</RelativeLayout>
+
+

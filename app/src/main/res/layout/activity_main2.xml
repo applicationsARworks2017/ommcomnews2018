@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".activity.NewsDetailsActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/MaterialAnimations.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/MaterialAnimations.TextAppearance.Title"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@color/material_animations_primary"
+            android:elevation="@dimen/elevation_header"
+            app:popupTheme="@style/MaterialAnimations.PopupOverlay">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.lipl.ommcom.util.CustomTextView
+                    app:customFont="@string/text_font_family_for_toolbar_app_title"
+                    android:id="@+id/title"
+                    style="@style/MaterialAnimations.TextAppearance.Title.Inverse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|start"
+                    android:text="@string/app_name"
+                    android:textColor="@color/app_title_color"
+                    android:layout_marginLeft="12dp"
+                    android:layout_centerInParent="true"/>
+
+                <ImageView
+                    android:id="@+id/app_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:clickable="true"
+                    android:layout_toLeftOf="@+id/title"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/ic_launcher" />
+
+                <!--<ImageView-->
+                <!--android:id="@+id/search"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:background="@android:color/transparent"-->
+                <!--android:clickable="true"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:src="@mipmap/ic_search" />-->
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <include layout="@layout/content_main2" />
+
+        <!--<com.karumi.expandableselector.ExpandableSelector-->
+            <!--xmlns:expandable_selector="http://schemas.android.com/apk/lib/com.karumi.expandableselector.ExpandableSelector"-->
+            <!--android:id="@+id/es_icons"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_margin="@dimen/expandable_selector_margin"-->
+            <!--android:background="@drawable/bg_expandable_selector_dark"-->
+            <!--expandable_selector:expand_interpolator="@android:anim/accelerate_interpolator"-->
+            <!--expandable_selector:container_interpolator="@android:anim/accelerate_decelerate_interpolator"-->
+            <!--expandable_selector:collapse_interpolator="@android:anim/decelerate_interpolator"-->
+            <!--expandable_selector:animation_duration="@integer/slow_custom_animation_duration"/>-->
+
+    </RelativeLayout>
+
+    <!--<android.support.design.widget.FloatingActionButton-->
+        <!--android:id="@+id/fab"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_gravity="bottom|end"-->
+        <!--android:layout_margin="@dimen/fab_margin"-->
+        <!--android:src="@android:drawable/ic_dialog_email" />-->
+
+</android.support.design.widget.CoordinatorLayout>

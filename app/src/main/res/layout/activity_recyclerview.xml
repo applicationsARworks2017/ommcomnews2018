@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="com.lipl.ommcom.activity.NewsListActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/MaterialAnimations.AppBarOverlay">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            style="@style/MaterialAnimations.TextAppearance.Title"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            android:background="@color/material_animations_primary"
+            android:elevation="@dimen/elevation_header"
+            app:popupTheme="@style/MaterialAnimations.PopupOverlay">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.lipl.ommcom.util.CustomTextView
+                    app:customFont="@string/text_font_family_for_toolbar_app_title"
+                    android:id="@+id/title"
+                    style="@style/MaterialAnimations.TextAppearance.Title.Inverse"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical|start"
+                    android:text="@string/app_name"
+                    android:textColor="@color/app_title_color"
+                    android:layout_marginLeft="12dp"
+                    android:layout_centerInParent="true"/>
+
+                <ImageView
+                    android:id="@+id/app_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:clickable="true"
+                    android:layout_toLeftOf="@+id/title"
+                    android:layout_centerVertical="true"
+                    android:src="@mipmap/ic_launcher" />
+
+            </RelativeLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/pBar"
+            android:visibility="gone"
+            android:layout_centerInParent="true"/>
+
+        <com.jcodecraeer.xrecyclerview.XRecyclerView
+            android:id="@+id/recyclerview"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_above="@+id/countLayout"/>
+
+        <!--<RelativeLayout-->
+            <!--android:id="@+id/countLayout"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:background="@color/sample_blue"-->
+            <!--android:gravity="center_vertical"-->
+            <!--android:layout_alignParentBottom="true"-->
+            <!--android:padding="12dp">-->
+            <!--&lt;!&ndash;&ndash;&gt;-->
+
+            <!--<ImageView-->
+                <!--android:id="@+id/imgComment"-->
+                <!--android:layout_width="26dp"-->
+                <!--android:layout_height="26dp"-->
+                <!--android:src="@drawable/ic_comment"/>-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/tvComment"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Comment"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_toRightOf="@+id/imgComment"-->
+                <!--android:layout_marginLeft="12dp"-->
+                <!--android:layout_marginRight="12dp"-->
+                <!--android:textColor="@android:color/white"/>-->
+
+            <!--<ImageView-->
+                <!--android:id="@+id/imgShare"-->
+                <!--android:layout_width="26dp"-->
+                <!--android:layout_height="26dp"-->
+                <!--android:layout_toLeftOf="@+id/tvShare"-->
+                <!--android:layout_gravity="right"-->
+                <!--android:src="@drawable/ic_share"/>-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/tvShare"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:text="Share"-->
+                <!--android:layout_alignParentRight="true"-->
+                <!--android:layout_centerVertical="true"-->
+                <!--android:layout_marginLeft="12dp"-->
+                <!--android:layout_marginRight="12dp"-->
+                <!--android:textColor="@android:color/white"/>-->
+
+
+        <!--</RelativeLayout>-->
+
+        <com.lipl.ommcom.util.CustomTextView
+            android:gravity="center"
+            android:id="@+id/text_empty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="emptyView"
+            app:customFont="@string/text_font_family_for_headlines"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:visibility="gone"/>
+        <!--android:background="#dcdcdc"-->
+
+        <RelativeLayout
+            android:id="@+id/layoutRParent"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:background="@color/black_semi_transparent">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:id="@+id/relativeTopParent">
+
+            </RelativeLayout>
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</android.support.design.widget.CoordinatorLayout>

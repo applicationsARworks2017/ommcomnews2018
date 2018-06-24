@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:id="@+id/mainlayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imgDisplayPicture"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@color/app_gray_blue"
+            android:adjustViewBounds="true"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@drawable/text_background_gradient_category_fn"
+            android:orientation="vertical"
+            android:layout_alignBottom="@+id/imgDisplayPicture">
+
+            <com.lipl.ommcom.util.CustomTextView
+                android:id="@+id/tvNewsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                app:customFont="@string/text_font_family_for_headlines"
+                android:textSize="28sp"
+                android:maxLines="2"
+                android:text="egsdsdfb"
+                android:layout_alignParentBottom="true"
+                android:ellipsize="end"
+                android:textColor="@color/news_title_color"/>
+
+        </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/imgPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/ic_play_white"
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        />
+
+</RelativeLayout>

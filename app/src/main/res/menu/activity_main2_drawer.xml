@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/top_videos"
+        android:title="Top Videos" />
+    <item
+        android:id="@+id/viral_videos"
+        android:title="Viral Videos" />
+    <item
+        android:id="@+id/polling"
+        android:title="Polling" />
+    <item
+        android:id="@+id/odisha"
+        android:title="Odisha" />
+    <item
+        android:id="@+id/national"
+        android:title="National" />
+    <item
+        android:id="@+id/international"
+        android:title="International" />
+    <item
+        android:id="@+id/politics"
+        android:title="Politics" />
+    <item
+        android:id="@+id/sports"
+        android:title="Sports" />
+    <item
+        android:id="@+id/business"
+        android:title="Business" />
+    <item
+        android:id="@+id/entertainment"
+        android:title="Entertainment" />
+    <item
+        android:id="@+id/travel"
+        android:title="Travel" />
+    <item
+        android:id="@+id/technology"
+        android:title="Technology" />
+    <item
+        android:id="@+id/lifestyle"
+        android:title="Lifestyle" />
+    <item
+        android:id="@+id/education"
+        android:title="Education" />
+    <!--<item android:id="@+id/news"-->
+        <!--android:title="News">-->
+        <!--<menu>-->
+            <!--<group android:id="@+id/groupNews" android:checkableBehavior="single">-->
+                <!--<item-->
+                    <!--android:id="@+id/top_news"-->
+                    <!--android:title="Top News" />-->
+                <!--<item-->
+                    <!--android:id="@+id/breaking_news"-->
+                    <!--android:title="Breaking News" />-->
+                <!--<item-->
+                    <!--android:id="@+id/latest_news"-->
+                    <!--android:title="Latest News" />-->
+                <!--<item-->
+                    <!--android:id="@+id/featured_stories"-->
+                    <!--android:title="Featured Stories" />-->
+                <!--<item-->
+                    <!--android:id="@+id/other_top_stories"-->
+                    <!--android:title="Other Top Stories" />-->
+                <!--<item-->
+                    <!--android:id="@+id/international_stories"-->
+                    <!--android:title="International Stories" />-->
+            <!--</group>-->
+        <!--</menu>-->
+    <!--</item>-->
+
+    <!--<item android:id="@+id/videos" android:title="Videos">-->
+        <!--<menu>-->
+            <!--<group android:id="@+id/groupVideos" android:checkableBehavior="single">-->
+                <!--<item-->
+                    <!--android:id="@+id/video_all"-->
+                    <!--android:title="All" />-->
+                <!--<item-->
+                    <!--android:id="@+id/video_featured"-->
+                    <!--android:title="Featured" />-->
+                <!--<item-->
+                    <!--android:id="@+id/video_live_conference"-->
+                    <!--android:title="Live Conference" />-->
+            <!--</group>-->
+        <!--</menu>-->
+    <!--</item>-->
+
+    <!--<item android:id="@+id/groupAudio" android:title="Audio">-->
+        <!--<menu>-->
+            <!--<group android:id="@+id/audio" android:checkableBehavior="single">-->
+                <!--<item-->
+                    <!--android:id="@+id/audio_all"-->
+                    <!--android:title="All" />-->
+                <!--<item-->
+                    <!--android:id="@+id/audio_featured"-->
+                    <!--android:title="Featured" />-->
+            <!--</group>-->
+        <!--</menu>-->
+    <!--</item>-->
+
+    <!--<item android:id="@+id/groupVoteNow" android:title="Vote Now">-->
+        <!--<menu>-->
+            <!--<group android:id="@+id/voteNow" android:checkableBehavior="single">-->
+                <!--<item-->
+                    <!--android:id="@+id/live_poll"-->
+                    <!--android:title="Live Poll" />-->
+                <!--<item-->
+                    <!--android:id="@+id/view_previous_poll_results"-->
+                    <!--android:title="View Previous Poll Results" />-->
+            <!--</group>-->
+        <!--</menu>-->
+    <!--</item>-->
+    <!--<item android:id="@+id/groupOther" android:title="Other">-->
+        <!--<menu>-->
+            <!--<group android:id="@+id/other" android:checkableBehavior="single" >-->
+                <!--<item-->
+                    <!--android:id="@+id/privacy_policy"-->
+                    <!--android:title="Privacy Policy" />-->
+                <!--<item-->
+                    <!--android:id="@+id/terms_and_conditions"-->
+                    <!--android:title="Terms &amp; Conditions" />-->
+                <!--<item-->
+                    <!--android:id="@+id/help"-->
+                    <!--android:title="How can we help you?" />-->
+                <!--<item-->
+                    <!--android:id="@+id/contact_us"-->
+                    <!--android:title="Contact Us" />-->
+                <!--<item-->
+                    <!--android:id="@+id/rate_app"-->
+                    <!--android:title="Rate app" />-->
+            <!--</group>-->
+        <!--</menu>-->
+    <!--</item>-->
+    <!--<item android:id="@+id/groupSettings" android:title="Settings">-->
+        <!--<menu>-->
+            <!--<group android:id="@+id/gsettings" android:checkableBehavior="single">-->
+                <!--<item-->
+                    <!--android:id="@+id/settings"-->
+                    <!--android:title="Settings" />-->
+                <!--<item android:id="@+id/nav_switch"-->
+                    <!--app:actionLayout="@layout/action_view_switch"-->
+                    <!--android:title="Notification" />-->
+            <!--</group>-->
+        <!--</menu>-->
+    <!--</item>-->
+</menu>
