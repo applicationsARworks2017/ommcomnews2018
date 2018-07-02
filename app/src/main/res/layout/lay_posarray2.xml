@@ -17,7 +17,7 @@
             android:layout_weight="1">
 
             <ImageView
-                android:id="@+id/adim11"
+                android:id="@+id/addim31"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:adjustViewBounds="true"
@@ -33,7 +33,22 @@
             android:layout_weight="1">
 
             <ImageView
-                android:id="@+id/addim12"
+                android:id="@+id/addim32"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:padding="1dp"
+                android:scaleType="fitXY"
+                android:adjustViewBounds="true"/>
+
+            <include layout="@layout/gradient"/>
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/addim33"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:padding="1dp"

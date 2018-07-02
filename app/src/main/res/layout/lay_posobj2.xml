@@ -6,17 +6,13 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/citizenJournalistImage"
+        android:id="@+id/iv_pos2obj1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="fitXY"
         android:adjustViewBounds="true"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="SECTION2"/>
+
 
     <include layout="@layout/gradient"/>
 

@@ -14,6 +14,7 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.media.Image;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -132,28 +133,63 @@ public class HomeActivity extends AppCompatActivity
     String pos5_obj1_name,pos5_obj1_image,pos5_obj1_url,pos5_obj2_name,pos5_obj2_image,pos5_obj2_url;
     String pos6_obj1_name,pos6_obj1_image,pos6_obj1_url,pos6_obj2_name,pos6_obj2_image,pos6_obj2_url;
 
-    String pos1_arr1_name1,pos1_arr1_name2,pos2_arr1_name3;
-    String pos1_arr1_image1,pos1_arr1_image2,pos2_arr1_image3;
-    String pos1_arr1_url1,pos1_arr1_url3,pos2_arr1_url2;
+    String pos1_arr1_name1,pos1_arr1_name2,pos1_arr1_name3;
+    String pos1_arr1_image1,pos1_arr1_image2,pos1_arr1_image3;
+    String pos1_arr1_url1,pos1_arr1_url2,pos1_arr1_url3;
 
-    String pos1_arr2_name1,pos2_arr2_name2,pos2_arr2_name3;
-    String pos1_arr2_image1,pos2_arr2_image2,pos2_arr2_image3;
-    String pos1_arr2_url1,pos2_arr2_url3,pos2_arr2_url2;
+    String pos1_arr2_name1,pos1_arr2_name2,pos1_arr2_name3;
+    String pos1_arr2_image1,pos2_arr2_image2,pos1_arr2_image3;
+    String pos1_arr2_url1,pos1_arr2_url2,pos1_arr2_url3;
 
-    String pos2_arr1_name1,pos2_arr1_name2,pos1_arr1_name3;
-    String pos2_arr1_image1,pos2_arr1_image2,pos1_arr1_image3;
-    String pos2_arr1_url1,pos2_arr1_url3,pos1_arr1_url2;
+    String pos2_arr1_name1,pos2_arr1_name2,pos2_arr1_name3;
+    String pos2_arr1_image1,pos2_arr1_image2,pos2_arr1_image3;
+    String pos2_arr1_url1,pos2_arr1_url3,pos2_arr1_url2;
 
-    String pos2_arr2_name1,pos1_arr2_name2,pos1_arr2_name3;
-    String pos2_arr2_image1,pos1_arr2_image2,pos1_arr2_image3;
-    String pos2_arr2_url1,pos1_arr2_url3,pos1_arr2_url2;
+    String pos2_arr2_name1,pos2_arr2_name2,pos2_arr2_name3;
+    String pos2_arr2_image1,pos1_arr2_image2,pos2_arr2_image3;
+    String pos2_arr2_url1,pos2_arr2_url2,pos2_arr2_url3;
+
+    String pos3_arr1_name1,pos3_arr1_name2,pos3_arr1_name3;
+    String pos3_arr1_image1,pos3_arr1_image2,pos3_arr1_image3;
+    String pos3_arr1_url1,pos3_arr1_url3,pos3_arr1_url2;
+
+    String pos3_arr2_name1,pos3_arr2_name2,pos3_arr2_name3;
+    String pos3_arr2_image1,pos3_arr2_image2,pos3_arr2_image3;
+    String pos3_arr2_url1,pos3_arr2_url2,pos3_arr2_url3;
+
+    String pos4_arr1_name1,pos4_arr1_name2,pos4_arr1_name3;
+    String pos4_arr1_image1,pos4_arr1_image2,pos4_arr1_image3;
+    String pos4_arr1_url1,pos4_arr1_url3,pos4_arr1_url2;
+
+    String pos4_arr2_name1,pos4_arr2_name2,pos4_arr2_name3;
+    String pos4_arr2_image1,pos4_arr2_image2,pos4_arr2_image3;
+    String pos4_arr2_url1,pos4_arr2_url2,pos4_arr2_url3;
+
+    String pos5_arr1_name1,pos5_arr1_name2,pos5_arr1_name3;
+    String pos5_arr1_image1,pos5_arr1_image2,pos5_arr1_image3;
+    String pos5_arr1_url1,pos5_arr1_url3,pos5_arr1_url2;
+
+    String pos5_arr2_name1,pos5_arr2_name2,pos5_arr2_name3;
+    String pos5_arr2_image1,pos5_arr2_image2,pos5_arr2_image3;
+    String pos5_arr2_url1,pos5_arr2_url2,pos5_arr2_url3;
+
+    String pos6_arr1_name1,pos6_arr1_name2,pos6_arr1_name3;
+    String pos6_arr1_image1,pos6_arr1_image2,pos6_arr1_image3;
+    String pos6_arr1_url1,pos6_arr1_url3,pos6_arr1_url2;
+
+    String pos6_arr2_name1,pos6_arr2_name2,pos6_arr2_name3;
+    String pos6_arr2_image1,pos6_arr2_image2,pos6_arr2_image3;
+    String pos6_arr2_url1,pos6_arr2_url2,pos6_arr2_url3;
+
 
     private static final int LOADING_TIME = 3000;
     private static final String TAG = "HomeActivity";
     private static final int INIT_CENTER_LOG_MOTION_DURATION = 2000;
 
     private static final float LAYOUT_WEIGHT_HEADER_ADVERTISEMENT = 0.08f;
+    private static final float ODISHAHEAD_HEIGHT = 0.05f;
     private static final float LAYOUT_WEIGHT_TOP_FEATURED_NEWS = 0.2625f;
+    private static final float LAYOUT_WEIGHT_ODISHANEWS = 0.2025f;
     private static final float LAYOUT_WEIGHT_TOP_NEWS = 0.13f;
     private static final float LAYOUT_WEIGHT_CONFERENCE = 0.13f;
     private static final float LAYOUT_WEIGHT_CITIZEN_JOURNALIST = 0.13f;
@@ -523,6 +559,176 @@ public class HomeActivity extends AppCompatActivity
                                 pos2_arr2_name3= o_list_obj3.getString("name");
                                 pos2_arr2_image3= o_list_obj3.getString("image_full_path");
                                 pos2_arr2_url3=o_list_obj3.getString("url");
+                            }
+                        }
+
+                        if(res.isNull("POS3ARRAY1") == false){
+                            pos3arr1=true;
+                            pos3obj1=false;
+                            JSONArray arr=res.getJSONArray("POS3ARRAY1");
+                            for(int i=0;i<=2;i++){
+                                JSONObject o_list_obj1 = arr.getJSONObject(0);
+                                pos3_arr1_name1= o_list_obj1.getString("name");
+                                pos3_arr1_image1= o_list_obj1.getString("image_full_path");
+                                pos3_arr1_url1=o_list_obj1.getString("url");
+
+                                JSONObject o_list_obj2 = arr.getJSONObject(1);
+                                pos3_arr1_name2= o_list_obj2.getString("name");
+                                pos3_arr1_image2= o_list_obj2.getString("image_full_path");
+                                pos3_arr1_url2=o_list_obj2.getString("url");
+
+                                JSONObject o_list_obj3 = arr.getJSONObject(2);
+                                pos3_arr1_name3= o_list_obj3.getString("name");
+                                pos3_arr1_image3= o_list_obj3.getString("image_full_path");
+                                pos3_arr1_url3=o_list_obj3.getString("url");
+                            }
+                        }
+                        if(res.isNull("POS3ARRAY2") == false){
+                            pos3arr2=true;
+                            pos3obj2=false;
+                            JSONArray arr=res.getJSONArray("POS3ARRAY2");
+                            for(int i=0;i<=2;i++){
+                                JSONObject o_list_obj1 = arr.getJSONObject(0);
+                                pos3_arr2_name1= o_list_obj1.getString("name");
+                                pos3_arr2_image1= o_list_obj1.getString("image_full_path");
+                                pos3_arr2_url1=o_list_obj1.getString("url");
+
+                                JSONObject o_list_obj2 = arr.getJSONObject(1);
+                                pos3_arr2_name2= o_list_obj2.getString("name");
+                                pos3_arr2_image2= o_list_obj2.getString("image_full_path");
+                                pos3_arr2_url2=o_list_obj2.getString("url");
+
+                                JSONObject o_list_obj3 = arr.getJSONObject(2);
+                                pos3_arr2_name3= o_list_obj3.getString("name");
+                                pos3_arr2_image3= o_list_obj3.getString("image_full_path");
+                                pos3_arr2_url3=o_list_obj3.getString("url");
+                            }
+                        }
+
+                        if(res.isNull("POS4ARRAY1") == false){
+                            pos4arr1=true;
+                            pos4obj1=false;
+                            JSONArray arr=res.getJSONArray("POS4ARRAY1");
+                            for(int i=0;i<=2;i++){
+                                JSONObject o_list_obj1 = arr.getJSONObject(0);
+                                pos4_arr1_name1= o_list_obj1.getString("name");
+                                pos4_arr1_image1= o_list_obj1.getString("image_full_path");
+                                pos4_arr1_url1=o_list_obj1.getString("url");
+
+                                JSONObject o_list_obj2 = arr.getJSONObject(1);
+                                pos4_arr1_name2= o_list_obj2.getString("name");
+                                pos4_arr1_image2= o_list_obj2.getString("image_full_path");
+                                pos4_arr1_url2=o_list_obj2.getString("url");
+
+                                JSONObject o_list_obj3 = arr.getJSONObject(2);
+                                pos4_arr1_name3= o_list_obj3.getString("name");
+                                pos4_arr1_image3= o_list_obj3.getString("image_full_path");
+                                pos4_arr1_url3=o_list_obj3.getString("url");
+                            }
+                        }
+                        if(res.isNull("POS4ARRAY2") == false){
+                            pos4arr2=true;
+                            pos4obj2=false;
+                            JSONArray arr=res.getJSONArray("POS4ARRAY2");
+                            for(int i=0;i<=2;i++){
+                                JSONObject o_list_obj1 = arr.getJSONObject(0);
+                                pos4_arr2_name1= o_list_obj1.getString("name");
+                                pos4_arr2_image1= o_list_obj1.getString("image_full_path");
+                                pos4_arr2_url1=o_list_obj1.getString("url");
+
+                                JSONObject o_list_obj2 = arr.getJSONObject(1);
+                                pos4_arr2_name2= o_list_obj2.getString("name");
+                                pos4_arr2_image2= o_list_obj2.getString("image_full_path");
+                                pos4_arr2_url2=o_list_obj2.getString("url");
+
+                                JSONObject o_list_obj3 = arr.getJSONObject(2);
+                                pos4_arr2_name3= o_list_obj3.getString("name");
+                                pos4_arr2_image3= o_list_obj3.getString("image_full_path");
+                                pos4_arr2_url3=o_list_obj3.getString("url");
+                            }
+                        }
+                        if(res.isNull("POS5ARRAY1") == false){
+                            pos5arr1=true;
+                            pos5obj1=false;
+                            JSONArray arr=res.getJSONArray("POS5ARRAY1");
+                            for(int i=0;i<=2;i++){
+                                JSONObject o_list_obj1 = arr.getJSONObject(0);
+                                pos5_arr1_name1= o_list_obj1.getString("name");
+                                pos5_arr1_image1= o_list_obj1.getString("image_full_path");
+                                pos5_arr1_url1=o_list_obj1.getString("url");
+
+                                JSONObject o_list_obj2 = arr.getJSONObject(1);
+                                pos5_arr1_name2= o_list_obj2.getString("name");
+                                pos5_arr1_image2= o_list_obj2.getString("image_full_path");
+                                pos5_arr1_url2=o_list_obj2.getString("url");
+
+                                JSONObject o_list_obj3 = arr.getJSONObject(2);
+                                pos5_arr1_name3= o_list_obj3.getString("name");
+                                pos5_arr1_image3= o_list_obj3.getString("image_full_path");
+                                pos5_arr1_url3=o_list_obj3.getString("url");
+                            }
+                        }
+                        if(res.isNull("POS5ARRAY2") == false){
+                            pos5arr2=true;
+                            pos5obj2=false;
+                            JSONArray arr=res.getJSONArray("POS5ARRAY2");
+                            for(int i=0;i<=2;i++){
+                                JSONObject o_list_obj1 = arr.getJSONObject(0);
+                                pos5_arr2_name1= o_list_obj1.getString("name");
+                                pos5_arr2_image1= o_list_obj1.getString("image_full_path");
+                                pos5_arr2_url1=o_list_obj1.getString("url");
+
+                                JSONObject o_list_obj2 = arr.getJSONObject(1);
+                                pos5_arr2_name2= o_list_obj2.getString("name");
+                                pos5_arr2_image2= o_list_obj2.getString("image_full_path");
+                                pos5_arr2_url2=o_list_obj2.getString("url");
+
+                                JSONObject o_list_obj3 = arr.getJSONObject(2);
+                                pos5_arr2_name3= o_list_obj3.getString("name");
+                                pos5_arr2_image3= o_list_obj3.getString("image_full_path");
+                                pos5_arr2_url3=o_list_obj3.getString("url");
+                            }
+                        }
+                        if(res.isNull("POS6ARRAY1") == false){
+                            pos6arr1=true;
+                            pos6obj1=false;
+                            JSONArray arr=res.getJSONArray("POS6ARRAY1");
+                            for(int i=0;i<=2;i++){
+                                JSONObject o_list_obj1 = arr.getJSONObject(0);
+                                pos6_arr1_name1= o_list_obj1.getString("name");
+                                pos6_arr1_image1= o_list_obj1.getString("image_full_path");
+                                pos6_arr1_url1=o_list_obj1.getString("url");
+
+                                JSONObject o_list_obj2 = arr.getJSONObject(1);
+                                pos6_arr1_name2= o_list_obj2.getString("name");
+                                pos6_arr1_image2= o_list_obj2.getString("image_full_path");
+                                pos6_arr1_url2=o_list_obj2.getString("url");
+
+                                JSONObject o_list_obj3 = arr.getJSONObject(2);
+                                pos6_arr1_name3= o_list_obj3.getString("name");
+                                pos6_arr1_image3= o_list_obj3.getString("image_full_path");
+                                pos6_arr1_url3=o_list_obj3.getString("url");
+                            }
+                        }
+                        if(res.isNull("POS6ARRAY2") == false){
+                            pos6arr2=true;
+                            pos6obj2=false;
+                            JSONArray arr=res.getJSONArray("POS6ARRAY2");
+                            for(int i=0;i<=2;i++){
+                                JSONObject o_list_obj1 = arr.getJSONObject(0);
+                                pos6_arr2_name1= o_list_obj1.getString("name");
+                                pos6_arr2_image1= o_list_obj1.getString("image_full_path");
+                                pos6_arr2_url1=o_list_obj1.getString("url");
+
+                                JSONObject o_list_obj2 = arr.getJSONObject(1);
+                                pos6_arr2_name2= o_list_obj2.getString("name");
+                                pos6_arr2_image2= o_list_obj2.getString("image_full_path");
+                                pos6_arr2_url2=o_list_obj2.getString("url");
+
+                                JSONObject o_list_obj3 = arr.getJSONObject(2);
+                                pos6_arr2_name3= o_list_obj3.getString("name");
+                                pos6_arr2_image3= o_list_obj3.getString("image_full_path");
+                                pos6_arr2_url3=o_list_obj3.getString("url");
                             }
                         }
                        // }
@@ -1794,7 +2000,6 @@ public class HomeActivity extends AppCompatActivity
          AnimationUtil.slideInFromRight(pos0object, 500, 700);
          pos0object.setVisibility(View.GONE);
          if(pos1obj1==true){
-
              pos0object.setVisibility(View.VISIBLE);
              imageLoader.displayImage( pos1_obj1_image, iv_pos1obj1, options);
          }
@@ -1869,13 +2074,116 @@ public class HomeActivity extends AppCompatActivity
 
         }
         else {
-            pos0array.setVisibility(View.GONE);
+            pos0array2.setVisibility(View.GONE);
         }
 
  /*
         *
         * ADVERTISING SECTION END  (pos0)
         * */
+
+
+
+ /* ODISHA NEWS SECTION*/
+
+        RelativeLayout odnshead = new RelativeLayout(HomeActivity.this);
+        int height_odnshd = (int)(Util.getScreenHeight() * ODISHAHEAD_HEIGHT);
+        RelativeLayout.LayoutParams layoutParams_odnshd= new RelativeLayout.LayoutParams
+                (RelativeLayout.LayoutParams.MATCH_PARENT,height_odnshd);
+        odnshead.setLayoutParams(layoutParams_odnshd);
+        View view_odnshd = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_odnshd, null);
+        odnshead.addView(view_odnshd);
+        layoutBody.addView(odnshead);
+        //AnimationUtil.slideInFromRight(pos0object2, 500, 700);
+
+
+        LinearLayout ln_od_ns1 = new LinearLayout(HomeActivity.this);
+        int height_odns1 = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_ODISHANEWS);
+        LinearLayout.LayoutParams layoutParams_odns1 = new LinearLayout.LayoutParams
+                (LinearLayout.LayoutParams.MATCH_PARENT, height_odns1);
+        ln_od_ns1.setLayoutParams(layoutParams_odns1);
+        View view_odns1 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_odns1, null);
+        ImageView iv_odns11=(ImageView)view_odns1.findViewById(R.id.odns11);
+        ImageView iv_odns12=(ImageView)view_odns1.findViewById(R.id.odns12);
+        ln_od_ns1.addView(view_odns1);
+        layoutBody.addView(ln_od_ns1);
+        AnimationUtil.slideInFromLeft(ln_od_ns1, 500, 700);
+
+        LinearLayout ln_od_ns2 = new LinearLayout(HomeActivity.this);
+        int height_odns2 = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_ODISHANEWS);
+        LinearLayout.LayoutParams layoutParams_odns2 = new LinearLayout.LayoutParams
+                (LinearLayout.LayoutParams.MATCH_PARENT, height_odns2);
+        ln_od_ns2.setLayoutParams(layoutParams_odns2);
+        View view_odns2 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_odns1, null);
+        ImageView iv_odns21=(ImageView)view_odns1.findViewById(R.id.odns11);
+        ImageView iv_odns22=(ImageView)view_odns1.findViewById(R.id.odns12);
+        ln_od_ns2.addView(view_odns2);
+        layoutBody.addView(ln_od_ns2);
+        AnimationUtil.slideInFromLeft(ln_od_ns2, 500, 700);
+
+        LinearLayout ln_od_ns3 = new LinearLayout(HomeActivity.this);
+        int height_odns3 = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_ODISHANEWS);
+        LinearLayout.LayoutParams layoutParams_odns3 = new LinearLayout.LayoutParams
+                (LinearLayout.LayoutParams.MATCH_PARENT, height_odns3);
+        ln_od_ns3.setLayoutParams(layoutParams_odns3);
+        View view_odns3 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_odns1, null);
+        ImageView iv_odns31=(ImageView)view_odns3.findViewById(R.id.odns11);
+        ImageView iv_odns32=(ImageView)view_odns3.findViewById(R.id.odns12);
+        ln_od_ns3.addView(view_odns3);
+        layoutBody.addView(ln_od_ns3);
+        AnimationUtil.slideInFromLeft(ln_od_ns3, 500, 700);
+
+        LinearLayout ln_od_ns4 = new LinearLayout(HomeActivity.this);
+        int height_odns4 = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_ODISHANEWS);
+        LinearLayout.LayoutParams layoutParams_odns4 = new LinearLayout.LayoutParams
+                (LinearLayout.LayoutParams.MATCH_PARENT, height_odns4);
+        ln_od_ns4.setLayoutParams(layoutParams_odns4);
+        View view_odns4 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_odns1, null);
+        ImageView iv_odns41=(ImageView)view_odns4.findViewById(R.id.odns11);
+        ImageView iv_odns42=(ImageView)view_odns4.findViewById(R.id.odns12);
+        ln_od_ns4.addView(view_odns4);
+        layoutBody.addView(ln_od_ns4);
+        AnimationUtil.slideInFromLeft(ln_od_ns4, 500, 700);
+
+        LinearLayout ln_od_ns5 = new LinearLayout(HomeActivity.this);
+        int height_odns5 = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_ODISHANEWS);
+        LinearLayout.LayoutParams layoutParams_odns5 = new LinearLayout.LayoutParams
+                (LinearLayout.LayoutParams.MATCH_PARENT, height_odns5);
+        ln_od_ns5.setLayoutParams(layoutParams_odns5);
+        View view_odns5 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_odns1, null);
+        ImageView iv_odns51=(ImageView)view_odns5.findViewById(R.id.odns11);
+        ImageView iv_odns52=(ImageView)view_odns5.findViewById(R.id.odns12);
+        ln_od_ns5.addView(view_odns5);
+        layoutBody.addView(ln_od_ns5);
+        AnimationUtil.slideInFromLeft(ln_od_ns5, 500, 700);
+
+
+        LinearLayout ln_od_ns6 = new LinearLayout(HomeActivity.this);
+        int height_odns6 = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_ODISHANEWS);
+        LinearLayout.LayoutParams layoutParams_odns6 = new LinearLayout.LayoutParams
+                (LinearLayout.LayoutParams.MATCH_PARENT, height_odns6);
+        ln_od_ns6.setLayoutParams(layoutParams_odns6);
+        View view_odns6 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_odns1, null);
+        ImageView iv_odns61=(ImageView)view_odns6.findViewById(R.id.odns11);
+        ImageView iv_odns62=(ImageView)view_odns6.findViewById(R.id.odns12);
+        ln_od_ns6.addView(view_odns6);
+        layoutBody.addView(ln_od_ns6);
+        AnimationUtil.slideInFromLeft(ln_od_ns6, 500, 700);
+
+        RelativeLayout odnsend = new RelativeLayout(HomeActivity.this);
+        int height_odnsend = (int)(Util.getScreenHeight() * ODISHAHEAD_HEIGHT);
+        RelativeLayout.LayoutParams layoutParams_odnsend= new RelativeLayout.LayoutParams
+                (RelativeLayout.LayoutParams.MATCH_PARENT,height_odnsend);
+        odnsend.setLayoutParams(layoutParams_odnsend);
+        View view_odnsend = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_odnsend, null);
+        odnsend.addView(view_odnsend);
+        layoutBody.addView(odnsend);
+
+
+        /*
+        * ODISHA NEWS SECTION ENDS
+        * */
+
 
 
         /*
@@ -2224,7 +2532,7 @@ public class HomeActivity extends AppCompatActivity
         layout_odisha_plus_news.addView(view_odisha_plus_one);
         layoutBody.addView(layout_odisha_plus_news);
 
-        // for single object advertisement (pos2)
+        // for single object advertisement (ampos2) // in response pos3
 
         RelativeLayout pos2object = new RelativeLayout(HomeActivity.this);
         int height_pos2object = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_HEADER_ADVERTISEMENT);
@@ -2232,10 +2540,20 @@ public class HomeActivity extends AppCompatActivity
                 (RelativeLayout.LayoutParams.MATCH_PARENT,height_pos2object);
         pos2object.setLayoutParams(layoutParams_pos2object);
         View view_p2ob = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_posobj2, null);
+        ImageView iv_pos2obj1=(ImageView) view_p2ob.findViewById(R.id.iv_pos2obj1);
         pos2object.addView(view_p2ob);
         // HERE IMAGE VIEW WILL BE SET
         layoutBody.addView(pos2object);
         AnimationUtil.slideInFromRight(pos2object, 500, 700);
+        pos2object.setVisibility(View.GONE);
+        if(pos2obj1==true){
+            pos2object.setVisibility(View.VISIBLE);
+            imageLoader.displayImage( pos3_obj1_image, iv_pos2obj1, options);
+
+        }
+        else {
+            pos2object.setVisibility(View.GONE);
+        }
 
         // for single array advertisement (pos1)
 
@@ -2245,8 +2563,69 @@ public class HomeActivity extends AppCompatActivity
                 (LinearLayout.LayoutParams.MATCH_PARENT, height_pos2array);
         pos2array.setLayoutParams(layoutParams_pos2array);
         View view_p2array = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_posarray2, null);
+        ImageView addim31=(ImageView) view_p2array.findViewById(R.id.addim31);
+        ImageView addim32=(ImageView) view_p2array.findViewById(R.id.addim32);
+        ImageView addim33=(ImageView) view_p2array.findViewById(R.id.addim33);
         pos2array.addView(view_p2array);
         layoutBody.addView(pos2array);
+        pos2array.setVisibility(View.GONE);
+        if(pos3arr1==true){
+            pos2array.setVisibility(View.VISIBLE);
+            imageLoader.displayImage( pos3_arr1_image1, addim31, options);
+            imageLoader.displayImage( pos3_arr1_image2, addim32, options);
+            imageLoader.displayImage( pos3_arr1_image3, addim33, options);
+        }
+        else{
+            pos2array.setVisibility(View.GONE);
+        }
+
+        // second one
+
+        RelativeLayout pos2object2 = new RelativeLayout(HomeActivity.this);
+        int height_pos2object2 = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_HEADER_ADVERTISEMENT);
+        RelativeLayout.LayoutParams layoutParams_pos2object2= new RelativeLayout.LayoutParams
+                (RelativeLayout.LayoutParams.MATCH_PARENT,height_pos2object2);
+        pos2object2.setLayoutParams(layoutParams_pos2object2);
+        View view_p2ob2 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_posobj22, null);
+        ImageView iv_pos2obj2=(ImageView) view_p2ob2.findViewById(R.id.iv_pos2obj2);
+        pos2object2.addView(view_p2ob2);
+        // HERE IMAGE VIEW WILL BE SET
+        layoutBody.addView(pos2object2);
+        AnimationUtil.slideInFromRight(pos2object2, 500, 700);
+        pos2object2.setVisibility(View.GONE);
+        if(pos2obj2==true){
+            pos2object2.setVisibility(View.VISIBLE);
+            imageLoader.displayImage( pos3_obj2_image, iv_pos2obj2, options);
+
+        }
+        else {
+            pos2object2.setVisibility(View.GONE);
+        }
+
+        // for single array advertisement (pos1)
+
+        LinearLayout pos2array2 = new LinearLayout(HomeActivity.this);
+        int height_pos2array2 = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_TOP_NEWS);
+        LinearLayout.LayoutParams layoutParams_pos2array2 = new LinearLayout.LayoutParams
+                (LinearLayout.LayoutParams.MATCH_PARENT, height_pos2array2);
+        pos2array2.setLayoutParams(layoutParams_pos2array2);
+        View view_p2array2 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_posarray22, null);
+        ImageView addim231=(ImageView) view_p2array2.findViewById(R.id.addim231);
+        ImageView addim232=(ImageView) view_p2array2.findViewById(R.id.addim232);
+        ImageView addim233=(ImageView) view_p2array2.findViewById(R.id.addim233);
+        pos2array.addView(view_p2array2);
+        layoutBody.addView(pos2array2);
+        pos2array2.setVisibility(View.GONE);
+        if(pos3arr2==true){
+            pos2array2.setVisibility(View.VISIBLE);
+            imageLoader.displayImage( pos3_arr2_image1, addim231, options);
+            imageLoader.displayImage( pos3_arr2_image2, addim232, options);
+            imageLoader.displayImage( pos3_arr2_image3, addim233, options);
+        }
+        else{
+            pos2array2.setVisibility(View.GONE);
+        }
+
  /*
         *
         * ADVERTISING SECTION END  (pos2)
@@ -2495,105 +2874,6 @@ public class HomeActivity extends AppCompatActivity
         }, News_Change_Speed);
     }
 
-//    @Override
-//    public void onDeviceRegisted(final String token) {
-//        Log.i(TAG, "GCM Token : "+token);
-//        if(Util.getNetworkConnectivityStatus(HomeActivity.this) == false){
-//            Util.showDialogToShutdownApp(HomeActivity.this);
-//            return;
-//        }
-//
-//        new AsyncTask<Void, Void, Integer>() {
-//
-//            @Override
-//            protected void onPreExecute() {
-//                super.onPreExecute();
-//            }
-//
-//            @Override
-//            protected Integer doInBackground(Void... params) {
-//
-//                InputStream in = null;
-//                int resCode = -1;
-//
-//                try {
-//                    String link = Config.API_BASE_URL + Config.DEVICE_REGISTER;
-//                    URL url = new URL(link);
-//                    HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-//                    conn.setReadTimeout(10000);
-//                    conn.setConnectTimeout(15000);
-//                    //conn.setDoInput(true);
-//                    conn.setDoOutput(true);
-//                    conn.setAllowUserInteraction(false);
-//                    conn.setRequestMethod("POST");
-//                    conn.connect();
-//
-//                    String email = Util.getEmailAddress(HomeActivity.this);
-//                    String is_notification_enable_status = "1";
-//                    Uri.Builder builder = new Uri.Builder()
-//                            .appendQueryParameter("uid", token)
-//                            .appendQueryParameter("email", email)
-//                            .appendQueryParameter("notification", is_notification_enable_status);
-//                    Log.i(TAG, "Email : "+email);
-//                    //.appendQueryParameter("deviceid", deviceid);
-//                    String query = builder.build().getEncodedQuery();
-//
-//                    OutputStream os = conn.getOutputStream();
-//                    BufferedWriter writer = new BufferedWriter(
-//                            new OutputStreamWriter(os, "UTF-8"));
-//                    writer.write(query);
-//                    writer.flush();
-//                    writer.close();
-//                    os.close();
-//
-//                    conn.connect();
-//                    resCode = conn.getResponseCode();
-//                    if (resCode == HttpURLConnection.HTTP_OK) {
-//                        in = conn.getInputStream();
-//                    }
-//                    if(in == null){
-//                        return null;
-//                    }
-//                    BufferedReader reader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
-//                    String response = "", data = "";
-//
-//                    while ((data = reader.readLine()) != null) {
-//                        response += data + "\n";
-//                    }
-//
-//                    Log.i(TAG, "Device Register Response : " + response);
-//
-//                    if(response != null && response.trim().equalsIgnoreCase("1")){
-//                        return 1;
-//                    } else{
-//                        return 0;
-//                    }
-//                } catch (SocketTimeoutException exception) {
-//                    Log.e(TAG, "LoginAsync : doInBackground", exception);
-//                } catch (ConnectException exception) {
-//                    Log.e(TAG, "LoginAsync : doInBackground", exception);
-//                } catch (MalformedURLException exception) {
-//                    Log.e(TAG, "LoginAsync : doInBackground", exception);
-//                } catch (IOException exception) {
-//                    Log.e(TAG, "LoginAsync : doInBackground", exception);
-//                } catch (Exception exception) {
-//                    Log.e(TAG, "LoginAsync : doInBackground", exception);
-//                }
-//                return null;
-//            }
-//
-//            @Override
-//            protected void onPostExecute(Integer aVoid) {
-//                super.onPostExecute(aVoid);
-//            }
-//        }.execute();
-//    }
-//
-//    @Override
-//    public void onMessage(String from, Bundle bundle) {}
-//
-//    @Override
-//    public void onPlayServiceError() {}
 
     @Override
     protected void onDestroy() {
@@ -2605,21 +2885,6 @@ public class HomeActivity extends AppCompatActivity
         }
         super.onDestroy();
     }
-
-//    @Override
-//    public void onConferenceStart(String message) {
-//        loadAllData();
-//    }
-//
-//    @Override
-//    public void onConferenceStop() {
-//        loadAllData();
-//    }
-//
-//    @Override
-//    public void onBreakingNewsNotification() {
-//        loadAllData();
-//    }
 
     private CounterClass timer = null;
     private void setCountDownForCopnference(long total_time_remain_in_milliseconds){
@@ -2659,48 +2924,8 @@ public class HomeActivity extends AppCompatActivity
                 (RelativeLayout.LayoutParams.MATCH_PARENT, height_layout_cat_news_section);
         layout_cat_news.setLayoutParams(layout_params_cat_news);
 
-        /*final News news = mTopVideo;
-        View view_cat_two = LayoutInflater.from(HomeActivity.this).inflate(R.layout.layout_category_news_two, null);
-        ImageView img_cat_one = (ImageView) view_cat_two.findViewById(R.id.imgNewsOne);
-        String cat_news_img_one_file_path = "";
-        if(news != null){
-            cat_news_img_one_file_path = Util.getImageFilePathForNews(news, null);
-        }
-        imageLoader.displayImage(cat_news_img_one_file_path//"http://timesofindia.indiatimes.com/" +
-                //"thumb/msid-51900429,width-400,resizemode-4/51900429.jpg"
-                , img_cat_one, options);
-        CustomTextView tvcatNewsTitle = (CustomTextView) view_cat_two.findViewById(R.id.tvNewsTitle);
-        tvcatNewsTitle.setText(news.getName());
 
-        CustomTextView tvcatNewsPostedAt = (CustomTextView) view_cat_two.findViewById(R.id.tvNewsPostedAt);
-        tvcatNewsPostedAt.setText(" " + Util.getTime(news.getApproved_date()));
-
-        CustomTextView tvNewsCategoryName = (CustomTextView) view_cat_two.findViewById(R.id.tvNewsCategoryName);
-        tvNewsCategoryName.setText("Top Video");
-
-        ImageView imgPostedAt = (ImageView) view_cat_two.findViewById(R.id.imgPostedAt);
-        imgPostedAt.setVisibility(View.GONE);
-
-        ImageView imgPlayTwo = (ImageView) view_cat_two.findViewById(R.id.imgPlayTwo);
-        imgPlayTwo.setVisibility(View.VISIBLE);
-
-        ImageView imgPlay = (ImageView) view_cat_two.findViewById(R.id.imgPlay);
-        imgPlay.setVisibility(View.VISIBLE);
-
-        img_cat_one.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
-                Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
-                intent.putExtra("news", news);
-                intent.putExtra("isTopVideo", true);
-                intent.putExtra("isViralVideo", false);
-                startActivity(intent);
-            }
-        });*/
-
-
-        // for single object advertisement (pos3)
+        // for single object advertisement (ampos3) respose pos4
 
         RelativeLayout pos3object = new RelativeLayout(HomeActivity.this);
         int height_pos3object = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_HEADER_ADVERTISEMENT);
@@ -2708,10 +2933,18 @@ public class HomeActivity extends AppCompatActivity
                 (RelativeLayout.LayoutParams.MATCH_PARENT,height_pos3object);
         pos3object.setLayoutParams(layoutParams_pos3object);
         View view_p3ob = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_posobj3, null);
+        ImageView iv_pos3obj1=(ImageView)view_p3ob.findViewById(R.id.iv_pos3obj1);
         pos3object.addView(view_p3ob);
         // HERE IMAGE VIEW WILL BE SET
         layoutBody.addView(pos3object);
         AnimationUtil.slideInFromRight(pos3object, 500, 700);
+        if(pos4obj1==false){
+            pos3object.setVisibility(View.GONE);
+        }
+        else{
+            pos3object.setVisibility(View.VISIBLE);
+            imageLoader.displayImage( pos4_obj1_image, iv_pos3obj1, options);
+        }
 
         // for single array advertisement (pos1)
 
@@ -2721,13 +2954,70 @@ public class HomeActivity extends AppCompatActivity
                 (LinearLayout.LayoutParams.MATCH_PARENT, height_pos3array);
         pos3array.setLayoutParams(layoutParams_pos3array);
         View view_p3array = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_posarray3, null);
+        ImageView addim311=(ImageView)view_p3array.findViewById(R.id.addim311);
+        ImageView addim312=(ImageView)view_p3array.findViewById(R.id.addim312);
+        ImageView addim313=(ImageView)view_p3array.findViewById(R.id.addim313);
         pos3array.addView(view_p3array);
         layoutBody.addView(pos3array);
+        if(pos4arr1==false){
+            pos3array.setVisibility(View.GONE);
+        }
+        else{
+            pos3array.setVisibility(View.VISIBLE);
+            imageLoader.displayImage( pos4_arr1_image1, addim311, options);
+            imageLoader.displayImage( pos4_arr1_image2, addim312, options);
+            imageLoader.displayImage( pos4_arr1_image3, addim313, options);
+
+
+        }
+        RelativeLayout pos3object2 = new RelativeLayout(HomeActivity.this);
+        int height_pos3object2 = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_HEADER_ADVERTISEMENT);
+        RelativeLayout.LayoutParams layoutParams_pos3object2= new RelativeLayout.LayoutParams
+                (RelativeLayout.LayoutParams.MATCH_PARENT,height_pos3object2);
+        pos3object2.setLayoutParams(layoutParams_pos3object2);
+        View view_p3ob2 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_posobj32, null);
+        ImageView iv_pos3obj2=(ImageView)view_p3ob2.findViewById(R.id.iv_pos3obj2);
+        pos3object2.addView(view_p3ob2);
+        // HERE IMAGE VIEW WILL BE SET
+        layoutBody.addView(pos3object2);
+        AnimationUtil.slideInFromRight(pos3object2, 500, 700);
+        if(pos4obj2==false){
+            pos3object2.setVisibility(View.GONE);
+        }
+        else{
+            pos3object2.setVisibility(View.VISIBLE);
+            imageLoader.displayImage( pos4_obj2_image, iv_pos3obj2, options);
+        }
+
+        // for single array advertisement (pos1)
+
+        LinearLayout pos3array2 = new LinearLayout(HomeActivity.this);
+        int height_pos3array2 = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_TOP_NEWS);
+        LinearLayout.LayoutParams layoutParams_pos3array2 = new LinearLayout.LayoutParams
+                (LinearLayout.LayoutParams.MATCH_PARENT, height_pos3array2);
+        pos3array2.setLayoutParams(layoutParams_pos3array2);
+        View view_p3array2 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_posarray32, null);
+        ImageView addim321=(ImageView)view_p3array2.findViewById(R.id.addim321);
+        ImageView addim322=(ImageView)view_p3array2.findViewById(R.id.addim322);
+        ImageView addim323=(ImageView)view_p3array2.findViewById(R.id.addim323);
+        pos3array2.addView(view_p3array2);
+        layoutBody.addView(pos3array2);
+        if(pos4arr2==false){
+            pos3array2.setVisibility(View.GONE);
+        }
+        else{
+            pos3array2.setVisibility(View.VISIBLE);
+            imageLoader.displayImage( pos4_arr2_image1, addim321, options);
+            imageLoader.displayImage( pos4_arr2_image2, addim322, options);
+            imageLoader.displayImage( pos4_arr2_image3, addim323, options);
+
+
+        }
  /*
         *
         * ADVERTISING SECTION END  (pos3)
         * */
-        // for single object advertisement (pos4)
+        // for single object advertisement (ampos4) -- in response pos5
 
         RelativeLayout pos4object = new RelativeLayout(HomeActivity.this);
         int height_pos4object = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_HEADER_ADVERTISEMENT);
@@ -2735,10 +3025,19 @@ public class HomeActivity extends AppCompatActivity
                 (RelativeLayout.LayoutParams.MATCH_PARENT,height_pos4object);
         pos4object.setLayoutParams(layoutParams_pos4object);
         View view_p4ob = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_posobj4, null);
+        ImageView iv_pos4obj1=(ImageView)view_p4ob.findViewById(R.id.iv_pos4obj1);
         pos4object.addView(view_p4ob);
         // HERE IMAGE VIEW WILL BE SET
         layoutBody.addView(pos4object);
         AnimationUtil.slideInFromRight(pos4object, 500, 700);
+        if(pos5obj1==false){
+            pos4object.setVisibility(View.GONE);
+        }
+        else{
+            pos4object.setVisibility(View.VISIBLE);
+            imageLoader.displayImage( pos5_obj1_image, iv_pos4obj1, options);
+        }
+
 
         // for single array advertisement (pos4)
 
@@ -2747,9 +3046,66 @@ public class HomeActivity extends AppCompatActivity
         LinearLayout.LayoutParams layoutParams_pos4array = new LinearLayout.LayoutParams
                 (LinearLayout.LayoutParams.MATCH_PARENT, height_pos4array);
         pos4array.setLayoutParams(layoutParams_pos4array);
-        View view_p4array = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_posarray3, null);
+        View view_p4array = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_posarray4, null);
+        ImageView addim411=(ImageView)view_p4array.findViewById(R.id.addim411);
+        ImageView addim412=(ImageView)view_p4array.findViewById(R.id.addim412);
+        ImageView addim413=(ImageView)view_p4array.findViewById(R.id.addim413);
         pos4array.addView(view_p4array);
         layoutBody.addView(pos4array);
+        if(pos4arr1==false){
+            pos4array.setVisibility(View.GONE);
+        }
+        else{
+            pos4array.setVisibility(View.VISIBLE);
+            imageLoader.displayImage( pos5_arr1_image1, addim411, options);
+            imageLoader.displayImage( pos5_arr1_image2, addim412, options);
+            imageLoader.displayImage( pos5_arr1_image3, addim413, options);
+
+        }
+
+        RelativeLayout pos4object2 = new RelativeLayout(HomeActivity.this);
+        int height_pos4object2 = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_HEADER_ADVERTISEMENT);
+        RelativeLayout.LayoutParams layoutParams_pos4object2= new RelativeLayout.LayoutParams
+                (RelativeLayout.LayoutParams.MATCH_PARENT,height_pos4object2);
+        pos4object2.setLayoutParams(layoutParams_pos4object2);
+        View view_p4ob2 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_posobj42, null);
+        ImageView iv_pos4obj2=(ImageView)view_p4ob2.findViewById(R.id.iv_pos4obj2);
+        pos4object2.addView(view_p4ob2);
+        // HERE IMAGE VIEW WILL BE SET
+        layoutBody.addView(pos4object2);
+        AnimationUtil.slideInFromRight(pos4object2, 500, 700);
+        if(pos5obj2==false){
+            pos4object2.setVisibility(View.GONE);
+        }
+        else{
+            pos4object2.setVisibility(View.VISIBLE);
+            imageLoader.displayImage( pos5_obj2_image, iv_pos4obj2, options);
+        }
+
+
+        // for single array advertisement (pos4)
+
+        LinearLayout pos4array2 = new LinearLayout(HomeActivity.this);
+        int height_pos4array2 = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_TOP_NEWS);
+        LinearLayout.LayoutParams layoutParams_pos4array2 = new LinearLayout.LayoutParams
+                (LinearLayout.LayoutParams.MATCH_PARENT, height_pos4array2);
+        pos4array2.setLayoutParams(layoutParams_pos4array2);
+        View view_p4array2 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_posarray42, null);
+        ImageView addim421=(ImageView)view_p4array2.findViewById(R.id.addim421);
+        ImageView addim422=(ImageView)view_p4array2.findViewById(R.id.addim422);
+        ImageView addim423=(ImageView)view_p4array2.findViewById(R.id.addim423);
+        pos4array2.addView(view_p4array2);
+        layoutBody.addView(pos4array2);
+        if(pos4arr2==false){
+            pos4array2.setVisibility(View.GONE);
+        }
+        else{
+            pos4array2.setVisibility(View.VISIBLE);
+            imageLoader.displayImage( pos5_arr2_image1, addim421, options);
+            imageLoader.displayImage( pos5_arr2_image2, addim422, options);
+            imageLoader.displayImage( pos5_arr2_image3, addim423, options);
+
+        }
  /*
         *
         * ADVERTISING SECTION END  (pos4)
@@ -2792,7 +3148,10 @@ public class HomeActivity extends AppCompatActivity
 
         layout_cat_news.addView(view_cat_two);
         layoutBody.addView(layout_cat_news);
-        // for single object advertisement (pos5)
+
+
+
+        // for single object advertisement (ampos5)-- in response pos6
 
         RelativeLayout pos5object = new RelativeLayout(HomeActivity.this);
         int height_pos5object = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_HEADER_ADVERTISEMENT);
@@ -2800,10 +3159,19 @@ public class HomeActivity extends AppCompatActivity
                 (RelativeLayout.LayoutParams.MATCH_PARENT,height_pos5object);
         pos5object.setLayoutParams(layoutParams_pos5object);
         View view_p5ob = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_posobj5, null);
+        ImageView iv_pos5obj1=(ImageView)view_p5ob.findViewById(R.id.iv_pos5obj1);
         pos5object.addView(view_p5ob);
         // HERE IMAGE VIEW WILL BE SET
         layoutBody.addView(pos5object);
         AnimationUtil.slideInFromRight(pos5object, 500, 700);
+        if(pos6obj1==false){
+            pos5object.setVisibility(View.GONE);
+        }
+        else{
+            pos5object.setVisibility(View.VISIBLE);
+            imageLoader.displayImage( pos6_obj1_image, iv_pos5obj1, options);
+
+        }
 
         // for single array advertisement (pos4)
 
@@ -2812,9 +3180,64 @@ public class HomeActivity extends AppCompatActivity
         LinearLayout.LayoutParams layoutParams_pos5array = new LinearLayout.LayoutParams
                 (LinearLayout.LayoutParams.MATCH_PARENT, height_pos5array);
         pos5array.setLayoutParams(layoutParams_pos5array);
-        View view_p5array = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_posarray3, null);
+        View view_p5array = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_posarray5, null);
+        ImageView addim511=(ImageView)view_p5array.findViewById(R.id.addim511);
+        ImageView addim512=(ImageView)view_p5array.findViewById(R.id.addim512);
+        ImageView addim513=(ImageView)view_p5array.findViewById(R.id.addim513);
         pos5array.addView(view_p5array);
         layoutBody.addView(pos5array);
+        if(pos6arr1==false){
+            pos5array.setVisibility(View.GONE);
+        }
+        else {
+            pos5array.setVisibility(View.VISIBLE);
+            imageLoader.displayImage( pos6_arr1_image1, addim511, options);
+            imageLoader.displayImage( pos6_arr1_image2, addim512, options);
+            imageLoader.displayImage( pos6_arr1_image3, addim513, options);
+        }
+
+        RelativeLayout pos5object2 = new RelativeLayout(HomeActivity.this);
+        int height_pos5object2 = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_HEADER_ADVERTISEMENT);
+        RelativeLayout.LayoutParams layoutParams_pos5object2= new RelativeLayout.LayoutParams
+                (RelativeLayout.LayoutParams.MATCH_PARENT,height_pos5object2);
+        pos5object2.setLayoutParams(layoutParams_pos5object2);
+        View view_p5ob2 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_posobj52, null);
+        ImageView iv_pos5obj2=(ImageView)view_p5ob2.findViewById(R.id.iv_pos5obj2);
+        pos5object2.addView(view_p5ob2);
+        // HERE IMAGE VIEW WILL BE SET
+        layoutBody.addView(pos5object2);
+        AnimationUtil.slideInFromRight(pos5object2, 500, 700);
+        if(pos6obj2==false){
+            pos5object2.setVisibility(View.GONE);
+        }
+        else{
+            pos5object2.setVisibility(View.VISIBLE);
+            imageLoader.displayImage( pos6_obj2_image, iv_pos5obj2, options);
+
+        }
+
+        // for single array advertisement (pos4)
+
+        LinearLayout pos5array2 = new LinearLayout(HomeActivity.this);
+        int height_pos5array2 = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_TOP_NEWS);
+        LinearLayout.LayoutParams layoutParams_pos5array2 = new LinearLayout.LayoutParams
+                (LinearLayout.LayoutParams.MATCH_PARENT, height_pos5array2);
+        pos5array2.setLayoutParams(layoutParams_pos5array2);
+        View view_p5array2 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_posarray52, null);
+        ImageView addim521=(ImageView)view_p5array2.findViewById(R.id.addim521);
+        ImageView addim522=(ImageView)view_p5array2.findViewById(R.id.addim522);
+        ImageView addim523=(ImageView)view_p5array2.findViewById(R.id.addim523);
+        pos5array2.addView(view_p5array2);
+        layoutBody.addView(pos5array2);
+        if(pos6arr2==false){
+            pos5array2.setVisibility(View.GONE);
+        }
+        else {
+            pos5array2.setVisibility(View.VISIBLE);
+            imageLoader.displayImage( pos6_arr2_image1, addim521, options);
+            imageLoader.displayImage( pos6_arr2_image2, addim522, options);
+            imageLoader.displayImage( pos6_arr2_image3, addim523, options);
+        }
  /*
         *
         * ADVERTISING SECTION END  (pos5)
