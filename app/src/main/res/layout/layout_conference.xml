@@ -34,7 +34,9 @@
         android:src="@mipmap/ic_play_arrow"
         android:adjustViewBounds="true"/>
 
-    <!--<include layout="@layout/gradient"/>-->
+<!--
+    <include layout="@layout/gradient"/>
+-->
 
         <RelativeLayout
             android:layout_width="match_parent"

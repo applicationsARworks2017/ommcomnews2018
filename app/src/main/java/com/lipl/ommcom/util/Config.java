@@ -196,4 +196,8 @@ public class Config {
     public static final String SP_USER_AVATAR = "sp_user_avatar";
     public static final String SP_USER_AVATAR_ORIGINAL = "sp_user_avatar_original";
     public static final String SP_LOGIN_STATUS = "sp_user_login_status";
+
+    public static final String SHAREDPREFERENCE_LANGUAGE = "ommcomlanguage" ;
+    public static final String LANG="languange";
+
 }

@@ -12,24 +12,6 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/libs/nodemedia-client-v1.2.7.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="cb21926990548b4a5f37279d7b8f8a2b4aeac31a">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/2/nodemedia-client-v1.2.7_35e568c67cb12d0dffc097c801d9019f219fbd23/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/libs/socialauth-4.12.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="568176a2e47e9cbed808a4350b595eccce4465de">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/2/socialauth-4.12_57c4cbbccc5550730fcd9999566f7d80ab46f91c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/libs/socialauth-android-3.2.jar"
         jumboMode="false"
         optimize="true"
@@ -54,6 +36,15 @@
         revision="25.0.3"
         sha1="f4ac5989c7be37249dfe310bf78ba69773ebce2d">
         <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/2/twitter4j-core-4.0.4_7be6b56ad68dc4527cb6e81e3e9bbfe86a07ce72/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/.gradle/caches/modules-2/files-2.1/com.android.support.constraint/constraint-layout-solver/1.1.2/bfc967828daffc35ba01c9ee204d98b664930a0f/constraint-layout-solver-1.1.2.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="bfc967828daffc35ba01c9ee204d98b664930a0f">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/constraint-layout-solver-1.1.2_df9fa0bf303a7029674b55fd3b8f387e85845cf4/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -84,12 +75,39 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/libs/nodemedia-client-v1.2.7.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="cb21926990548b4a5f37279d7b8f8a2b4aeac31a">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/2/nodemedia-client-v1.2.7_35e568c67cb12d0dffc097c801d9019f219fbd23/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/.android/build-cache/2bbad3ef40f71df823d813b3b36b4def592ccdcc/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="182370a4a0bba7903c6ff2cb7b6ac21ca4a4bf89">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_6af80d0f82ce899d7a5c322bf416666a4c5223f4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/libs/MarkdownView.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="f601a6169f4c1775dafcd32fb6dbd27336fc9c76">
         <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/2/MarkdownView_944f9f4525ed36d8fc8643eb0f9833d2b4f7bfe6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/libs/socialauth-4.12.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="568176a2e47e9cbed808a4350b595eccce4465de">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/2/socialauth-4.12_57c4cbbccc5550730fcd9999566f7d80ab46f91c/classes.dex" />
     </item>
     <item
         is-multidex="true"

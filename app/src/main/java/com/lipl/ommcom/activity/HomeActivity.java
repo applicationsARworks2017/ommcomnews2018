@@ -14,6 +14,8 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.media.Image;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -36,6 +38,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -43,6 +46,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -60,6 +64,7 @@ import com.lipl.ommcom.pojo.Category;
 import com.lipl.ommcom.pojo.CitizenJournalistVideos;
 import com.lipl.ommcom.pojo.ConferenceNews;
 import com.lipl.ommcom.pojo.News;
+import com.lipl.ommcom.pojo.OdishaNews;
 import com.lipl.ommcom.util.AnimationUtil;
 import com.lipl.ommcom.util.AnimatorPath;
 import com.lipl.ommcom.util.Config;
@@ -112,6 +117,7 @@ public class HomeActivity extends AppCompatActivity
     private long News_Change_Speed=3000;
     private String feature_video_replace;
     private String feature_image_replace;
+    News news2;
 
     private CustomTextView tvBreakingNews;
     private DisplayImageOptions options;
@@ -216,6 +222,12 @@ public class HomeActivity extends AppCompatActivity
     private int ADVERTISEMENT_FOOTER = 0;
     private boolean isFromNotification = false;
 
+    int odisanewscount=0;
+    private static RelativeLayout[] relativeolder;
+    ArrayList<OdishaNews> arrayList_odishanews;
+    Boolean odishanews = false;
+
+
     private static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS=1;
     private static final int MY_PERMISSIONS_REQUEST_RECORD_AUDIO=1;
     /*String[] PERMISSIONS = {Manifest.permission.WRITE_EXTERNAL_STORAGE,
@@ -274,6 +286,7 @@ public class HomeActivity extends AppCompatActivity
         init();
         intro();
         getAdvertisements();
+        getOdishanews();
         //GCMManager.getInstance(this).registerListener(this);
         String breaking_news_notifiction_key = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 1)
                 .getString(Config.SP_BREAKING_NEWS_KEY, "No News in preference");
@@ -281,12 +294,197 @@ public class HomeActivity extends AppCompatActivity
         //SingleTon.getInstance().setBreakingNewsNotificationListener(this);
     }
 
+    private void getOdishanews() {
+        arrayList_odishanews=new ArrayList<>();
+        OdihaNews odihaNews = new OdihaNews();
+        odihaNews.execute();
+    }
+
     private void getAdvertisements() {
         AllAds allAds = new AllAds();
         allAds.execute();
     }
+
+    /*
+    * GET ODISHA NEWS
+    * */
+    /*
+* GET  LIST ASYNTASK*/
+    private class OdihaNews extends AsyncTask<String, Void, Void> {
+
+
+        private static final String TAG = "ALL ODISHA NEWS";
+        int server_status;
+
+
+        @Override
+        protected void onPreExecute() {
+
+
+        }
+
+        @Override
+        protected Void doInBackground(String... params) {
+
+
+            try {
+                InputStream in = null;
+                int resCode = -1;
+                String link = "https://www.ommcomnews.com/public/api/v0.1/odishaNewsHome";
+                URL url = new URL(link);
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setReadTimeout(10000);
+                conn.setConnectTimeout(15000);
+                conn.setRequestMethod("POST");
+                conn.setDoInput(true);
+                conn.setDoOutput(true);
+                conn.setAllowUserInteraction(false);
+                conn.setInstanceFollowRedirects(true);
+                Uri.Builder builder = null;
+                builder = new Uri.Builder()
+                        .appendQueryParameter("", "");
+
+                String query = builder.build().getEncodedQuery();
+
+                OutputStream os = conn.getOutputStream();
+                BufferedWriter writer = new BufferedWriter(
+                        new OutputStreamWriter(os, "UTF-8"));
+                writer.write(query);
+                writer.flush();
+                writer.close();
+                os.close();
+
+                conn.connect();
+                resCode = conn.getResponseCode();
+                if (resCode == HttpURLConnection.HTTP_OK) {
+                    in = conn.getInputStream();
+                }
+                if (in == null) {
+                    return null;
+                }
+                BufferedReader reader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
+                String response = "", data = "";
+
+                while ((data = reader.readLine()) != null) {
+                    response += data + "\n";
+                }
+
+                /*
+* "odisha_news": [
+        {
+            "id": "22412",
+            "name": "BJD MP Ram Chandra Hansdah Granted Bail By Supreme Court",
+            "odia_name": "BJD MP Ram Chandra Hansdah Granted Bail By Supreme Court",
+            "slug": "bjd-mp-ram-chandra-hansdah-granted-bail-by-supreme-court",
+            "cat_id": "4",
+            "sub_cat_id": "0",
+            "is_hot": "1",
+            "is_top_video": null,
+            "is_trash": "0",
+            "meta_title": "BJD MP Ram Chandra Hansdah Granted Bail By Supreme Court",
+            "featured_image": "130670557315306020941168967663.jpg",
+            "journalist_name": "Anisha Khatun",
+            "odia_journalist_name": "",
+            "youtube_link": "",
+            "news_location": "",
+            "odia_news_location": "",
+            "short_description": "The Supreme Court of India on Tuesday granted bail to BJD Lok Sabha member Ram Chandra Hansdah in the Nabadiganta chit fund scam.",
+            "odia_short_description": "",
+            "long_description": "**Bhubaneswar:**                                    The Supreme Court of India on Tuesday granted bail to BJD Lok Sabha member Ram Chandra Hansdah in the Nabadiganta chit fund scam.\r\n\r\nEarlier, CBI had arrested Hansdah along with two former Odisha MLAs Hitesh Kumar Bagartti and Subarna Naik in the multi-crore chit fund scam involving Nabadiganta Capital Service which allegedly duped hundreds of investors. He was in jail since November 4, 2014. \r\n\r\nWhile probing into the scam, the CBI had recovered Rs 28 lakh cash from Hansdah's house in Mayurbhanj district in July 2014  but he claimed it to be his personal and party fund.\r\n\r\n\r\n\r\n\r\nAlso Read: [Odisha: Under-Trial Prisoner Of Boudh Sub-Jail Die, Family Cries Foul](https://www.ommcomnews.com/public/odisha-under-trial-prisoner-of-boudh-sub-jail-die-family-cries-foul-)\r\n",
+            "odia_long_description": "",
+            "tags": "BJD MP Ram Chandra Hansdah Granted Bail By Supreme Court",
+            "is_video": "0",
+            "is_image": "0",
+            "file_path": null,
+            "video_title": "",
+            "odia_video_title": "",
+            "attachment_file": null,
+            "is_draft": "1",
+            "is_publish": "1",
+            "user_id": "1",
+            "is_archive": "0",
+            "publish_date": "2018-07-03 12:30:16",
+            "archive_date": null,
+            "last_save_time": null,
+            "is_approved": "1",
+            "approved_by": "1",
+            "approved_date": "2018-07-03 12:45:06",
+            "is_enable": "1",
+            "created_at": "2018-07-03 12:30:11",
+            "updated_at": "2018-07-03 13:09:15",
+            "allow_comment": "1",
+            "position": "1",
+            "is_featured": "1",
+            "is_top_story": "0",
+            "is_viral": "0",
+            "meta_desc": "The Supreme Court of India on Tuesday granted bail to BJD Lok Sabha member Ram Chandra Hansdah in the Nabadiganta chit fund scam.",
+            "meta_keywords": "BJD MP Ram Chandra Hansdah Granted Bail By Supreme Court,ommcom news,Odisha news, odisha latest news, latest odisha news,odisha, odisha latest news, latest odisha news, latest news of odisha, latest news odisha, odisha news today, odisha current news, odia news, latest odia news, odia news today, odisha news online",
+            "news_count": "57"
+        },
+* */
+
+                Log.i(TAG, "Response : " + response);
+                if (response != null && response.length() > 0) {
+                    JSONObject res = new JSONObject(response);
+                    server_status=res.getInt("status");
+                    if(server_status==1){
+                        JSONArray news_array=res.getJSONArray("odisha_news");
+                        odisanewscount=news_array.length();
+                        for(int i=0;i<news_array.length();i++){
+                            JSONObject newsobj=news_array.getJSONObject(i);
+                            String id = newsobj.getString("id");
+                            String name=newsobj.getString("name");
+                            String odia_name=newsobj.getString("odia_name");
+                            String slug=newsobj.getString("slug");
+                            String meta_title=newsobj.getString("meta_title");
+                            String featured_image=newsobj.getString("featured_image");
+                            String journalist_name=newsobj.getString("journalist_name");
+                            String youtube_link=newsobj.getString("youtube_link");
+                            String short_description=newsobj.getString("short_description");
+                            String long_description=newsobj.getString("long_description");
+                            String tags=newsobj.getString("tags");
+                            String publish_date=newsobj.getString("publish_date");
+                            String meta_desc=newsobj.getString("meta_desc");
+                            String meta_keywords=newsobj.getString("meta_keywords");
+                            String news_count=newsobj.getString("news_count");
+                            String is_video=newsobj.getString("is_video");
+                            String approved_date=newsobj.getString("approved_date");
+                            OdishaNews odishaNews = new OdishaNews(id,name,odia_name,slug,meta_title,featured_image,journalist_name,youtube_link,
+                                    short_description,long_description,tags,publish_date,meta_desc,meta_keywords,news_count,is_video,approved_date);
+                            arrayList_odishanews.add(odishaNews);
+
+                        }
+                    }
+                }
+
+                return null;
+
+
+            } catch (Exception exception) {
+                Log.e(TAG, "LoginAsync : doInBackground", exception);
+            }
+
+            return null;
+        }
+
+
+        @Override
+        protected void onPostExecute(Void user) {
+            super.onPostExecute(user);
+            if(Integer.valueOf(odisanewscount)<1){
+                odishanews=false;
+            }
+            else{
+                odishanews=true;
+
+            }
+
+        }
+    }
+
+
  /*
-* GET VISIORS LIST ASYNTASK*/
+* GET ADD LIST ASYNTASK*/
         private class AllAds extends AsyncTask<String, Void, Void> {
 
 
@@ -851,7 +1049,7 @@ public class HomeActivity extends AppCompatActivity
 
     private void intro(){
         AnimationUtil.fadeIn(layoutLogoImg, 2000, 0);
-        playAudio();
+       // playAudio();
     }
 
     private void withoutAudioPlay(){
@@ -1665,6 +1863,21 @@ public class HomeActivity extends AppCompatActivity
             }
         }
 
+        /*
+        *
+        * menu.add(Menu.NONE, xx + 1, xx + 1, "Feedback");
+        menu.add(Menu.NONE, xx + 2, xx + 2, "Odisha");
+        menu.add(Menu.NONE, xx + 3, xx + 3, "Nation");
+        menu.add(Menu.NONE, xx + 4, xx + 4, "World");
+        menu.add(Menu.NONE, xx + 5, xx + 5, "Sports");
+        menu.add(Menu.NONE, xx + 6, xx + 6, "Business");
+        menu.add(Menu.NONE, xx + 7, xx + 7, "Entertainment");
+        menu.add(Menu.NONE, xx + 8, xx + 8, "Science & Tech");
+        menu.add(Menu.NONE, xx + 9, xx + 9, "Videos");
+        menu.add(Menu.NONE, xx + 10, xx + 10, "Language");
+        * */
+
+
         if(categoryList != null){
             if(id == categoryList.size()){
                 //About Us
@@ -1674,16 +1887,142 @@ public class HomeActivity extends AppCompatActivity
                 //Feedback
                 startActivity(new Intent(HomeActivity.this, FeedbackActivity.class));
             }
+            if(id == categoryList.size() + 2){
+                //odisha plus
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
+                intent.putExtra("slug", "odishaPlus");
+                startActivity(intent);
+            }
+
+            if(id == categoryList.size() + 3){
+                //nation
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
+                intent.putExtra("slug", "nation");
+                startActivity(intent);
+            }
+
+            if(id == categoryList.size() + 4){
+                //world
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
+                intent.putExtra("slug", "world");
+                startActivity(intent);
+                 }
+
+            if(id == categoryList.size() + 5){
+                //sports
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
+                intent.putExtra("slug", "sports");
+                startActivity(intent);
+            }if(id == categoryList.size() + 6){
+                //business
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
+                intent.putExtra("slug", "business");
+                startActivity(intent);
+
+            }if(id == categoryList.size() + 7){
+                //entertainment
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
+                intent.putExtra("slug", "entertainment");
+                startActivity(intent);
+
+            }if(id == categoryList.size() + 8){
+                //science-tech
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
+                intent.putExtra("slug", "science-tech");
+                startActivity(intent);
+            }if(id == categoryList.size() + 9){
+                //videos
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
+                intent.putExtra("news", news2);
+                intent.putExtra("isTopVideo", false);
+                intent.putExtra("isViralVideo", true);
+                startActivity(intent);            }
+
+                if(id == categoryList.size() + 10){
+                //language
+                startActivity(new Intent(HomeActivity.this, LanguageActivity.class));
+            }
         } else{
             if(id == 111){
                 //About Us
                 startActivity(new Intent(HomeActivity.this, AboutUsActivity.class));
             }
             if(id == 112){
-                //Feedback
+                //feedback
                 startActivity(new Intent(HomeActivity.this, FeedbackActivity.class));
+
+            }
+
+            if(id == 113){
+                //odisha plus
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
+                intent.putExtra("slug", "odishaPlus");
+                startActivity(intent);
+            }
+            if(id == 114){
+                //nation
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
+                intent.putExtra("slug", "nation");
+                startActivity(intent);
+            }
+            if(id == 115){
+                //world
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
+                intent.putExtra("slug", "world");
+                startActivity(intent);
+
+            }if(id == 116){
+                //sports
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
+                intent.putExtra("slug", "sports");
+                startActivity(intent);
+            }if(id == 117){
+                //business
+
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
+                intent.putExtra("slug", "business");
+                startActivity(intent);
+            }if(id == 118){
+                //entertainment
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
+                intent.putExtra("slug", "entertainment");
+                startActivity(intent);
+
+            }if(id == 119){
+                //science-tech
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
+                intent.putExtra("slug", "science-tech");
+                startActivity(intent);
+            }if(id == 1110){
+                //video
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
+                intent.putExtra("news", news2);
+                intent.putExtra("isTopVideo", false);
+                intent.putExtra("isViralVideo", true);
+                startActivity(intent);
+            }
+                if(id == 1111){
+                //language
+                startActivity(new Intent(HomeActivity.this, LanguageActivity.class));
             }
         }
+
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
@@ -1742,6 +2081,15 @@ public class HomeActivity extends AppCompatActivity
 
         menu.add(Menu.NONE, xx, xx, "About Us");
         menu.add(Menu.NONE, xx + 1, xx + 1, "Feedback");
+        menu.add(Menu.NONE, xx + 2, xx + 2, "Odisha");
+        menu.add(Menu.NONE, xx + 3, xx + 3, "Nation");
+        menu.add(Menu.NONE, xx + 4, xx + 4, "World");
+        menu.add(Menu.NONE, xx + 5, xx + 5, "Sports");
+        menu.add(Menu.NONE, xx + 6, xx + 6, "Business");
+        menu.add(Menu.NONE, xx + 7, xx + 7, "Entertainment");
+        menu.add(Menu.NONE, xx + 8, xx + 8, "Science & Tech");
+        menu.add(Menu.NONE, xx + 9, xx + 9, "Videos");
+        menu.add(Menu.NONE, xx + 10, xx + 10, "Language");
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.activity_main_swipe_refresh_layout);
         mSwipeRefreshLayout.setColorSchemeResources(R.color.app_logo_color_blue, R.color.app_logo_color_maroon);
@@ -1945,40 +2293,7 @@ public class HomeActivity extends AppCompatActivity
 //        tvTopNewsTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, Config.get_text_size(HomeActivity.this, text_size_in_pixel));
         layoutBody.addView(layoutTopNews);
 
-        RelativeLayout layoutDebate = new RelativeLayout(HomeActivity.this);
-        int height_layout_conference = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_CONFERENCE);
-        //RelativeLayout.LayoutParams layout_params_conference = new RelativeLayout.LayoutParams
-          //      (RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-        RelativeLayout.LayoutParams layout_params_conference = new RelativeLayout.LayoutParams
-                (RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-        layoutDebate.setLayoutParams(layout_params_conference);
-        View view_debate = LayoutInflater.from(HomeActivity.this).inflate(R.layout.layout_conference, null);
-
-        ImageView imgPlay = (ImageView) view_debate.findViewById(R.id.imgPlay);
-        if(conferenceNews != null
-                && conferenceNews.getName() != null
-                && conferenceNews.getName().trim().length() > 0){
-            imgPlay.setVisibility(View.GONE);
-        } else {
-            imgPlay.setVisibility(View.VISIBLE);
-        }
-
-        layoutDebate.addView(view_debate);
-        layoutBody.addView(layoutDebate);
-
-        RelativeLayout layoutCitizenJournalist = new RelativeLayout(HomeActivity.this);
-        int height_layout_citizen_journalist = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_CITIZEN_JOURNALIST);
-        RelativeLayout.LayoutParams layout_params_citizen_journalist = new RelativeLayout.LayoutParams
-                (RelativeLayout.LayoutParams.MATCH_PARENT, height_layout_citizen_journalist);
-        //RelativeLayout.LayoutParams layout_params_citizen_journalist = new RelativeLayout.LayoutParams
-          //      (RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
-        layoutCitizenJournalist.setLayoutParams(layout_params_citizen_journalist);
-        View view_cj = LayoutInflater.from(HomeActivity.this).inflate(R.layout.layout_citizen_journalist, null);
-        layoutCitizenJournalist.addView(view_cj);
-        CustomTextView tvCJTitle = (CustomTextView) view_cj.findViewById(R.id.tvCJTitle);
-//        int text_size_in_pixel_cj = getResources().getInteger(R.integer.news_title_size);
-//        tvCJTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, Config.get_text_size(HomeActivity.this, text_size_in_pixel_cj));
-        layoutBody.addView(layoutCitizenJournalist);
+        // removed from here
 
  /*
         *
@@ -2087,7 +2402,7 @@ public class HomeActivity extends AppCompatActivity
  /* ODISHA NEWS SECTION*/
 
         RelativeLayout odnshead = new RelativeLayout(HomeActivity.this);
-        int height_odnshd = (int)(Util.getScreenHeight() * ODISHAHEAD_HEIGHT);
+        int height_odnshd = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_HEADER_ADVERTISEMENT);
         RelativeLayout.LayoutParams layoutParams_odnshd= new RelativeLayout.LayoutParams
                 (RelativeLayout.LayoutParams.MATCH_PARENT,height_odnshd);
         odnshead.setLayoutParams(layoutParams_odnshd);
@@ -2096,82 +2411,86 @@ public class HomeActivity extends AppCompatActivity
         layoutBody.addView(odnshead);
         //AnimationUtil.slideInFromRight(pos0object2, 500, 700);
 
+        /*LinearLayout ln_odisha_news = new LinearLayout(HomeActivity.this);
+        LinearLayout.LayoutParams layoutParams_odns = new LinearLayout.LayoutParams
+                (LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        ln_odisha_news.setLayoutParams(layoutParams_odns);
+        View view_odns = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_odns, null);
+        odnshead.addView(view_odns);*/
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(
+                RelativeLayout.LayoutParams.MATCH_PARENT, (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_TOP_FEATURED_NEWS));
 
-        LinearLayout ln_od_ns1 = new LinearLayout(HomeActivity.this);
-        int height_odns1 = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_ODISHANEWS);
-        LinearLayout.LayoutParams layoutParams_odns1 = new LinearLayout.LayoutParams
-                (LinearLayout.LayoutParams.MATCH_PARENT, height_odns1);
-        ln_od_ns1.setLayoutParams(layoutParams_odns1);
-        View view_odns1 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_odns1, null);
-        ImageView iv_odns11=(ImageView)view_odns1.findViewById(R.id.odns11);
-        ImageView iv_odns12=(ImageView)view_odns1.findViewById(R.id.odns12);
-        ln_od_ns1.addView(view_odns1);
-        layoutBody.addView(ln_od_ns1);
-        AnimationUtil.slideInFromLeft(ln_od_ns1, 500, 700);
-
-        LinearLayout ln_od_ns2 = new LinearLayout(HomeActivity.this);
-        int height_odns2 = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_ODISHANEWS);
-        LinearLayout.LayoutParams layoutParams_odns2 = new LinearLayout.LayoutParams
-                (LinearLayout.LayoutParams.MATCH_PARENT, height_odns2);
-        ln_od_ns2.setLayoutParams(layoutParams_odns2);
-        View view_odns2 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_odns1, null);
-        ImageView iv_odns21=(ImageView)view_odns1.findViewById(R.id.odns11);
-        ImageView iv_odns22=(ImageView)view_odns1.findViewById(R.id.odns12);
-        ln_od_ns2.addView(view_odns2);
-        layoutBody.addView(ln_od_ns2);
-        AnimationUtil.slideInFromLeft(ln_od_ns2, 500, 700);
-
-        LinearLayout ln_od_ns3 = new LinearLayout(HomeActivity.this);
-        int height_odns3 = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_ODISHANEWS);
-        LinearLayout.LayoutParams layoutParams_odns3 = new LinearLayout.LayoutParams
-                (LinearLayout.LayoutParams.MATCH_PARENT, height_odns3);
-        ln_od_ns3.setLayoutParams(layoutParams_odns3);
-        View view_odns3 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_odns1, null);
-        ImageView iv_odns31=(ImageView)view_odns3.findViewById(R.id.odns11);
-        ImageView iv_odns32=(ImageView)view_odns3.findViewById(R.id.odns12);
-        ln_od_ns3.addView(view_odns3);
-        layoutBody.addView(ln_od_ns3);
-        AnimationUtil.slideInFromLeft(ln_od_ns3, 500, 700);
-
-        LinearLayout ln_od_ns4 = new LinearLayout(HomeActivity.this);
-        int height_odns4 = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_ODISHANEWS);
-        LinearLayout.LayoutParams layoutParams_odns4 = new LinearLayout.LayoutParams
-                (LinearLayout.LayoutParams.MATCH_PARENT, height_odns4);
-        ln_od_ns4.setLayoutParams(layoutParams_odns4);
-        View view_odns4 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_odns1, null);
-        ImageView iv_odns41=(ImageView)view_odns4.findViewById(R.id.odns11);
-        ImageView iv_odns42=(ImageView)view_odns4.findViewById(R.id.odns12);
-        ln_od_ns4.addView(view_odns4);
-        layoutBody.addView(ln_od_ns4);
-        AnimationUtil.slideInFromLeft(ln_od_ns4, 500, 700);
-
-        LinearLayout ln_od_ns5 = new LinearLayout(HomeActivity.this);
-        int height_odns5 = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_ODISHANEWS);
-        LinearLayout.LayoutParams layoutParams_odns5 = new LinearLayout.LayoutParams
-                (LinearLayout.LayoutParams.MATCH_PARENT, height_odns5);
-        ln_od_ns5.setLayoutParams(layoutParams_odns5);
-        View view_odns5 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_odns1, null);
-        ImageView iv_odns51=(ImageView)view_odns5.findViewById(R.id.odns11);
-        ImageView iv_odns52=(ImageView)view_odns5.findViewById(R.id.odns12);
-        ln_od_ns5.addView(view_odns5);
-        layoutBody.addView(ln_od_ns5);
-        AnimationUtil.slideInFromLeft(ln_od_ns5, 500, 700);
+        // layoutBody.addView(odnshead);
 
 
-        LinearLayout ln_od_ns6 = new LinearLayout(HomeActivity.this);
-        int height_odns6 = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_ODISHANEWS);
-        LinearLayout.LayoutParams layoutParams_odns6 = new LinearLayout.LayoutParams
-                (LinearLayout.LayoutParams.MATCH_PARENT, height_odns6);
-        ln_od_ns6.setLayoutParams(layoutParams_odns6);
-        View view_odns6 = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_odns1, null);
-        ImageView iv_odns61=(ImageView)view_odns6.findViewById(R.id.odns11);
-        ImageView iv_odns62=(ImageView)view_odns6.findViewById(R.id.odns12);
-        ln_od_ns6.addView(view_odns6);
-        layoutBody.addView(ln_od_ns6);
-        AnimationUtil.slideInFromLeft(ln_od_ns6, 500, 700);
+        relativeolder = new RelativeLayout[odisanewscount];
+
+        for(int i = 0;i<odisanewscount;i++){
+            RelativeLayout relativeLayout = new RelativeLayout(this);
+            relativeLayout.setId(i);
+            relativeLayout.setLayoutParams(params);
+            //relativeLayout.setBackgroundColor(Color.parseColor("#AD1C39"));
+            relativeolder[i] = relativeLayout;
+            layoutBody.setOrientation(LinearLayout.VERTICAL);
+            View view_im= LayoutInflater.from(HomeActivity.this).inflate(R.layout.gradient,null);
+            layoutBody.addView(relativeLayout);
+
+          //  final float scale = this.getResources().getDisplayMetrics().density;
+           // int pixels = (int) (150 * scale + 0.5f);
+            RelativeLayout.LayoutParams iv_params = new RelativeLayout.LayoutParams(
+                    RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.MATCH_PARENT );
+            ImageView imageView = new ImageView(this);
+            imageView.setLayoutParams(iv_params);
+            imageView.setId(i);
+            imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+            imageLoader.displayImage( arrayList_odishanews.get(i).getFeatured_image(), imageView, options);
+            relativeLayout.addView(imageView);
+            relativeLayout.addView(view_im);
+
+
+            TextView textView = new TextView(this);
+            textView.setId(i);
+            textView.setLayoutParams(params);
+            textView.setTextColor(Color.parseColor("#FFFFFF"));
+            textView.setTypeface(null, Typeface.BOLD);
+            textView.setTextSize(17);
+            textView.setMaxLines(2);
+            textView.setPadding(20,0,0,10);
+            textView.setGravity(Gravity.BOTTOM);
+            textView.setText(arrayList_odishanews.get(i).getTags());
+            relativeLayout.addView(textView);
+
+            LinearLayout.LayoutParams tvtime_params = new LinearLayout.LayoutParams(
+                    LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+            tvtime_params.gravity=Gravity.BOTTOM;
+            TextView tv_time = new TextView(this);
+            tv_time.setId(i);
+            tv_time.setTextColor(Color.parseColor("#FFFFFF"));
+            tv_time.setMaxLines(1);
+            tv_time.setLayoutParams(tvtime_params);
+            tv_time.setText(Util.getTime(arrayList_odishanews.get(i).getApproved_date()));
+            tv_time.setVisibility(View.GONE);
+
+            relativeLayout.addView(tv_time);
+
+
+            final int finalI = i;
+            relativeolder[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    News featured_news_new = new News(Parcel.obtain());
+                    featured_news_new.setSlug(arrayList_odishanews.get(finalI).getSlug());
+                    getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                    Intent intent = new Intent(HomeActivity.this, NewsDetailsActivity.class);
+                    intent.putExtra("news", featured_news_new);
+                    startActivity(intent);
+                }
+            });
+
+        }
 
         RelativeLayout odnsend = new RelativeLayout(HomeActivity.this);
-        int height_odnsend = (int)(Util.getScreenHeight() * ODISHAHEAD_HEIGHT);
+        int height_odnsend = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_HEADER_ADVERTISEMENT);
         RelativeLayout.LayoutParams layoutParams_odnsend= new RelativeLayout.LayoutParams
                 (RelativeLayout.LayoutParams.MATCH_PARENT,height_odnsend);
         odnsend.setLayoutParams(layoutParams_odnsend);
@@ -2179,11 +2498,64 @@ public class HomeActivity extends AppCompatActivity
         odnsend.addView(view_odnsend);
         layoutBody.addView(odnsend);
 
+        odnsend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this,AllOdishaNewsList.class);
+                startActivity(intent);
+            }
+        });
+
 
         /*
         * ODISHA NEWS SECTION ENDS
         * */
 
+        if(odishanews==false){
+            odnshead.setVisibility(View.GONE);
+            odnsend.setVisibility(View.GONE);
+        }
+        else{
+            odnshead.setVisibility(View.VISIBLE);
+            odnsend.setVisibility(View.VISIBLE);
+        }
+
+
+
+        RelativeLayout layoutDebate = new RelativeLayout(HomeActivity.this);
+        int height_layout_conference = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_CONFERENCE);
+        //RelativeLayout.LayoutParams layout_params_conference = new RelativeLayout.LayoutParams
+        //      (RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        RelativeLayout.LayoutParams layout_params_conference = new RelativeLayout.LayoutParams
+                (RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        layoutDebate.setLayoutParams(layout_params_conference);
+        View view_debate = LayoutInflater.from(HomeActivity.this).inflate(R.layout.layout_conference, null);
+
+        ImageView imgPlay = (ImageView) view_debate.findViewById(R.id.imgPlay);
+        if(conferenceNews != null
+                && conferenceNews.getName() != null
+                && conferenceNews.getName().trim().length() > 0){
+            imgPlay.setVisibility(View.GONE);
+        } else {
+            imgPlay.setVisibility(View.VISIBLE);
+        }
+
+        layoutDebate.addView(view_debate);
+        layoutBody.addView(layoutDebate);
+
+        RelativeLayout layoutCitizenJournalist = new RelativeLayout(HomeActivity.this);
+        int height_layout_citizen_journalist = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_CITIZEN_JOURNALIST);
+        RelativeLayout.LayoutParams layout_params_citizen_journalist = new RelativeLayout.LayoutParams
+                (RelativeLayout.LayoutParams.MATCH_PARENT, height_layout_citizen_journalist);
+        //RelativeLayout.LayoutParams layout_params_citizen_journalist = new RelativeLayout.LayoutParams
+        //      (RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        layoutCitizenJournalist.setLayoutParams(layout_params_citizen_journalist);
+        View view_cj = LayoutInflater.from(HomeActivity.this).inflate(R.layout.layout_citizen_journalist, null);
+        layoutCitizenJournalist.addView(view_cj);
+        CustomTextView tvCJTitle = (CustomTextView) view_cj.findViewById(R.id.tvCJTitle);
+//        int text_size_in_pixel_cj = getResources().getInteger(R.integer.news_title_size);
+//        tvCJTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, Config.get_text_size(HomeActivity.this, text_size_in_pixel_cj));
+        layoutBody.addView(layoutCitizenJournalist);
 
 
         /*
@@ -2678,7 +3050,7 @@ public class HomeActivity extends AppCompatActivity
                     if(i+1 >= categoryNews.size()){
                         break;
                     }
-                    final News news2 = categoryNews.get(i + 1);
+                      news2 = categoryNews.get(i + 1);
                     ImageView img_cat_two = (ImageView) view_cat_two.findViewById(R.id.imgNewsTwo);
                     String cat_news_img_two_file_path = "";
                     if(news2 != null){

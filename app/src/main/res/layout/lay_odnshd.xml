@@ -12,7 +12,7 @@
         android:layout_height="match_parent"
         android:textColor="@color/news_title_color"
         android:text="ODISHA NEWS"
-        android:gravity="center_horizontal|bottom"
+        android:gravity="center_horizontal|center"
         android:textSize="@dimen/news_title_size_in_list"
         app:customFont= "@string/text_font_family_for_headlines"
         android:textStyle="bold"

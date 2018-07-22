@@ -30,7 +30,7 @@
                 android:layout_marginTop="18dp"
                 android:layout_alignLeft="@+id/layoutPostedAt"
                 app:customFont="@string/text_font_family_for_headlines"
-                android:textSize="@dimen/news_title_size"
+                android:textSize="@dimen/news_description_size"
                 android:maxLines="2"
                 android:ellipsize="end"
                 android:layout_above="@+id/layoutPostedBy"
