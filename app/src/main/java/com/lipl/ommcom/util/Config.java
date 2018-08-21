@@ -71,6 +71,10 @@ public class Config {
     public static final String FOLDER_CITIZEN_NEWS = "/citizenNews";
     public static final String FOLDER_TOP_NEWS_IMAGE_VIDEO = "/topnewsvideo";
     public static final String FOLDER_COMMENT = "/comments";
+    public static final String OD_CONENT = "?odia=true";
+    public static final String OD_NEWCONENT = "&odia=true";
+    public static final String EN_CONENT = "?odia=flase";
+    public static final String EN_NEWCONENT = "&odia=flase";
 
     public static final String FOLDER_DP_720W_1280H = "/dp_720w_1280h/";
     public static final String FOLDER_DP_480W_800H = "/dp_480w_800h/";

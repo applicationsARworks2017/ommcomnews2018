@@ -132,4 +132,20 @@ Above all we understand the importance of people\'s voice on any issue and we in
 
 In short Ommcom News vision is not just to make people easily access instant and credible news of Odisha anytime anywhere but also make their opinion count and their every issues reflected and shared in the digital space.</string>
 
+    <!--   LNAGUANGE-->
+
+    <string name="language_en">English</string>
+    <string name="language_od">ଓଡ଼ିଆ</string>
+    <string name="more_odisha_en">VIEW MORE ODISHA NEWS</string>
+    <string name="more_odisha_od">ଅଧିକ ଓଡ଼ିଆ ଖବର ପଢନ୍ତୁ </string>
+    <string name="odisha_news_od">ଓଡ଼ିଶା ଖବର</string>
+    <string name="odisha_news_en">ODISHA NEWS</string>
+    <string name="citizen_j_en">CITIZEN JOURNALIST</string>
+    <string name="citizen_j_od">ସିଟିଜେନ ଜର୍ଣ୍ଣାଲିଷ୍ଟ</string>
+    <string name="live_stream_en">LIVE STREAMING</string>
+    <string name="viral_vd_en">Viral Video</string>
+    <string name="viral_vd_od">ଭାଇରାଲ ଭିଡ଼ିଓ</string>
+    <string name="live_stream_od">ସିଧା ପ୍ରସାରଣ</string>
+
+
 </resources>

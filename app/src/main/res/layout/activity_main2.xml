@@ -46,6 +46,16 @@
                     android:layout_toLeftOf="@+id/title"
                     android:layout_centerVertical="true"
                     android:src="@mipmap/ic_launcher" />
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:padding="5dp"
+                    android:backgroundTint="@color/status_bar_color"
+                    android:id="@+id/home"
+                    android:background="@mipmap/baseline_home_black_24"/>
 
                 <!--<ImageView-->
                 <!--android:id="@+id/search"-->

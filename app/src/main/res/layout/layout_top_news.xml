@@ -62,7 +62,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textColor="@color/news_title_color"
-            android:text="TOP 5 NEWS NOW"
             android:gravity="center_horizontal|bottom"
             android:textSize="@dimen/home_cj_debate_top_news_title_size"
             android:paddingBottom="12dp"

@@ -7,11 +7,11 @@
     android:background="@color/app_logo_color_maroon">
 
     <com.lipl.ommcom.util.CustomTextView
-        android:id="@+id/tvTopNewsTitle"
+        android:id="@+id/tv_odhd"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:textColor="@color/news_title_color"
-        android:text="ODISHA NEWS"
+        android:text=""
         android:gravity="center_horizontal|center"
         android:textSize="@dimen/news_title_size_in_list"
         app:customFont= "@string/text_font_family_for_headlines"

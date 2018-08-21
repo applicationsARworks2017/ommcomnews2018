@@ -76,11 +76,12 @@ public class NewsDetailsActivity1 extends AppCompatActivity implements FlipAdapt
         FlipAdapter.OnCommentClick {
 
     private FlipViewController flipView;
-    private static final String NEWS_DETAILS_API_BASE_URL =
+    private static  String NEWS_DETAILS_API_BASE_URL =
             Config.API_BASE_URL + Config.NEWS_DETAILS_API + Config.FOLDER_SLUG;
     private ProgressBar pBar = null;
     private static final String TAG = "NewsDetailActivity";
     private News news;
+    String lang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +89,18 @@ public class NewsDetailsActivity1 extends AppCompatActivity implements FlipAdapt
         setContentView(R.layout.activity_main2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        lang = getSharedPreferences(Config.SHAREDPREFERENCE_LANGUAGE, 0).getString(Config.LANG, null);
+        if(lang==null || lang.contentEquals("English")) {
+            NEWS_DETAILS_API_BASE_URL =Config.API_BASE_URL + Config.NEWS_DETAILS_API + Config.FOLDER_SLUG+Config.EN_CONENT;
+
+        }
+        else{
+            NEWS_DETAILS_API_BASE_URL =Config.API_BASE_URL + Config.NEWS_DETAILS_API + Config.FOLDER_SLUG+Config.OD_CONENT;
+
+        }
+
+
+
 
         pBar = (ProgressBar) findViewById(R.id.pBar);
 
@@ -370,7 +383,18 @@ public class NewsDetailsActivity1 extends AppCompatActivity implements FlipAdapt
                 int resCode = -1;
 
                 try {
-                    String link = NEWS_DETAILS_API_BASE_URL + slug;
+                    String link = null;
+                    if(lang==null || lang.contentEquals("English")) {
+                        link=NEWS_DETAILS_API_BASE_URL + slug+Config.EN_CONENT;
+
+                    }
+                    else{
+                        link=NEWS_DETAILS_API_BASE_URL + slug + Config.EN_CONENT;
+
+                    }
+
+
+
 
                     URL url = new URL(link);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();

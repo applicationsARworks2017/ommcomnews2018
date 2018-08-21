@@ -56,6 +56,7 @@ public class CommentListActivity extends AppCompatActivity implements CommentLis
     private CommentListAdapter mAdapter;
     private List<Comment> listData;
     private News mNews;
+    String lang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +68,7 @@ public class CommentListActivity extends AppCompatActivity implements CommentLis
                 && getIntent().getExtras() != null){
             mNews = getIntent().getExtras().getParcelable("news");
         }
+        lang = getSharedPreferences(Config.SHAREDPREFERENCE_LANGUAGE, 0).getString(Config.LANG, null);
 
         mRecyclerView = (XRecyclerView) this.findViewById(R.id.recyclerview);
        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -155,7 +157,18 @@ public class CommentListActivity extends AppCompatActivity implements CommentLis
                     int resCode = -1;
 
                     try {
-                        String link = NEWS_DETAILS_API_BASE_URL + slug;
+                        String link = null;
+                        if(lang==null || lang.contentEquals("English")) {
+                           link = NEWS_DETAILS_API_BASE_URL + slug + Config.EN_CONENT;
+
+                        }
+                        else{
+                            link = NEWS_DETAILS_API_BASE_URL + slug + Config.OD_CONENT;
+
+                        }
+
+
+
 
                         URL url = new URL(link);
                         HttpURLConnection conn = (HttpURLConnection) url.openConnection();

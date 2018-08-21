@@ -72,6 +72,7 @@ public class NewsListActivity extends AppCompatActivity
     private String top_news_image_file_path = "";
     private PopupAdvertisement popupAdvertisement;
     private int pagination_count = 1;
+    String lang;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,6 +83,7 @@ public class NewsListActivity extends AppCompatActivity
         pBar = (ProgressBar) findViewById(R.id.pBar);
         mNewsList = new ArrayList<News>();
         mTopNews = new News(Parcel.obtain());
+        lang = getSharedPreferences(Config.SHAREDPREFERENCE_LANGUAGE, 0).getString(Config.LANG, null);
 
         if(getIntent().getExtras() != null){
             is_from_top_news = getIntent().getExtras().getBoolean("is_from_top_news");
@@ -351,11 +353,24 @@ public class NewsListActivity extends AppCompatActivity
 
                 try {
                     String link = "";
-                    if(pagination_count > 1){
-                        link = Config.API_BASE_URL + "/posts/nextTopNews" + "?page=" + pagination_count;
-                    } else{
-                        link = Config.API_BASE_URL + Config.TOP_NEWS_LIST_API;
+                    if(lang==null || lang.contentEquals("English")) {
+                        if(pagination_count > 1){
+                            link = Config.API_BASE_URL + "/posts/nextTopNews" + "?page=" + pagination_count + Config.EN_NEWCONENT;
+                        } else{
+                            link = Config.API_BASE_URL + Config.TOP_NEWS_LIST_API + Config.EN_CONENT;
+                        }
                     }
+                    else{
+                        if(pagination_count > 1){
+                            link = Config.API_BASE_URL + "/posts/nextTopNews" + "?page=" + pagination_count + Config.OD_NEWCONENT;
+                        } else{
+                            link = Config.API_BASE_URL + Config.TOP_NEWS_LIST_API + Config.OD_CONENT;
+                        }
+                    }
+
+
+
+
 
                     URL url = new URL(link);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();

@@ -31,6 +31,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
@@ -77,6 +78,8 @@ import java.util.List;
 
 import io.fabric.sdk.android.Fabric;
 
+import static android.content.Intent.FLAG_ACTIVITY_CLEAR_TOP;
+
 public class NewsDetailsActivity extends AppCompatActivity implements FlipAdapter.OnShareClick,
         FlipAdapter.OnCommentClick {
 
@@ -87,7 +90,8 @@ public class NewsDetailsActivity extends AppCompatActivity implements FlipAdapte
     private static final String TAG = "NewsDetailActivity";
     private News news;
     private boolean isFromNotification = false;
-    private String slug = "";
+    private String slug = "",lang;
+    ImageView home;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,6 +100,7 @@ public class NewsDetailsActivity extends AppCompatActivity implements FlipAdapte
         setContentView(R.layout.activity_main2);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        lang = getSharedPreferences(Config.SHAREDPREFERENCE_LANGUAGE, 0).getString(Config.LANG, null);
 
         pBar = (ProgressBar) findViewById(R.id.pBar);
 
@@ -127,6 +132,9 @@ public class NewsDetailsActivity extends AppCompatActivity implements FlipAdapte
                     .setCancelable(false);
         }
         setToolBar();
+
+
+
     }
 
     private void updateView() {
@@ -311,7 +319,18 @@ public class NewsDetailsActivity extends AppCompatActivity implements FlipAdapte
                 int resCode = -1;
 
                 try {
-                    String link = NEWS_DETAILS_API_BASE_URL + slug;
+                    String link = null;
+                    if(lang==null || lang.contentEquals("English")) {
+                      link =  NEWS_DETAILS_API_BASE_URL + slug+ Config.EN_CONENT;
+
+                    }
+                    else{
+                        link =  NEWS_DETAILS_API_BASE_URL + slug+ Config.OD_CONENT;
+
+                    }
+
+
+
 
                     URL url = new URL(link);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
@@ -853,6 +872,27 @@ public class NewsDetailsActivity extends AppCompatActivity implements FlipAdapte
                 finish();
             }
         });
+        home=(ImageView)findViewById(R.id.home);
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(NewsDetailsActivity.this,HomeActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                startActivity(intent);
+
+
+                /*
+                *
+                * FLAG_ACTIVITY_CLEAR_TOP
+FLAG_ACTIVITY_SINGLE_TOP
+FLAG_ACTIVITY_CLEAR_TASK
+FLAG_ACTIVITY_NEW_TASK
+                * */
+            }
+        });
     }
 
     @Override
@@ -1216,7 +1256,7 @@ public class NewsDetailsActivity extends AppCompatActivity implements FlipAdapte
             intent.putExtra("isFromNotification", true);
             intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            intent.setFlags(FLAG_ACTIVITY_CLEAR_TOP);
             startActivity(intent);
             finish();
         }

@@ -195,6 +195,7 @@ public class HomeActivity extends AppCompatActivity
     private static final float LAYOUT_WEIGHT_HEADER_ADVERTISEMENT = 0.08f;
     private static final float ODISHAHEAD_HEIGHT = 0.05f;
     private static final float LAYOUT_WEIGHT_TOP_FEATURED_NEWS = 0.2625f;
+    private static final float LAYOUT_WEIGHT_TOP_FEATURED_NEWS1= 0.2325f;
     private static final float LAYOUT_WEIGHT_ODISHANEWS = 0.2025f;
     private static final float LAYOUT_WEIGHT_TOP_NEWS = 0.13f;
     private static final float LAYOUT_WEIGHT_CONFERENCE = 0.13f;
@@ -221,6 +222,7 @@ public class HomeActivity extends AppCompatActivity
     private int ADVERTISEMENT_MIDDLE = 0;
     private int ADVERTISEMENT_FOOTER = 0;
     private boolean isFromNotification = false;
+    String lang="English";
 
     int odisanewscount=0;
     private static RelativeLayout[] relativeolder;
@@ -239,6 +241,7 @@ public class HomeActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+            lang = getSharedPreferences(Config.SHAREDPREFERENCE_LANGUAGE, 0).getString(Config.LANG, null);
 
     // if the android version is greated than marsmallow , then it will ask for ermission otherwise not
     /*if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
@@ -330,7 +333,15 @@ public class HomeActivity extends AppCompatActivity
             try {
                 InputStream in = null;
                 int resCode = -1;
-                String link = "https://www.ommcomnews.com/public/api/v0.1/odishaNewsHome";
+                String link = null;
+                if(lang==null || lang.contentEquals("English")) {
+                    link="https://www.ommcomnews.com/public/api/v0.1/odishaNewsHome"+Config.EN_CONENT;
+
+                }
+                else{
+                    link="https://www.ommcomnews.com/public/api/v0.1/odishaNewsHome"+Config.OD_CONENT;
+
+                }
                 URL url = new URL(link);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setReadTimeout(10000);
@@ -503,7 +514,14 @@ public class HomeActivity extends AppCompatActivity
                 try {
                     InputStream in = null;
                     int resCode = -1;
-                    String link = "https://www.ommcomnews.com/public/api/v0.1/getAllAdvertisements";
+                    String link = null;
+                    if(lang==null || lang.contentEquals("English")){
+                        link="https://www.ommcomnews.com/public/api/v0.1/getAllAdvertisements"+Config.EN_CONENT;
+                    }
+                    else{
+                        link="https://www.ommcomnews.com/public/api/v0.1/getAllAdvertisements"+Config.OD_CONENT;
+
+                    }
                     URL url = new URL(link);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setReadTimeout(10000);
@@ -1000,6 +1018,9 @@ public class HomeActivity extends AppCompatActivity
 
     private void init(){
         setToolbarInvisible();
+        //setToolbarVisible();
+        //displayContent();
+
 
         layoutLogoImg = (RelativeLayout) findViewById(R.id.layoutLogoImg);
         int yPosition= -(Util.getScreenHeight() / 2);
@@ -1111,7 +1132,13 @@ public class HomeActivity extends AppCompatActivity
                 int resCode = -1;
 
                 try {
-                    String link = Config.API_BASE_URL + Config.HOME_SCREEN_DETAILS_API;
+                    String link = null;
+                    if(lang==null || lang.contentEquals("English")) {
+                       link=Config.API_BASE_URL + Config.HOME_SCREEN_DETAILS_API+Config.EN_CONENT;
+                    }
+                    else{
+                        link=Config.API_BASE_URL + Config.HOME_SCREEN_DETAILS_API+Config.OD_CONENT;
+                    }
                     URL url = new URL(link);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setReadTimeout(10000);
@@ -1548,7 +1575,15 @@ public class HomeActivity extends AppCompatActivity
                 int resCode = -1;
 
                 try {
-                    String link = Config.API_BASE_URL + Config.BREAKING_NEWS_API;
+                    String link = null;
+                    if(lang==null || lang.contentEquals("English")) {
+                        link=Config.API_BASE_URL + Config.BREAKING_NEWS_API+Config.EN_CONENT;
+
+                    }
+                    else{
+                        link=Config.API_BASE_URL + Config.BREAKING_NEWS_API+Config.EN_CONENT;
+
+                    }
                     URL url = new URL(link);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setReadTimeout(10000);
@@ -1686,7 +1721,15 @@ public class HomeActivity extends AppCompatActivity
                 int resCode = -1;
 
                 try {
-                    String link = Config.API_BASE_URL + Config.NAVIGATION_DRAWER_CATEGORIES_API;
+                    String link = null;
+                    if(lang==null || lang.contentEquals("English")) {
+                        link=Config.API_BASE_URL + Config.NAVIGATION_DRAWER_CATEGORIES_API+Config.EN_CONENT;
+
+                    }
+                    else{
+                        link=Config.API_BASE_URL + Config.NAVIGATION_DRAWER_CATEGORIES_API+Config.OD_CONENT;
+
+                    }
                     URL url = new URL(link);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     //conn.setReadTimeout(10000);
@@ -2078,18 +2121,32 @@ public class HomeActivity extends AppCompatActivity
         if(categoryNews != null){
             xx = categoryList.size();
         }
-
-        menu.add(Menu.NONE, xx, xx, "About Us");
-        menu.add(Menu.NONE, xx + 1, xx + 1, "Feedback");
-        menu.add(Menu.NONE, xx + 2, xx + 2, "Odisha");
-        menu.add(Menu.NONE, xx + 3, xx + 3, "Nation");
-        menu.add(Menu.NONE, xx + 4, xx + 4, "World");
-        menu.add(Menu.NONE, xx + 5, xx + 5, "Sports");
-        menu.add(Menu.NONE, xx + 6, xx + 6, "Business");
-        menu.add(Menu.NONE, xx + 7, xx + 7, "Entertainment");
-        menu.add(Menu.NONE, xx + 8, xx + 8, "Science & Tech");
-        menu.add(Menu.NONE, xx + 9, xx + 9, "Videos");
-        menu.add(Menu.NONE, xx + 10, xx + 10, "Language");
+        if(lang==null || lang.contentEquals("English")) {
+            menu.add(Menu.NONE, xx, xx, "About Us");
+            menu.add(Menu.NONE, xx + 1, xx + 1, "Feedback");
+            menu.add(Menu.NONE, xx + 2, xx + 2, "Odisha");
+            menu.add(Menu.NONE, xx + 3, xx + 3, "Nation");
+            menu.add(Menu.NONE, xx + 4, xx + 4, "World");
+            menu.add(Menu.NONE, xx + 5, xx + 5, "Sports");
+            menu.add(Menu.NONE, xx + 6, xx + 6, "Business");
+            menu.add(Menu.NONE, xx + 7, xx + 7, "Entertainment");
+            menu.add(Menu.NONE, xx + 8, xx + 8, "Science & Tech");
+            menu.add(Menu.NONE, xx + 9, xx + 9, "Videos");
+            menu.add(Menu.NONE, xx + 10, xx + 10, "Language");
+        }
+        else{
+            menu.add(Menu.NONE, xx, xx, "ଆମ ବିଷୟରେ");
+            menu.add(Menu.NONE, xx + 1, xx + 1, "ମତାମତ");
+            menu.add(Menu.NONE, xx + 2, xx + 2, "ଓଡିଶା");
+            menu.add(Menu.NONE, xx + 3, xx + 3, "ଦେଶ");
+            menu.add(Menu.NONE, xx + 4, xx + 4, "ବିଦେଶ");
+            menu.add(Menu.NONE, xx + 5, xx + 5, "କ୍ରୀଡା");
+            menu.add(Menu.NONE, xx + 6, xx + 6, "ବାଣିଜ୍ୟ ");
+            menu.add(Menu.NONE, xx + 7, xx + 7, "ମନୋରଞ୍ଜନ");
+            menu.add(Menu.NONE, xx + 8, xx + 8, "ବିଜ୍ଞାନ ଏବଂ କୌଶଳ");
+            menu.add(Menu.NONE, xx + 9, xx + 9, "ଭିଡିଓ");
+            menu.add(Menu.NONE, xx + 10, xx + 10, "ଭାଷା");
+        }
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.activity_main_swipe_refresh_layout);
         mSwipeRefreshLayout.setColorSchemeResources(R.color.app_logo_color_blue, R.color.app_logo_color_maroon);
@@ -2289,6 +2346,14 @@ public class HomeActivity extends AppCompatActivity
         View view_top_news = LayoutInflater.from(HomeActivity.this).inflate(R.layout.layout_top_news, null);
         layoutTopNews.addView(view_top_news);
         CustomTextView tvTopNewsTitle = (CustomTextView) view_top_news.findViewById(R.id.tvTopNewsTitle);
+        if(lang==null || lang.contentEquals("English")){
+            tvTopNewsTitle.setText("TOP 5 NEWS NOW");
+
+        }
+        else {
+            tvTopNewsTitle.setText("୫ଟି ମୁଖ୍ୟ ଖବର");
+
+        }
 //        int text_size_in_pixel = getResources().getInteger(R.integer.news_title_size);
 //        tvTopNewsTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, Config.get_text_size(HomeActivity.this, text_size_in_pixel));
         layoutBody.addView(layoutTopNews);
@@ -2407,6 +2472,15 @@ public class HomeActivity extends AppCompatActivity
                 (RelativeLayout.LayoutParams.MATCH_PARENT,height_odnshd);
         odnshead.setLayoutParams(layoutParams_odnshd);
         View view_odnshd = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_odnshd, null);
+        TextView textView_start = (TextView) view_odnshd.findViewById(R.id.tv_odhd);
+        if(lang==null || lang.contentEquals("English")) {
+            textView_start.setText(R.string.odisha_news_en);
+        }
+        else{
+            textView_start.setText(R.string.odisha_news_od);
+
+        }
+
         odnshead.addView(view_odnshd);
         layoutBody.addView(odnshead);
         //AnimationUtil.slideInFromRight(pos0object2, 500, 700);
@@ -2457,7 +2531,7 @@ public class HomeActivity extends AppCompatActivity
             textView.setMaxLines(2);
             textView.setPadding(20,0,0,10);
             textView.setGravity(Gravity.BOTTOM);
-            textView.setText(arrayList_odishanews.get(i).getTags());
+            textView.setText(arrayList_odishanews.get(i).getName());
             relativeLayout.addView(textView);
 
             LinearLayout.LayoutParams tvtime_params = new LinearLayout.LayoutParams(
@@ -2495,6 +2569,15 @@ public class HomeActivity extends AppCompatActivity
                 (RelativeLayout.LayoutParams.MATCH_PARENT,height_odnsend);
         odnsend.setLayoutParams(layoutParams_odnsend);
         View view_odnsend = LayoutInflater.from(HomeActivity.this).inflate(R.layout.lay_odnsend, null);
+        TextView textView = (TextView) view_odnsend.findViewById(R.id.tvendodishaTitle);
+        if(lang==null || lang.contentEquals("English")) {
+            textView.setText(R.string.more_odisha_en);
+        }
+        else{
+            textView.setText(R.string.more_odisha_od);
+
+        }
+
         odnsend.addView(view_odnsend);
         layoutBody.addView(odnsend);
 
@@ -2523,28 +2606,36 @@ public class HomeActivity extends AppCompatActivity
 
 
         RelativeLayout layoutDebate = new RelativeLayout(HomeActivity.this);
-        int height_layout_conference = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_CONFERENCE);
+        int height_layout_conference = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_TOP_FEATURED_NEWS1);
         //RelativeLayout.LayoutParams layout_params_conference = new RelativeLayout.LayoutParams
         //      (RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         RelativeLayout.LayoutParams layout_params_conference = new RelativeLayout.LayoutParams
-                (RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+                (RelativeLayout.LayoutParams.MATCH_PARENT, height_layout_conference);
         layoutDebate.setLayoutParams(layout_params_conference);
         View view_debate = LayoutInflater.from(HomeActivity.this).inflate(R.layout.layout_conference, null);
-
+        CustomTextView tvlivetitle = (CustomTextView) view_debate.findViewById(R.id.livetitle);
         ImageView imgPlay = (ImageView) view_debate.findViewById(R.id.imgPlay);
         if(conferenceNews != null
                 && conferenceNews.getName() != null
                 && conferenceNews.getName().trim().length() > 0){
             imgPlay.setVisibility(View.GONE);
+            tvlivetitle.setVisibility(View.GONE);
         } else {
             imgPlay.setVisibility(View.VISIBLE);
+            tvlivetitle.setVisibility(View.VISIBLE);
         }
-
         layoutDebate.addView(view_debate);
+        if(lang==null || lang.contentEquals("English")){
+            tvlivetitle.setText(R.string.live_stream_en);
+        }
+        else{
+            tvlivetitle.setText(R.string.live_stream_od);
+
+        }
         layoutBody.addView(layoutDebate);
 
         RelativeLayout layoutCitizenJournalist = new RelativeLayout(HomeActivity.this);
-        int height_layout_citizen_journalist = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_CITIZEN_JOURNALIST);
+        int height_layout_citizen_journalist = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_TOP_FEATURED_NEWS);
         RelativeLayout.LayoutParams layout_params_citizen_journalist = new RelativeLayout.LayoutParams
                 (RelativeLayout.LayoutParams.MATCH_PARENT, height_layout_citizen_journalist);
         //RelativeLayout.LayoutParams layout_params_citizen_journalist = new RelativeLayout.LayoutParams
@@ -2553,6 +2644,13 @@ public class HomeActivity extends AppCompatActivity
         View view_cj = LayoutInflater.from(HomeActivity.this).inflate(R.layout.layout_citizen_journalist, null);
         layoutCitizenJournalist.addView(view_cj);
         CustomTextView tvCJTitle = (CustomTextView) view_cj.findViewById(R.id.tvCJTitle);
+        if(lang==null || lang.contentEquals("English")){
+            tvCJTitle.setText(R.string.citizen_j_en);
+        }
+        else{
+            tvCJTitle.setText(R.string.citizen_j_od);
+
+        }
 //        int text_size_in_pixel_cj = getResources().getInteger(R.integer.news_title_size);
 //        tvCJTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, Config.get_text_size(HomeActivity.this, text_size_in_pixel_cj));
         layoutBody.addView(layoutCitizenJournalist);
@@ -2864,9 +2962,10 @@ public class HomeActivity extends AppCompatActivity
         } else */
 
         /**
+         *
          * Odisha Plus News
          * */
-        RelativeLayout layout_odisha_plus_news = new RelativeLayout(HomeActivity.this);
+        /*RelativeLayout layout_odisha_plus_news = new RelativeLayout(HomeActivity.this);
         int height_layout_odisha_lpus_news_section = (int)(Util.getScreenHeight() * LAYOUT_WEIGHT_CATEGORY_NEWS);
         RelativeLayout.LayoutParams layout_params_odisha_plus_news = new RelativeLayout.LayoutParams
                 (RelativeLayout.LayoutParams.MATCH_PARENT, height_layout_odisha_lpus_news_section);
@@ -2883,7 +2982,7 @@ public class HomeActivity extends AppCompatActivity
                 , img_odisha_plus_one, options);
         CustomTextView tvodisha_plusNewsTitle = (CustomTextView) view_odisha_plus_one.findViewById(R.id.tvNewsTitle);
        //amaresh
-        String nnn=odisha_plus_news.getName();
+        //String nnn=odisha_plus_news.getName();
         tvodisha_plusNewsTitle.setText(odisha_plus_news.getName());
 
         CustomTextView tvodisha_newsNewsPostedAt = (CustomTextView) view_odisha_plus_one.findViewById(R.id.tvNewsPostedAt);
@@ -2903,6 +3002,11 @@ public class HomeActivity extends AppCompatActivity
 
         layout_odisha_plus_news.addView(view_odisha_plus_one);
         layoutBody.addView(layout_odisha_plus_news);
+
+        // No need of odisha news, so remove odisha news
+
+        layout_odisha_plus_news.setVisibility(View.GONE);*/
+
 
         // for single object advertisement (ampos2) // in response pos3
 
@@ -3498,7 +3602,14 @@ public class HomeActivity extends AppCompatActivity
         tvcatNewsTitleTwo.setText(news2.getName());
 
         CustomTextView tvNewsCategoryNameTwo = (CustomTextView) view_cat_two.findViewById(R.id.tvNewsCategoryName);
-        tvNewsCategoryNameTwo.setText("Viral Video");
+        if(lang==null || lang.contentEquals("English")) {
+
+            tvNewsCategoryNameTwo.setText(R.string.viral_vd_en);
+        }
+        else{
+            tvNewsCategoryNameTwo.setText(R.string.viral_vd_od);
+
+        }
 
         ImageView imgPostedAtTwo = (ImageView) view_cat_two.findViewById(R.id.imgPostedAt);
         imgPostedAtTwo.setVisibility(View.GONE);
@@ -3716,7 +3827,15 @@ public class HomeActivity extends AppCompatActivity
                 int resCode = -1;
 
                 try {
-                    String link = Config.API_BASE_URL + Config.HOME_SCREEN_TOP_VIRAL_VIDEO;
+                    String link = null;
+                    if(lang==null || lang.contentEquals("English")) {
+                        link=Config.API_BASE_URL + Config.HOME_SCREEN_TOP_VIRAL_VIDEO+Config.EN_CONENT;
+
+                    }
+                    else{
+                        link=Config.API_BASE_URL + Config.HOME_SCREEN_TOP_VIRAL_VIDEO+Config.OD_CONENT;
+
+                    }
                     URL url = new URL(link);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     //conn.setReadTimeout(10000);
@@ -3988,7 +4107,15 @@ public class HomeActivity extends AppCompatActivity
                 int resCode = -1;
 
                 try {
-                    String link = Config.API_BASE_URL + Config.HOME_SCREEN_CATEGORY_NEWS;
+                    String link = null;
+                    if(lang==null || lang.contentEquals("English")) {
+                        link=Config.API_BASE_URL + Config.HOME_SCREEN_CATEGORY_NEWS+Config.EN_CONENT;
+
+                    }
+                    else{
+                        link=Config.API_BASE_URL + Config.HOME_SCREEN_CATEGORY_NEWS+Config.OD_CONENT;
+
+                    }
                     URL url = new URL(link);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     //conn.setReadTimeout(10000);
@@ -4348,7 +4475,15 @@ public class HomeActivity extends AppCompatActivity
                 int resCode = -1;
 
                 try {
-                    String link = Config.API_BASE_URL + Config.HOME_SCREEN_FEATURED_NEWS;
+                    String link = null;
+                    if(lang==null || lang.contentEquals("English")) {
+                        link=Config.API_BASE_URL + Config.HOME_SCREEN_FEATURED_NEWS+Config.EN_CONENT;
+
+                    }
+                    else{
+                        link=Config.API_BASE_URL + Config.HOME_SCREEN_FEATURED_NEWS+Config.OD_CONENT;
+
+                    }
                     URL url = new URL(link);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setDoOutput(true);

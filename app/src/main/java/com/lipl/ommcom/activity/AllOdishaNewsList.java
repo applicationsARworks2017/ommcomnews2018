@@ -14,6 +14,7 @@ import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.lipl.ommcom.R;
 import com.lipl.ommcom.adapter.AllOdishaNewsAdapter;
 import com.lipl.ommcom.pojo.OdishaNews;
+import com.lipl.ommcom.util.Config;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -35,6 +36,7 @@ public class AllOdishaNewsList extends AppCompatActivity {
     int page=1;
     Boolean scroll_allow = false;
     int total;
+    String lang;
     AllOdishaNewsAdapter mAdapter;
 
     @Override
@@ -50,6 +52,8 @@ public class AllOdishaNewsList extends AppCompatActivity {
         mRecyclerView.setLoadingMoreProgressStyle(ProgressStyle.BallRotate);
         mRecyclerView.setArrowImageView(R.drawable.iconfont_downgrey);
         arrayList_odishanews =new ArrayList<>();
+        lang = getSharedPreferences(Config.SHAREDPREFERENCE_LANGUAGE, 0).getString(Config.LANG, null);
+
         getNewsList();
         mRecyclerView.setLoadingListener(new XRecyclerView.LoadingListener() {
             @Override
@@ -101,7 +105,15 @@ public class AllOdishaNewsList extends AppCompatActivity {
             try {
                 InputStream in = null;
                 int resCode = -1;
-                String link = "https://www.ommcomnews.com/public/api/v0.1/viewMoreNews";
+                String link= null;
+                if(lang==null || lang.contentEquals("English")) {
+                    link= "https://www.ommcomnews.com/public/api/v0.1/viewMoreNews"+Config.EN_CONENT;
+
+                }
+                else{
+                    link= "https://www.ommcomnews.com/public/api/v0.1/viewMoreNews"+Config.OD_CONENT;
+                }
+
                 URL url = new URL(link);
                 HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                 conn.setReadTimeout(10000);

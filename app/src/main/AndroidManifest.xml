@@ -231,7 +231,9 @@
 
         <!-- ./Firebase Notifications -->
 
-        <activity android:name=".activity.AllOdishaNewsList"></activity>
+        <activity android:name=".activity.AllOdishaNewsList" />
+        <activity android:name=".activity.SplashScreen">
+        </activity>
     </application>
 
 </manifest>

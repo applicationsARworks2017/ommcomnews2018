@@ -65,7 +65,7 @@ public class CategoryNewsListActivity extends AppCompatActivity
     private News mTopNews;
     private ProgressBar pBar = null;
     private static final String TAG = "CategoryNewsList";
-    private String slug = "";
+    private String slug = "",lang;
     private boolean isTopVideo = false;
     private boolean isViralVideo = false;
     private XRecyclerView mRecyclerView;
@@ -78,6 +78,7 @@ public class CategoryNewsListActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_category_news);
+        lang = getSharedPreferences(Config.SHAREDPREFERENCE_LANGUAGE, 0).getString(Config.LANG, null);
 
         if(getIntent().getExtras() != null){
             slug = getIntent().getExtras().getString("slug");
@@ -395,22 +396,43 @@ public class CategoryNewsListActivity extends AppCompatActivity
                 int resCode = -1;
 
                 try {
-
                     String link = "";
-                    if (isViralVideo) {
-                        link = Config.API_BASE_URL + Config.API_VIRAL_VIDEO_LIST;
-                    } else if (isTopVideo) {
-                        link = Config.API_BASE_URL + Config.API_TOP_VIDEO_LIST;
-                    } else {
 
-                        if(pagination_count > 1){
-                            if(slug != null && slug.trim().equalsIgnoreCase("odishaPlus")) {
-                                link = Config.API_BASE_URL + Config.NEWS_DETAILS_API + "/" + slug + "?page=" + pagination_count;
+
+                    if(lang==null || lang.contentEquals("English")) {
+                        if (isViralVideo) {
+                            link = Config.API_BASE_URL + Config.API_VIRAL_VIDEO_LIST+Config.EN_CONENT;
+                        } else if (isTopVideo) {
+                            link = Config.API_BASE_URL + Config.API_TOP_VIDEO_LIST+Config.EN_CONENT;
+                        } else {
+
+                            if(pagination_count > 1){
+                                if(slug != null && slug.trim().equalsIgnoreCase("odishaPlus")) {
+                                    link = Config.API_BASE_URL + Config.NEWS_DETAILS_API + "/" + slug + "?page=" + pagination_count+Config.EN_NEWCONENT;
+                                } else{
+                                    link = Config.API_BASE_URL + "/posts/nextCategory" + "/" + slug + "?page=" + pagination_count+Config.EN_NEWCONENT;
+                                }
                             } else{
-                                link = Config.API_BASE_URL + "/posts/nextCategory" + "/" + slug + "?page=" + pagination_count;
+                                link = Config.API_BASE_URL + Config.NEWS_DETAILS_API + "/" + slug+Config.EN_NEWCONENT;
                             }
-                        } else{
-                            link = Config.API_BASE_URL + Config.NEWS_DETAILS_API + "/" + slug;
+                        }
+                    }
+                    else{
+                        if (isViralVideo) {
+                            link = Config.API_BASE_URL + Config.API_VIRAL_VIDEO_LIST+Config.OD_CONENT;
+                        } else if (isTopVideo) {
+                            link = Config.API_BASE_URL + Config.API_TOP_VIDEO_LIST+Config.OD_CONENT;
+                        } else {
+
+                            if(pagination_count > 1){
+                                if(slug != null && slug.trim().equalsIgnoreCase("odishaPlus")) {
+                                    link = Config.API_BASE_URL + Config.NEWS_DETAILS_API + "/" + slug + "?page=" + pagination_count+Config.OD_NEWCONENT;
+                                } else{
+                                    link = Config.API_BASE_URL + "/posts/nextCategory" + "/" + slug + "?page=" + pagination_count+Config.OD_NEWCONENT;
+                                }
+                            } else{
+                                link = Config.API_BASE_URL + Config.NEWS_DETAILS_API + "/" + slug+Config.OD_NEWCONENT;
+                            }
                         }
                     }
 

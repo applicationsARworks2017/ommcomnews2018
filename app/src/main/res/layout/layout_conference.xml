@@ -34,9 +34,7 @@
         android:src="@mipmap/ic_play_arrow"
         android:adjustViewBounds="true"/>
 
-<!--
     <include layout="@layout/gradient"/>
--->
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -115,5 +113,16 @@
         android:layout_marginRight="12dp"
         app:customFont="@string/text_font_family_for_body"
         android:layout_centerHorizontal="true"/>
+    <com.lipl.ommcom.util.CustomTextView
+        android:id="@+id/livetitle"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/imgPlay"
+        android:layout_height="match_parent"
+        android:paddingBottom="12dp"
+        android:textColor="@color/news_title_color"
+        android:gravity="center_horizontal|bottom"
+        android:layout_alignParentBottom="true"
+        android:textSize="@dimen/home_cj_debate_top_news_title_size"
+        app:customFont="@string/text_font_family_for_headlines" />
 
     </RelativeLayout>

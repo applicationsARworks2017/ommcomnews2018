@@ -59,7 +59,7 @@ public class AllOdishaNewsAdapter extends  RecyclerView.Adapter<AllOdishaNewsAda
         holder.imgPlay.setTag(position);
         holder.mainlayout.setTag(position);
 
-        holder.tvTitle.setText(_pos.getMeta_title());
+        holder.tvTitle.setText(_pos.getName());
         holder.tvNewsPostedAt.setText(Util.getTime(_pos.getApproved_date()));
        // String image_url = Util.getImageFilePathForNews(newsArrayList.get(position), viewHolder.mImgPlay);
         imageLoader.displayImage(_pos.getFeatured_image(),

@@ -19,7 +19,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:textColor="@color/news_title_color"
-            android:text="CITIZEN JOURNALIST"
             android:gravity="center_horizontal|bottom"
             android:paddingBottom="12dp"
             android:textSize="@dimen/home_cj_debate_top_news_title_size"

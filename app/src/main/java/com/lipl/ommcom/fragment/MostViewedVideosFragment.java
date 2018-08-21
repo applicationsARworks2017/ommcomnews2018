@@ -76,6 +76,7 @@ public class MostViewedVideosFragment extends Fragment
     private VideoListAdapter mAdapter;
     private int refreshTime = 0;
     private int times = 0;
+    String lang;
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -119,6 +120,7 @@ public class MostViewedVideosFragment extends Fragment
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(layoutManager);
+        lang = getActivity().getSharedPreferences(Config.SHAREDPREFERENCE_LANGUAGE, 0).getString(Config.LANG, null);
 
         mRecyclerView.setRefreshProgressStyle(ProgressStyle.BallSpinFadeLoader);
         mRecyclerView.setLoadingMoreProgressStyle(ProgressStyle.BallRotate);
@@ -276,7 +278,18 @@ public class MostViewedVideosFragment extends Fragment
                 int resCode = -1;
 
                 try {
-                    String link = Config.API_BASE_URL + Config.CITIZEN_NEWS_MOST_VIEWED;
+                    String link = null;
+                    if(lang==null || lang.contentEquals("English")) {
+                        link = Config.API_BASE_URL + Config.CITIZEN_NEWS_MOST_VIEWED + Config.EN_CONENT;
+
+                    }
+                    else{
+                        link = Config.API_BASE_URL + Config.CITIZEN_NEWS_MOST_VIEWED + Config.OD_CONENT;
+
+                    }
+
+
+
                     URL url = new URL(link);
                     HttpURLConnection conn = (HttpURLConnection) url.openConnection();
                     conn.setReadTimeout(10000);
