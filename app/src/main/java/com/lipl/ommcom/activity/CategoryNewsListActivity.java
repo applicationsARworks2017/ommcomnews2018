@@ -413,7 +413,7 @@ public class CategoryNewsListActivity extends AppCompatActivity
                                     link = Config.API_BASE_URL + "/posts/nextCategory" + "/" + slug + "?page=" + pagination_count+Config.EN_NEWCONENT;
                                 }
                             } else{
-                                link = Config.API_BASE_URL + Config.NEWS_DETAILS_API + "/" + slug+Config.EN_NEWCONENT;
+                                link = Config.API_BASE_URL + Config.NEWS_DETAILS_API + "/" + slug+Config.EN_CONENT;
                             }
                         }
                     }
@@ -431,7 +431,7 @@ public class CategoryNewsListActivity extends AppCompatActivity
                                     link = Config.API_BASE_URL + "/posts/nextCategory" + "/" + slug + "?page=" + pagination_count+Config.OD_NEWCONENT;
                                 }
                             } else{
-                                link = Config.API_BASE_URL + Config.NEWS_DETAILS_API + "/" + slug+Config.OD_NEWCONENT;
+                                link = Config.API_BASE_URL + Config.NEWS_DETAILS_API + "/" + slug+Config.OD_CONENT;
                             }
                         }
                     }

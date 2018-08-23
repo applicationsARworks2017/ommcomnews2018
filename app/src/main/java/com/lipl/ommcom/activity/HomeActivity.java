@@ -1934,7 +1934,7 @@ public class HomeActivity extends AppCompatActivity
                 //odisha plus
                 getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
-                intent.putExtra("slug", "odishaPlus");
+                intent.putExtra("slug", "odisha");
                 startActivity(intent);
             }
 
@@ -2008,7 +2008,7 @@ public class HomeActivity extends AppCompatActivity
                 //odisha plus
                 getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
-                intent.putExtra("slug", "odishaPlus");
+                intent.putExtra("slug", "odisha");
                 startActivity(intent);
             }
             if(id == 114){
@@ -2483,6 +2483,14 @@ public class HomeActivity extends AppCompatActivity
 
         odnshead.addView(view_odnshd);
         layoutBody.addView(odnshead);
+
+        odnshead.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(HomeActivity.this,AllOdishaNewsList.class);
+                startActivity(intent);
+            }
+        });
         //AnimationUtil.slideInFromRight(pos0object2, 500, 700);
 
         /*LinearLayout ln_odisha_news = new LinearLayout(HomeActivity.this);
