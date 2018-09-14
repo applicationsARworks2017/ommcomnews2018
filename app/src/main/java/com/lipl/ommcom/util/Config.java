@@ -16,9 +16,14 @@ public class Config {
     private static final String PUBLIC_VC = "ommcomnews.com/ommcom-wip/ommcom-wip" ;//"45.114.50.54";
 
 
-    public static final String DOMAIN = "https://"+ PUBLIC + "/public";
+/*    public static final String DOMAIN = "https://"+ PUBLIC + "/public";
 // created by amaresh
-    public static final String DOMAIN_VC = "https://"+ PUBLIC_VC + "/public";
+    public static final String DOMAIN_VC = "https://"+ PUBLIC_VC + "/public"; */
+
+
+    public static final String DOMAIN = "https://"+ PUBLIC ;
+// created by amaresh
+    public static final String DOMAIN_VC = "https://"+ PUBLIC_VC;
 
     public static final String API_BASE_URL = DOMAIN + "/api" +VERSION;
 

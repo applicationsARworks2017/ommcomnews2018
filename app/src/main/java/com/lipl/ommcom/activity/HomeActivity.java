@@ -335,11 +335,13 @@ public class HomeActivity extends AppCompatActivity
                 int resCode = -1;
                 String link = null;
                 if(lang==null || lang.contentEquals("English")) {
-                    link="https://www.ommcomnews.com/public/api/v0.1/odishaNewsHome"+Config.EN_CONENT;
+                   // link="https://www.ommcomnews.com/public/api/v0.1/odishaNewsHome"+Config.EN_CONENT;
+                    link="https://www.ommcomnews.com/api/v0.1/odishaNewsHome"+Config.EN_CONENT;
 
                 }
                 else{
-                    link="https://www.ommcomnews.com/public/api/v0.1/odishaNewsHome"+Config.OD_CONENT;
+                    //link="https://www.ommcomnews.com/public/api/v0.1/odishaNewsHome"+Config.OD_CONENT;
+                    link="https://www.ommcomnews.com/api/v0.1/odishaNewsHome"+Config.OD_CONENT;
 
                 }
                 URL url = new URL(link);
@@ -437,9 +439,10 @@ public class HomeActivity extends AppCompatActivity
                 Log.i(TAG, "Response : " + response);
                 if (response != null && response.length() > 0) {
                     JSONObject res = new JSONObject(response);
-                    server_status=res.getInt("status");
-                    if(server_status==1){
-                        JSONArray news_array=res.getJSONArray("odisha_news");
+                   // server_status=res.getInt("status");
+                    JSONArray news_array=res.getJSONArray("odisha_news");
+                    if(news_array.length()>=1){
+                        server_status =1;
                         odisanewscount=news_array.length();
                         for(int i=0;i<news_array.length();i++){
                             JSONObject newsobj=news_array.getJSONObject(i);
@@ -516,10 +519,12 @@ public class HomeActivity extends AppCompatActivity
                     int resCode = -1;
                     String link = null;
                     if(lang==null || lang.contentEquals("English")){
-                        link="https://www.ommcomnews.com/public/api/v0.1/getAllAdvertisements"+Config.EN_CONENT;
+                        //link="https://www.ommcomnews.com/public/api/v0.1/getAllAdvertisements"+Config.EN_CONENT;
+                        link="https://www.ommcomnews.com/api/v0.1/getAllAdvertisements"+Config.EN_CONENT;
                     }
                     else{
-                        link="https://www.ommcomnews.com/public/api/v0.1/getAllAdvertisements"+Config.OD_CONENT;
+                        //link="https://www.ommcomnews.com/public/api/v0.1/getAllAdvertisements"+Config.OD_CONENT;
+                        link="https://www.ommcomnews.com/api/v0.1/getAllAdvertisements"+Config.OD_CONENT;
 
                     }
                     URL url = new URL(link);
@@ -2941,7 +2946,8 @@ public class HomeActivity extends AppCompatActivity
 */
                     if(feature_video_replace==null) {
                         Intent intent = new Intent(HomeActivity.this, VideoPlayerActivity.class);
-                        intent.putExtra("video_url", "http://ommcomnews.com/public/images/WISH_MONTAZ_OCNlow_versio-3.mp4");
+                        //intent.putExtra("video_url", "http://ommcomnews.com/public/images/WISH_MONTAZ_OCNlow_versio-3.mp4");
+                        intent.putExtra("video_url", "http://ommcomnews.com/images/WISH_MONTAZ_OCNlow_versio-3.mp4");
                         startActivity(intent);
                     }
                     else{
