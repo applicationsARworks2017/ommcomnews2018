@@ -284,12 +284,12 @@ public class HomeActivity extends AppCompatActivity
 
         CustomTextView tvBreakingNewsNo = (CustomTextView) findViewById(R.id.tvBreakingNewsNo);
         tvBreakingNewsNo.setVisibility(View.GONE);
+        getOdishanews();
         loadAllData();
         setupToolbar();
         init();
         intro();
         getAdvertisements();
-        getOdishanews();
         //GCMManager.getInstance(this).registerListener(this);
         String breaking_news_notifiction_key = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 1)
                 .getString(Config.SP_BREAKING_NEWS_KEY, "No News in preference");
@@ -1939,7 +1939,7 @@ public class HomeActivity extends AppCompatActivity
                 //odisha plus
                 getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
-                intent.putExtra("slug", "odisha");
+                intent.putExtra("slug", "odisha-news");
                 startActivity(intent);
             }
 
@@ -1947,7 +1947,7 @@ public class HomeActivity extends AppCompatActivity
                 //nation
                 getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
-                intent.putExtra("slug", "nation");
+                intent.putExtra("slug", "india-news");
                 startActivity(intent);
             }
 
@@ -1955,7 +1955,7 @@ public class HomeActivity extends AppCompatActivity
                 //world
                 getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
-                intent.putExtra("slug", "world");
+                intent.putExtra("slug", "world-news");
                 startActivity(intent);
                  }
 
@@ -1963,13 +1963,13 @@ public class HomeActivity extends AppCompatActivity
                 //sports
                 getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
-                intent.putExtra("slug", "sports");
+                intent.putExtra("slug", "sports-news");
                 startActivity(intent);
             }if(id == categoryList.size() + 6){
                 //business
                 getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
-                intent.putExtra("slug", "business");
+                intent.putExtra("slug", "business-news");
                 startActivity(intent);
 
             }if(id == categoryList.size() + 7){
@@ -2013,35 +2013,35 @@ public class HomeActivity extends AppCompatActivity
                 //odisha plus
                 getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
-                intent.putExtra("slug", "odisha");
+                intent.putExtra("slug", "odisha-news");
                 startActivity(intent);
             }
             if(id == 114){
                 //nation
                 getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
-                intent.putExtra("slug", "nation");
+                intent.putExtra("slug", "india-news");
                 startActivity(intent);
             }
             if(id == 115){
                 //world
                 getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
-                intent.putExtra("slug", "world");
+                intent.putExtra("slug", "world-news");
                 startActivity(intent);
 
             }if(id == 116){
                 //sports
                 getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
-                intent.putExtra("slug", "sports");
+                intent.putExtra("slug", "sports-news");
                 startActivity(intent);
             }if(id == 117){
                 //business
 
                 getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
-                intent.putExtra("slug", "business");
+                intent.putExtra("slug", "business-news");
                 startActivity(intent);
             }if(id == 118){
                 //entertainment
@@ -2164,8 +2164,8 @@ public class HomeActivity extends AppCompatActivity
                  Boolean pos4obj1=false,pos4obj2=false,pos4arr1=false,pos4arr2=false;
                  Boolean pos5obj1=false,pos5obj2=false,pos5arr1=false,pos5arr2=false;
                  Boolean pos6obj1=false,pos6obj2=false,pos6arr1=false,pos6arr2=false;
+                 getOdishanews();
                  getAdvertisements();
-
                  loadNewsData(true);
              }
          });
@@ -3168,7 +3168,7 @@ public class HomeActivity extends AppCompatActivity
                     if(i+1 >= categoryNews.size()){
                         break;
                     }
-                      news2 = categoryNews.get(i + 1);
+                    final News news2 = categoryNews.get(i + 1);
                     ImageView img_cat_two = (ImageView) view_cat_two.findViewById(R.id.imgNewsTwo);
                     String cat_news_img_two_file_path = "";
                     if(news2 != null){

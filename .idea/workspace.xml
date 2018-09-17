@@ -6,22 +6,19 @@
     </shared>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e830674-13aa-4c37-8449-c9975ac0635a" name="Default" comment="">
+    <list default="true" id="7d7b45e5-43f1-43d2-ac92-edda7e3489bc" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileContent/fileContent.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileContent/fileContent.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" />
-      <change beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskJars.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskJars.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
       <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/util/Config.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/util/Config.java" />
-      <change beforePath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" afterPath="$PROJECT_DIR$/build/intermediates/dex-cache/cache.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -35,13 +32,20 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view />
+      </state>
+    </system>
+  </component>
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="HomeActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="2648" column="0" lean-forward="true" selection-start-line="2648" selection-start-column="0" selection-end-line="2648" selection-end-column="0" />
+            <state relative-caret-position="75">
+              <caret line="2166" column="29" lean-forward="true" selection-start-line="2166" selection-start-column="29" selection-end-line="2166" selection-end-column="29" />
               <folding>
                 <element signature="e#9072#9078#0" expanded="true" />
                 <element signature="e#9190#9205#0" expanded="true" />
@@ -55,56 +59,76 @@
                 <element signature="e#84233#84240#0" expanded="true" />
                 <element signature="e#91534#92128#0" expanded="true" />
                 <element signature="e#92127#92128#0" expanded="true" />
-                <element signature="e#103887#104127#0" expanded="true" />
-                <element signature="e#104126#104127#0" expanded="true" />
-                <element signature="e#106434#107158#0" expanded="true" />
-                <element signature="e#107157#107158#0" expanded="true" />
-                <element signature="e#107316#107651#0" expanded="true" />
-                <element signature="e#107650#107651#0" expanded="true" />
-                <element signature="e#111366#112051#0" expanded="true" />
-                <element signature="e#112050#112051#0" expanded="true" />
-                <element signature="e#114331#115016#0" expanded="true" />
-                <element signature="e#115015#115016#0" expanded="true" />
-                <element signature="e#117314#117999#0" expanded="true" />
-                <element signature="e#117998#117999#0" expanded="true" />
-                <element signature="e#126042#126065#0" expanded="true" />
-                <element signature="e#126127#126150#0" expanded="true" />
-                <element signature="e#126279#126521#0" expanded="true" />
-                <element signature="e#126520#126521#0" expanded="true" />
-                <element signature="e#129889#130520#0" expanded="true" />
-                <element signature="e#130519#130520#0" expanded="true" />
-                <element signature="e#131204#131227#0" expanded="true" />
-                <element signature="e#131283#131306#0" expanded="true" />
-                <element signature="e#131433#131675#0" expanded="true" />
-                <element signature="e#131674#131675#0" expanded="true" />
-                <element signature="e#133420#133443#0" expanded="true" />
-                <element signature="e#133502#133525#0" expanded="true" />
-                <element signature="e#134609#134630#0" expanded="true" />
-                <element signature="e#134687#134708#0" expanded="true" />
-                <element signature="e#146634#147066#0" expanded="true" />
-                <element signature="e#147065#147066#0" expanded="true" />
-                <element signature="e#147111#147593#0" expanded="true" />
-                <element signature="e#147592#147593#0" expanded="true" />
-                <element signature="e#147679#149750#0" expanded="true" />
-                <element signature="e#149749#149750#0" expanded="true" />
-                <element signature="e#149805#150278#0" expanded="true" />
-                <element signature="e#150277#150278#0" expanded="true" />
-                <element signature="e#160202#160744#0" expanded="true" />
-                <element signature="e#160743#160744#0" expanded="true" />
-                <element signature="e#162141#162850#0" expanded="true" />
-                <element signature="e#162849#162850#0" expanded="true" />
-                <element signature="e#165015#165722#0" expanded="true" />
-                <element signature="e#165721#165722#0" expanded="true" />
-                <element signature="e#169099#169107#0" expanded="true" />
-                <element signature="e#170302#170759#0" expanded="true" />
-                <element signature="e#170758#170759#0" expanded="true" />
-                <element signature="e#183579#183599#0" expanded="true" />
-                <element signature="e#183668#183688#0" expanded="true" />
-                <element signature="e#184080#184618#0" expanded="true" />
-                <element signature="e#184617#184618#0" expanded="true" />
-                <element signature="e#191353#191973#0" expanded="true" />
-                <element signature="e#191972#191973#0" expanded="true" />
+                <element signature="e#103935#104175#0" expanded="true" />
+                <element signature="e#104174#104175#0" expanded="true" />
+                <element signature="e#106482#107239#0" expanded="true" />
+                <element signature="e#107238#107239#0" expanded="true" />
+                <element signature="e#107397#107732#0" expanded="true" />
+                <element signature="e#107731#107732#0" expanded="true" />
+                <element signature="e#111447#112132#0" expanded="true" />
+                <element signature="e#112131#112132#0" expanded="true" />
+                <element signature="e#114412#115097#0" expanded="true" />
+                <element signature="e#115096#115097#0" expanded="true" />
+                <element signature="e#117395#118080#0" expanded="true" />
+                <element signature="e#118079#118080#0" expanded="true" />
+                <element signature="e#126123#126146#0" expanded="true" />
+                <element signature="e#126208#126231#0" expanded="true" />
+                <element signature="e#126360#126602#0" expanded="true" />
+                <element signature="e#126601#126602#0" expanded="true" />
+                <element signature="e#129970#130601#0" expanded="true" />
+                <element signature="e#130600#130601#0" expanded="true" />
+                <element signature="e#131285#131308#0" expanded="true" />
+                <element signature="e#131364#131387#0" expanded="true" />
+                <element signature="e#131514#131756#0" expanded="true" />
+                <element signature="e#131755#131756#0" expanded="true" />
+                <element signature="e#133501#133524#0" expanded="true" />
+                <element signature="e#133583#133606#0" expanded="true" />
+                <element signature="e#134690#134711#0" expanded="true" />
+                <element signature="e#134768#134789#0" expanded="true" />
+                <element signature="e#146715#147147#0" expanded="true" />
+                <element signature="e#147146#147147#0" expanded="true" />
+                <element signature="e#147192#147674#0" expanded="true" />
+                <element signature="e#147673#147674#0" expanded="true" />
+                <element signature="e#147760#149831#0" expanded="true" />
+                <element signature="e#149830#149831#0" expanded="true" />
+                <element signature="e#149886#150359#0" expanded="true" />
+                <element signature="e#150358#150359#0" expanded="true" />
+                <element signature="e#160283#160825#0" expanded="true" />
+                <element signature="e#160824#160825#0" expanded="true" />
+                <element signature="e#162231#162940#0" expanded="true" />
+                <element signature="e#162939#162940#0" expanded="true" />
+                <element signature="e#165105#165812#0" expanded="true" />
+                <element signature="e#165811#165812#0" expanded="true" />
+                <element signature="e#169189#169197#0" expanded="true" />
+                <element signature="e#170392#170849#0" expanded="true" />
+                <element signature="e#170848#170849#0" expanded="true" />
+                <element signature="e#183669#183689#0" expanded="true" />
+                <element signature="e#183758#183778#0" expanded="true" />
+                <element signature="e#184170#184708#0" expanded="true" />
+                <element signature="e#184707#184708#0" expanded="true" />
+                <element signature="e#191443#192063#0" expanded="true" />
+                <element signature="e#192062#192063#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CategoryNewsListActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/CategoryNewsListActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="415" column="0" lean-forward="false" selection-start-line="415" selection-start-column="0" selection-end-line="415" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Config.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/util/Config.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="42" column="56" lean-forward="false" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="56" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -113,10 +137,26 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>odisanewscount</find>
+      <find>busine</find>
+      <find>slug</find>
+      <find>category</find>
+      <find>CategoryNewsListActivity</find>
+      <find>categ</find>
+      <find>newslistAc</find>
+      <find>news</find>
+      <find>img_cat_one</find>
+      <find>odishaplus</find>
+      <find>category</find>
+      <find>cat</find>
+      <find>News</find>
+      <find>news2</find>
+      <find>odisha</find>
+      <find>feedba</find>
       <find>odishanews</find>
-      <find>odnsend</find>
-      <find>odnshead</find>
+      <find>odisanewscount</find>
+      <find>swipere</find>
+      <find>loadNewsData</find>
+      <find>getAdvertisements</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -3193,6 +3233,7 @@
     <option name="width" value="1426" />
     <option name="height" value="790" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator currentView="AndroidView" proportions="" version="1">
       <flattenPackages />
@@ -3208,6 +3249,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -3237,10 +3279,9 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -3405,11 +3446,11 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="3e830674-13aa-4c37-8449-c9975ac0635a" name="Default" comment="" />
-      <created>1536923151070</created>
+      <changelist id="7d7b45e5-43f1-43d2-ac92-edda7e3489bc" name="Default" comment="" />
+      <created>1537157480128</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1536923151070</updated>
+      <updated>1537157480128</updated>
     </task>
     <servers />
   </component>
@@ -3417,35 +3458,35 @@
     <frame x="8" y="27" width="1426" height="790" extended-state="0" />
     <editor active="true" />
     <layout>
+      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32886904" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32886904" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39880952" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -3456,95 +3497,299 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
-          <line>444</line>
+          <line>1972</line>
           <properties />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
-          <line>439</line>
+          <line>1969</line>
           <properties />
           <option name="timeStamp" value="1" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
-          <line>356</line>
+          <line>1967</line>
           <properties />
           <option name="timeStamp" value="2" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
-          <line>343</line>
+          <line>2039</line>
           <properties />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
-          <line>338</line>
+          <line>2041</line>
           <properties />
           <option name="timeStamp" value="4" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
-          <line>460</line>
+          <line>2043</line>
           <properties />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
-          <line>315</line>
+          <line>2045</line>
+          <properties />
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>2038</line>
           <properties />
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
-          <line>487</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/CategoryNewsListActivity.java</url>
+          <line>403</line>
           <properties />
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
-          <line>2609</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/CategoryNewsListActivity.java</url>
+          <line>405</line>
+          <properties />
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/CategoryNewsListActivity.java</url>
+          <line>409</line>
           <properties />
           <option name="timeStamp" value="10" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
-          <line>2613</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/CategoryNewsListActivity.java</url>
+          <line>421</line>
           <properties />
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
-          <line>2616</line>
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/CategoryNewsListActivity.java</url>
+          <line>423</line>
           <properties />
           <option name="timeStamp" value="12" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
-          <line>329</line>
-          <properties class="com.lipl.ommcom.activity.HomeActivity.OdihaNews" method="doInBackground">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="6" />
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/CategoryNewsListActivity.java</url>
+          <line>411</line>
+          <properties />
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/CategoryNewsListActivity.java</url>
+          <line>414</line>
+          <properties />
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/CategoryNewsListActivity.java</url>
+          <line>415</line>
+          <properties />
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
-          <line>485</line>
-          <properties class="com.lipl.ommcom.activity.HomeActivity.OdihaNews" method="onPostExecute">
-            <option name="EMULATED" value="true" />
-          </properties>
-          <option name="timeStamp" value="9" />
+          <line>1938</line>
+          <properties />
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>1930</line>
+          <properties />
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>1953</line>
+          <properties />
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>1974</line>
+          <properties />
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>1978</line>
+          <properties />
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>1984</line>
+          <properties />
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>2049</line>
+          <properties />
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>2020</line>
+          <properties />
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>2023</line>
+          <properties />
+          <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>3164</line>
+          <properties />
+          <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>3162</line>
+          <properties />
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>3195</line>
+          <properties />
+          <option name="timeStamp" value="27" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>3193</line>
+          <properties />
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>3239</line>
+          <properties />
+          <option name="timeStamp" value="29" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>3237</line>
+          <properties />
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>3232</line>
+          <properties />
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>1905</line>
+          <properties />
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>1907</line>
+          <properties />
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>3139</line>
+          <properties />
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>3141</line>
+          <properties />
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>3143</line>
+          <properties />
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>3146</line>
+          <properties />
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>3180</line>
+          <properties />
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>3201</line>
+          <properties />
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>3200</line>
+          <properties />
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>3203</line>
+          <properties />
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>3170</line>
+          <properties />
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>3183</line>
+          <properties />
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java</url>
+          <line>3186</line>
+          <properties />
+          <option name="timeStamp" value="44" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="13" />
+      <option name="time" value="45" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/util/Config.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="42" column="56" lean-forward="false" selection-start-line="42" selection-start-column="31" selection-end-line="42" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/CategoryNewsListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="415" column="0" lean-forward="false" selection-start-line="415" selection-start-column="0" selection-end-line="415" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/lipl/ommcom/activity/HomeActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="2648" column="0" lean-forward="true" selection-start-line="2648" selection-start-column="0" selection-end-line="2648" selection-end-column="0" />
+        <state relative-caret-position="75">
+          <caret line="2166" column="29" lean-forward="true" selection-start-line="2166" selection-start-column="29" selection-end-line="2166" selection-end-column="29" />
           <folding>
             <element signature="e#9072#9078#0" expanded="true" />
             <element signature="e#9190#9205#0" expanded="true" />
@@ -3558,55 +3803,55 @@
             <element signature="e#84233#84240#0" expanded="true" />
             <element signature="e#91534#92128#0" expanded="true" />
             <element signature="e#92127#92128#0" expanded="true" />
-            <element signature="e#103887#104127#0" expanded="true" />
-            <element signature="e#104126#104127#0" expanded="true" />
-            <element signature="e#106434#107158#0" expanded="true" />
-            <element signature="e#107157#107158#0" expanded="true" />
-            <element signature="e#107316#107651#0" expanded="true" />
-            <element signature="e#107650#107651#0" expanded="true" />
-            <element signature="e#111366#112051#0" expanded="true" />
-            <element signature="e#112050#112051#0" expanded="true" />
-            <element signature="e#114331#115016#0" expanded="true" />
-            <element signature="e#115015#115016#0" expanded="true" />
-            <element signature="e#117314#117999#0" expanded="true" />
-            <element signature="e#117998#117999#0" expanded="true" />
-            <element signature="e#126042#126065#0" expanded="true" />
-            <element signature="e#126127#126150#0" expanded="true" />
-            <element signature="e#126279#126521#0" expanded="true" />
-            <element signature="e#126520#126521#0" expanded="true" />
-            <element signature="e#129889#130520#0" expanded="true" />
-            <element signature="e#130519#130520#0" expanded="true" />
-            <element signature="e#131204#131227#0" expanded="true" />
-            <element signature="e#131283#131306#0" expanded="true" />
-            <element signature="e#131433#131675#0" expanded="true" />
-            <element signature="e#131674#131675#0" expanded="true" />
-            <element signature="e#133420#133443#0" expanded="true" />
-            <element signature="e#133502#133525#0" expanded="true" />
-            <element signature="e#134609#134630#0" expanded="true" />
-            <element signature="e#134687#134708#0" expanded="true" />
-            <element signature="e#146634#147066#0" expanded="true" />
-            <element signature="e#147065#147066#0" expanded="true" />
-            <element signature="e#147111#147593#0" expanded="true" />
-            <element signature="e#147592#147593#0" expanded="true" />
-            <element signature="e#147679#149750#0" expanded="true" />
-            <element signature="e#149749#149750#0" expanded="true" />
-            <element signature="e#149805#150278#0" expanded="true" />
-            <element signature="e#150277#150278#0" expanded="true" />
-            <element signature="e#160202#160744#0" expanded="true" />
-            <element signature="e#160743#160744#0" expanded="true" />
-            <element signature="e#162141#162850#0" expanded="true" />
-            <element signature="e#162849#162850#0" expanded="true" />
-            <element signature="e#165015#165722#0" expanded="true" />
-            <element signature="e#165721#165722#0" expanded="true" />
-            <element signature="e#169099#169107#0" expanded="true" />
-            <element signature="e#170302#170759#0" expanded="true" />
-            <element signature="e#170758#170759#0" expanded="true" />
-            <element signature="e#183579#183599#0" expanded="true" />
-            <element signature="e#183668#183688#0" expanded="true" />
-            <element signature="e#184080#184618#0" expanded="true" />
-            <element signature="e#184617#184618#0" expanded="true" />
-            <element signature="e#191353#191973#0" expanded="true" />
-            <element signature="e#191972#191973#0" expanded="true" />
+            <element signature="e#103935#104175#0" expanded="true" />
+            <element signature="e#104174#104175#0" expanded="true" />
+            <element signature="e#106482#107239#0" expanded="true" />
+            <element signature="e#107238#107239#0" expanded="true" />
+            <element signature="e#107397#107732#0" expanded="true" />
+            <element signature="e#107731#107732#0" expanded="true" />
+            <element signature="e#111447#112132#0" expanded="true" />
+            <element signature="e#112131#112132#0" expanded="true" />
+            <element signature="e#114412#115097#0" expanded="true" />
+            <element signature="e#115096#115097#0" expanded="true" />
+            <element signature="e#117395#118080#0" expanded="true" />
+            <element signature="e#118079#118080#0" expanded="true" />
+            <element signature="e#126123#126146#0" expanded="true" />
+            <element signature="e#126208#126231#0" expanded="true" />
+            <element signature="e#126360#126602#0" expanded="true" />
+            <element signature="e#126601#126602#0" expanded="true" />
+            <element signature="e#129970#130601#0" expanded="true" />
+            <element signature="e#130600#130601#0" expanded="true" />
+            <element signature="e#131285#131308#0" expanded="true" />
+            <element signature="e#131364#131387#0" expanded="true" />
+            <element signature="e#131514#131756#0" expanded="true" />
+            <element signature="e#131755#131756#0" expanded="true" />
+            <element signature="e#133501#133524#0" expanded="true" />
+            <element signature="e#133583#133606#0" expanded="true" />
+            <element signature="e#134690#134711#0" expanded="true" />
+            <element signature="e#134768#134789#0" expanded="true" />
+            <element signature="e#146715#147147#0" expanded="true" />
+            <element signature="e#147146#147147#0" expanded="true" />
+            <element signature="e#147192#147674#0" expanded="true" />
+            <element signature="e#147673#147674#0" expanded="true" />
+            <element signature="e#147760#149831#0" expanded="true" />
+            <element signature="e#149830#149831#0" expanded="true" />
+            <element signature="e#149886#150359#0" expanded="true" />
+            <element signature="e#150358#150359#0" expanded="true" />
+            <element signature="e#160283#160825#0" expanded="true" />
+            <element signature="e#160824#160825#0" expanded="true" />
+            <element signature="e#162231#162940#0" expanded="true" />
+            <element signature="e#162939#162940#0" expanded="true" />
+            <element signature="e#165105#165812#0" expanded="true" />
+            <element signature="e#165811#165812#0" expanded="true" />
+            <element signature="e#169189#169197#0" expanded="true" />
+            <element signature="e#170392#170849#0" expanded="true" />
+            <element signature="e#170848#170849#0" expanded="true" />
+            <element signature="e#183669#183689#0" expanded="true" />
+            <element signature="e#183758#183778#0" expanded="true" />
+            <element signature="e#184170#184708#0" expanded="true" />
+            <element signature="e#184707#184708#0" expanded="true" />
+            <element signature="e#191443#192063#0" expanded="true" />
+            <element signature="e#192062#192063#0" expanded="true" />
           </folding>
         </state>
       </provider>
