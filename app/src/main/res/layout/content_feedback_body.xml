@@ -90,7 +90,7 @@
         android:id="@+id/mobile"
         android:singleLine="true"
         app:met_floatingLabelTextColor="@android:color/black"
-        app:met_iconLeft="@mipmap/ic_comment_white"
+        app:met_iconLeft="@mipmap/ic_contact_phone"
         app:met_floatingLabel="highlight"
         app:met_errorColor="@color/red"
         app:met_typeface="@string/text_font_family_for_body"

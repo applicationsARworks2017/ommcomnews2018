@@ -112,6 +112,7 @@
                 android:id="@+id/description_with_img_only"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:textSize="12sp"
                 app:customFont="@string/text_font_family_for_news_long_desc"
                 android:textColor="@android:color/black"/>
         </LinearLayout>

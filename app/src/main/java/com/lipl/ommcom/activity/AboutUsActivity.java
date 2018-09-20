@@ -66,6 +66,7 @@ import java.util.List;
 import io.fabric.sdk.android.Fabric;
 
 public class AboutUsActivity extends AppCompatActivity {
+    Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,8 +76,17 @@ public class AboutUsActivity extends AppCompatActivity {
 
         setToolBar();
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        toolbar.setNavigationIcon(R.mipmap.ic_back);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AboutUsActivity.this.finish();
+            }
+        });
 
         if(Util.getNetworkConnectivityStatus(AboutUsActivity.this) == false){
             Util.showDialogToShutdownApp(AboutUsActivity.this);
@@ -85,16 +95,10 @@ public class AboutUsActivity extends AppCompatActivity {
     }
 
     private void setToolBar(){
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
-        toolbar.setNavigationIcon(R.mipmap.ic_back);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+
     }
 }

@@ -78,7 +78,7 @@ public class FeedbackActivity extends AppCompatActivity implements View.OnClickL
                     return;
                 }
 
-                if(mobile == null || mobile.trim().length() <= 0){
+                if(mobile == null || mobile.trim().length() <= 10){
                     tvmobile.setError("Enter mobile");
                     return;
                 }

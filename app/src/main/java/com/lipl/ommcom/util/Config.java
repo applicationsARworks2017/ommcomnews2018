@@ -1,6 +1,8 @@
 package com.lipl.ommcom.util;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.util.TypedValue;
 
 /**
@@ -208,5 +210,16 @@ public class Config {
 
     public static final String SHAREDPREFERENCE_LANGUAGE = "ommcomlanguage" ;
     public static final String LANG="languange";
+
+    public static Intent getTwitterIntent(Context ctx, String shareText) {
+        Intent shareIntent;
+        shareIntent = new Intent(Intent.ACTION_SEND);
+        shareIntent.setClassName("com.twitter.android",
+                "com.twitter.android.PostActivity");
+        shareIntent.setType("text/*");
+        shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareText);
+        return shareIntent;
+
+    }
 
 }

@@ -1,8 +1,12 @@
 package com.lipl.ommcom.activity;
 
 import android.app.ProgressDialog;
+import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -124,7 +128,10 @@ public class NewsDetailsActivity1 extends AppCompatActivity implements FlipAdapt
         final String title = news.getName() + "\n";
         final String posted_by = news.getJounalist_name() + "\n";
         final String posted_at = " " + Util.getTime(news.getApproved_date()) + "\n";
-        String short_description = news.getShort_description() + "\n\n\n\n\n";
+       // String short_description = news.getShort_description() + "\n\n\n\n\n";
+       // String short_description = " " + "\n\n\n";
+        String short_description = " " + Html.
+                fromHtml("<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />");
         Spanned long_description = Html.fromHtml(news.getLong_description());
 
         final TextView tvDemo = (TextView) findViewById(R.id.description_with_img_only);
@@ -147,13 +154,22 @@ public class NewsDetailsActivity1 extends AppCompatActivity implements FlipAdapt
         paspanString.setSpan(new RelativeSizeSpan(0.9f), 0, posted_at.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         paspanString.setSpan(new StyleSpan(typeface.getStyle()), 0, posted_at.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
+
         SpannableString spanStringSd = new SpannableString(short_description);
         spanStringSd.setSpan(new ForegroundColorSpan(Color.BLACK), 0,
                 short_description.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        spanStringSd.setSpan(new RelativeSizeSpan(1.2f), 0,
+        spanStringSd.setSpan(new RelativeSizeSpan(0.9f), 0,
                 short_description.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         spanStringSd.setSpan(new StyleSpan(typeface.getStyle()), 0,
                 short_description.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        SpannableString spanStringld = new SpannableString(long_description);
+        spanStringld.setSpan(new ForegroundColorSpan(Color.BLACK), 0,
+                long_description.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spanStringld.setSpan(new RelativeSizeSpan(0.9f), 0,
+                long_description.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+        spanStringld.setSpan(new StyleSpan(typeface.getStyle()), 0,
+                long_description.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         final CharSequence text = TextUtils.concat(spanString, pbspanString, paspanString, spanStringSd, long_description);
         final List<NewsDetailsForFlipModel> newsDetailsForFlipModels =
@@ -193,13 +209,16 @@ public class NewsDetailsActivity1 extends AppCompatActivity implements FlipAdapt
                             } else {
                                 tvDemoFull.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                             }
-                            Pagination pagination = new Pagination(rest_text,
-                                    tvDemoFull.getWidth(),
-                                    tvDemoFull.getHeight(),
-                                    tvDemoFull.getPaint(),
-                                    tvDemoFull.getLineSpacingMultiplier(),
-                                    tvDemoFull.getLineSpacingExtra(),
-                                    tvDemoFull.getIncludeFontPadding());
+                            Pagination pagination = null;
+                            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
+                                pagination = new Pagination(rest_text,
+                                        tvDemoFull.getWidth(),
+                                        tvDemoFull.getHeight(),
+                                        tvDemoFull.getPaint(),
+                                        tvDemoFull.getLineSpacingMultiplier(),
+                                        tvDemoFull.getLineSpacingExtra(),
+                                        tvDemoFull.getIncludeFontPadding());
+                            }
 
                             for(int i = 0; i < pagination.size(); i++){
                                 NewsDetailsForFlipModel newsDetailsForFlipModel = new NewsDetailsForFlipModel(Parcel.obtain());
@@ -992,7 +1011,26 @@ public class NewsDetailsActivity1 extends AppCompatActivity implements FlipAdapt
     }
 
     private void shareInTwitter(String link){
-        initSocialAdapter(link);
+       // initSocialAdapter(link);
+        //Config.getTwitterIntent(NewsDetailsActivity1.this,link);
+        Intent shareIntent = new Intent(android.content.Intent.ACTION_SEND);
+        shareIntent.setType("text/plain");
+        shareIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Ommcom News");
+        shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, link);
+
+        final PackageManager pm = NewsDetailsActivity1.this.getPackageManager();
+        final List<ResolveInfo> activityList = pm.queryIntentActivities(shareIntent, 0);
+        for (final ResolveInfo app : activityList) {
+            if ("com.twitter.composer.ComposerActivity".equals(app.activityInfo.name)) {
+                final ActivityInfo activity = app.activityInfo;
+                final ComponentName name = new ComponentName(activity.applicationInfo.packageName, activity.name);
+                shareIntent.addCategory(Intent.CATEGORY_LAUNCHER);
+                shareIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED);
+                shareIntent.setComponent(name);
+                NewsDetailsActivity1.this.startActivity(shareIntent);
+                break;
+            }
+        }
     }
 
     private SocialAuthAdapter socialAuthAdapter;
