@@ -222,16 +222,16 @@ public class VideoConferenceActivity extends AppCompatActivity implements OnClic
 									}
 
 									if(email != null &&  email.trim().length() > 0) {
-										getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit()
+										getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit()
 												.putString(Config.SP_USER_EMAIL, email).commit();
 									}
 
 									if(name != null && name.trim().length() > 0) {
-										getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit()
+										getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit()
 												.putString(Config.SP_USER_NAME, name).commit();
-										getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit()
+										getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit()
 												.putString(Config.SP_LOGGED_IN_SOCIAL_SITE, "f").commit();
-										getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit()
+										getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit()
 												.putInt(Config.SP_LOGIN_STATUS, 1).commit();
 										showAlertForUserDetailEntry();
 									}
@@ -281,15 +281,15 @@ public class VideoConferenceActivity extends AppCompatActivity implements OnClic
 			GoogleSignInAccount acct = result.getSignInAccount();
 			String name = acct.getDisplayName();
 			String email = acct.getEmail();
-			getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_LOGIN_STATUS, 1).commit();
-			getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putString(Config.SP_USER_NAME, name).commit();
-			getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putString(Config.SP_USER_EMAIL, email).commit();
-			getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putString(Config.SP_LOGGED_IN_SOCIAL_SITE, "g").commit();
+			getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_LOGIN_STATUS, 1).commit();
+			getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putString(Config.SP_USER_NAME, name).commit();
+			getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putString(Config.SP_USER_EMAIL, email).commit();
+			getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putString(Config.SP_LOGGED_IN_SOCIAL_SITE, "g").commit();
 		} else {
 			// Signed out, show unauthenticated UI.
-			getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_LOGIN_STATUS, 0).commit();
-			getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putString(Config.SP_USER_NAME, "").commit();
-			getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putString(Config.SP_USER_EMAIL, "").commit();
+			getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_LOGIN_STATUS, 0).commit();
+			getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putString(Config.SP_USER_NAME, "").commit();
+			getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putString(Config.SP_USER_EMAIL, "").commit();
 		}
 		showAlertForUserDetailEntry();
 	}
@@ -1577,7 +1577,7 @@ public class VideoConferenceActivity extends AppCompatActivity implements OnClic
 
 	private void showAlertForUserDetailEntry() {
 
-		int _login_status = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 1).getInt(Config.SP_LOGIN_STATUS, 0);
+		int _login_status = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).getInt(Config.SP_LOGIN_STATUS, 0);
 		if(_login_status == 1){
 
 			AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
@@ -1585,7 +1585,7 @@ public class VideoConferenceActivity extends AppCompatActivity implements OnClic
 			final View dialogView = inflater.inflate(R.layout.dialog_layout, null);
 			dialogBuilder.setView(dialogView);
 
-			final String name = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).getString(Config.SP_USER_NAME, "");
+			final String name = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).getString(Config.SP_USER_NAME, "");
 			final TextView edt_name = (TextView) dialogView.findViewById(R.id.dialog_txt_name);
 			edt_name.setText(name);
 			final EditText edt_designation = (EditText) dialogView.findViewById(R.id.dialog_txt_designation);
@@ -1691,16 +1691,16 @@ public class VideoConferenceActivity extends AppCompatActivity implements OnClic
 		@Override
 		public void onComplete(final Bundle values) {
 			try {
-				getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit()
+				getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit()
 						.putInt(Config.SP_LOGIN_STATUS, 1).commit();
 				if(social_site.equalsIgnoreCase("f")) {
-					getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit()
+					getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit()
 							.putString(Config.SP_LOGGED_IN_SOCIAL_SITE, "f").commit();
 				} else if(social_site.equalsIgnoreCase("t")) {
-					getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit()
+					getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit()
 							.putString(Config.SP_LOGGED_IN_SOCIAL_SITE, "t").commit();
 				} else if(social_site.equalsIgnoreCase("g")) {
-					getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit()
+					getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit()
 							.putString(Config.SP_LOGGED_IN_SOCIAL_SITE, "g").commit();
 				}
 				socialAuthAdapter.getUserProfileAsync(new ProfileDataListener(social_site));

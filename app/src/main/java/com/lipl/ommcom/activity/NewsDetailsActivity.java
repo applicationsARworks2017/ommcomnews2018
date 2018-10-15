@@ -43,6 +43,8 @@ import android.widget.Toast;
 
 import com.crashlytics.android.Crashlytics;
 import com.facebook.CallbackManager;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 import com.facebook.share.model.ShareLinkContent;
 import com.facebook.share.widget.ShareDialog;
 import com.google.android.gms.plus.PlusShare;
@@ -101,6 +103,12 @@ public class NewsDetailsActivity extends AppCompatActivity implements FlipAdapte
         super.onCreate(savedInstanceState);
         Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_main2);
+
+
+
+        FacebookSdk.sdkInitialize(getApplicationContext());
+        AppEventsLogger.activateApp(this);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         lang = getSharedPreferences(Config.SHAREDPREFERENCE_LANGUAGE, 0).getString(Config.LANG, null);
@@ -178,7 +186,7 @@ public class NewsDetailsActivity extends AppCompatActivity implements FlipAdapte
         SpannableString spanStringSd = new SpannableString(short_description);
         spanStringSd.setSpan(new ForegroundColorSpan(Color.BLACK), 0,
                 short_description.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        spanStringSd.setSpan(new RelativeSizeSpan(0.9f), 0,
+        spanStringSd.setSpan(new RelativeSizeSpan(1.1f), 0,
                 short_description.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         spanStringSd.setSpan(new StyleSpan(typeface.getStyle()), 0,
                 short_description.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -186,7 +194,7 @@ public class NewsDetailsActivity extends AppCompatActivity implements FlipAdapte
         SpannableString spanStringld = new SpannableString(long_description);
         spanStringld.setSpan(new ForegroundColorSpan(Color.BLACK), 0,
                 long_description.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-        spanStringld.setSpan(new RelativeSizeSpan(0.9f), 0,
+        spanStringld.setSpan(new RelativeSizeSpan(1.2f), 0,
                 long_description.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
         spanStringld.setSpan(new StyleSpan(typeface.getStyle()), 0,
                 long_description.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -607,6 +615,10 @@ public class NewsDetailsActivity extends AppCompatActivity implements FlipAdapte
                         if(jsonObj.isNull("meta_keywords") == false){
                             String meta_keywords = jsonObj.getString("meta_keywords");
                             news.setMeta_keywords(meta_keywords);
+                        }
+                        if(jsonObj.isNull("categoryslug") == false){
+                            String categoryslug = jsonObj.getString("categoryslug");
+                            news.setCategoryslug(categoryslug);
                         }
 
                         if(jsonObj.isNull("news_count") == false){
@@ -1261,10 +1273,36 @@ FLAG_ACTIVITY_NEW_TASK
     @Override
     public void onShareClick(News news) {
         if(news != null) {
-            String link = Config.DOMAIN + "/" +news.getSlug();
-            String description = news.getShort_description();
-            String title = news.getName();
-            showAlertForShare(link, description, title);
+            if(lang==null || lang.contentEquals("English")) {
+
+                String link = Config.DOMAIN + "/" + news.getCategoryslug() + "/" + news.getSlug();
+                String description = news.getShort_description();
+                String title = news.getName();
+              // we will use later
+              //  showAlertForShare(link, description, title);
+
+                Intent share = new Intent(Intent.ACTION_SEND);
+                share.setType("text/plain");
+                share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+                share.putExtra(Intent.EXTRA_SUBJECT, "OMMCOM");
+                share.putExtra(Intent.EXTRA_TEXT, link);
+                startActivity(Intent.createChooser(share, "Share link!"));
+
+            }
+            else {
+                String link = Config.DOMAIN + "/" + news.getCategoryslug() + "/" + news.getSlug()+ "/odia";
+                String description = news.getShort_description();
+                String title = news.getName();
+
+
+                Intent share = new Intent(Intent.ACTION_SEND);
+                share.setType("text/plain");
+                share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+                share.putExtra(Intent.EXTRA_SUBJECT, "OMMCOM");
+                share.putExtra(Intent.EXTRA_TEXT, link);
+                startActivity(Intent.createChooser(share, "Share link!"));
+                //showAlertForShare(link, description, title);
+            }
         }
     }
 

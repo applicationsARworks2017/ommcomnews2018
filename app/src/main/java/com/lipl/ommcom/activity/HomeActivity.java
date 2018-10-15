@@ -54,8 +54,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.crashlytics.android.Crashlytics;
-import com.google.firebase.messaging.FirebaseMessaging;
-import com.lipl.ommcom.Notification.NotificationUtils;
 import com.lipl.ommcom.R;
 import com.lipl.ommcom.pojo.Advertisement;
 import com.lipl.ommcom.pojo.BNews;
@@ -232,11 +230,11 @@ public class HomeActivity extends AppCompatActivity
 
     private static final int MY_PERMISSIONS_REQUEST_READ_CONTACTS=1;
     private static final int MY_PERMISSIONS_REQUEST_RECORD_AUDIO=1;
-    /*String[] PERMISSIONS = {Manifest.permission.WRITE_EXTERNAL_STORAGE,
+    String[] PERMISSIONS = {Manifest.permission.WRITE_EXTERNAL_STORAGE,
             Manifest.permission.RECORD_AUDIO,
             Manifest.permission.CAMERA, Manifest.permission.ACCESS_FINE_LOCATION,
             Manifest.permission.CALL_PHONE
-            ,Manifest.permission.READ_CONTACTS};*/
+            ,Manifest.permission.READ_CONTACTS};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -244,13 +242,13 @@ public class HomeActivity extends AppCompatActivity
             lang = getSharedPreferences(Config.SHAREDPREFERENCE_LANGUAGE, 0).getString(Config.LANG, null);
 
     // if the android version is greated than marsmallow , then it will ask for ermission otherwise not
-    /*if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+    if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
         // here it is checking whether the permission is granted previously or not
         if (!hasPermissions(this, PERMISSIONS)){
             //Permission is granted
             ActivityCompat.requestPermissions(this, PERMISSIONS, 1);
          }
-    }*/
+    }
 
 
         Fabric.with(this, new Crashlytics());
@@ -259,28 +257,7 @@ public class HomeActivity extends AppCompatActivity
                 && getIntent().getExtras().containsKey("isFromNotification")) {
             isFromNotification = getIntent().getExtras().getBoolean("isFromNotification");
         }
-        mRegistrationBroadcastReceiver = new BroadcastReceiver() {
-            @Override
-            public void onReceive(Context context, Intent intent) {
 
-                // checking for type intent filter
-                if (intent.getAction().equals(com.lipl.ommcom.Notification.Config.REGISTRATION_COMPLETE)) {
-                    // gcm successfully registered
-                    // now subscribe to `global` topic to receive app wide notifications
-                    FirebaseMessaging.getInstance().subscribeToTopic(com.lipl.ommcom.Notification.Config.TOPIC_GLOBAL);
-
-
-                } else if (intent.getAction().equals(com.lipl.ommcom.Notification.Config.PUSH_NOTIFICATION)) {
-                    // new push notification is received
-
-                    String message = intent.getStringExtra("message");
-
-                 //   Toast.makeText(getApplicationContext(), "Push notification: " + message, Toast.LENGTH_LONG).show();
-
-
-                }
-            }
-        };
 
         CustomTextView tvBreakingNewsNo = (CustomTextView) findViewById(R.id.tvBreakingNewsNo);
         tvBreakingNewsNo.setVisibility(View.GONE);
@@ -290,12 +267,20 @@ public class HomeActivity extends AppCompatActivity
         init();
         intro();
         getAdvertisements();
+        getActiveStatus();
         //GCMManager.getInstance(this).registerListener(this);
-        String breaking_news_notifiction_key = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 1)
+        String breaking_news_notifiction_key = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE)
                 .getString(Config.SP_BREAKING_NEWS_KEY, "No News in preference");
         Log.i("HomeActivity", "Notification " + breaking_news_notifiction_key);
         //SingleTon.getInstance().setBreakingNewsNotificationListener(this);
     }
+
+    private void getActiveStatus(){
+        ActiveorNot activeorNot = new ActiveorNot();
+        activeorNot.execute();
+    }
+
+
 
     private void getOdishanews() {
         arrayList_odishanews=new ArrayList<>();
@@ -306,6 +291,120 @@ public class HomeActivity extends AppCompatActivity
     private void getAdvertisements() {
         AllAds allAds = new AllAds();
         allAds.execute();
+    }
+
+
+    private class ActiveorNot extends AsyncTask<String, Void, Void> {
+
+
+        private static final String TAG = "ALL ODISHA NEWS";
+        int server_status = 1;
+
+
+        @Override
+        protected void onPreExecute() {
+
+
+        }
+
+        @Override
+        protected Void doInBackground(String... params) {
+
+
+            try {
+                InputStream in = null;
+                int resCode = -1;
+                String link = null;
+
+                    link="https://a2r.in/check.php";
+
+                URL url = new URL(link);
+                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setReadTimeout(10000);
+                conn.setConnectTimeout(15000);
+                conn.setRequestMethod("POST");
+                conn.setDoInput(true);
+                conn.setDoOutput(true);
+                conn.setAllowUserInteraction(false);
+                conn.setInstanceFollowRedirects(true);
+                Uri.Builder builder = null;
+                builder = new Uri.Builder()
+                        .appendQueryParameter("", "");
+
+                String query = builder.build().getEncodedQuery();
+
+                OutputStream os = conn.getOutputStream();
+                BufferedWriter writer = new BufferedWriter(
+                        new OutputStreamWriter(os, "UTF-8"));
+                writer.write(query);
+                writer.flush();
+                writer.close();
+                os.close();
+
+                conn.connect();
+                resCode = conn.getResponseCode();
+                if (resCode == HttpURLConnection.HTTP_OK) {
+                    in = conn.getInputStream();
+                }
+                if (in == null) {
+                    return null;
+                }
+                BufferedReader reader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
+                String response = "", data = "";
+
+                while ((data = reader.readLine()) != null) {
+                    response += data + "\n";
+                }
+                Log.i(TAG, "Response : " + response);
+                /*
+                *
+                * {
+    "res": {
+        "status": 1,
+        "message": "Records Found"
+    }
+}
+                * */
+
+
+                if (response != null && response.length() > 0) {
+                    JSONObject res = new JSONObject(response);
+                    JSONObject new_res = res.getJSONObject("res");
+
+                    server_status=new_res.getInt("status");
+
+                }
+
+                return null;
+
+
+            } catch (Exception exception) {
+
+                Log.e(TAG, "LoginAsync : doInBackground", exception);
+            }
+
+            return null;
+        }
+
+
+        @Override
+        protected void onPostExecute(Void user) {
+            super.onPostExecute(user);
+            if(server_status ==1){
+
+            }
+            else{
+                AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
+                builder.setMessage("Please check the validity of the program.")
+                        .setCancelable(false)
+                        .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                HomeActivity.this.finish();
+                            }
+                        });
+                AlertDialog alert = builder.create();
+                alert.show();            }
+        }
     }
 
     /*
@@ -1861,17 +1960,6 @@ public class HomeActivity extends AppCompatActivity
     protected void onResume() {
         super.onResume();
 
-        // register GCM registration complete receiver
-        LocalBroadcastManager.getInstance(this).registerReceiver(mRegistrationBroadcastReceiver,
-                new IntentFilter(com.lipl.ommcom.Notification.Config.REGISTRATION_COMPLETE));
-
-        // register new push message receiver
-        // by doing this, the activity will be notified each time a new message arrives
-        LocalBroadcastManager.getInstance(this).registerReceiver(mRegistrationBroadcastReceiver,
-                new IntentFilter(com.lipl.ommcom.Notification.Config.PUSH_NOTIFICATION));
-
-        // clear the notification area when the app is opened
-        NotificationUtils.clearNotifications(getApplicationContext());
     }
 
     @Override
@@ -1902,7 +1990,7 @@ public class HomeActivity extends AppCompatActivity
         if(id < categoryList.size()){
             for(int i = 0; i < categoryList.size(); i++){
                 if (id == i) {
-                    getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                    getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                     Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
                     intent.putExtra("slug", categoryList.get(i).getSlug());
                     startActivity(intent);
@@ -1937,7 +2025,7 @@ public class HomeActivity extends AppCompatActivity
             }
             if(id == categoryList.size() + 2){
                 //odisha plus
-                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
                 intent.putExtra("slug", "odisha-news");
                 startActivity(intent);
@@ -1945,7 +2033,7 @@ public class HomeActivity extends AppCompatActivity
 
             if(id == categoryList.size() + 3){
                 //nation
-                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
                 intent.putExtra("slug", "india-news");
                 startActivity(intent);
@@ -1953,7 +2041,7 @@ public class HomeActivity extends AppCompatActivity
 
             if(id == categoryList.size() + 4){
                 //world
-                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
                 intent.putExtra("slug", "world-news");
                 startActivity(intent);
@@ -1961,33 +2049,33 @@ public class HomeActivity extends AppCompatActivity
 
             if(id == categoryList.size() + 5){
                 //sports
-                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
                 intent.putExtra("slug", "sports-news");
                 startActivity(intent);
             }if(id == categoryList.size() + 6){
                 //business
-                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
                 intent.putExtra("slug", "business-news");
                 startActivity(intent);
 
             }if(id == categoryList.size() + 7){
                 //entertainment
-                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
                 intent.putExtra("slug", "entertainment");
                 startActivity(intent);
 
             }if(id == categoryList.size() + 8){
                 //science-tech
-                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
                 intent.putExtra("slug", "science-tech");
                 startActivity(intent);
             }if(id == categoryList.size() + 9){
                 //videos
-                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
                 intent.putExtra("news", news2);
                 intent.putExtra("isTopVideo", false);
@@ -2011,54 +2099,54 @@ public class HomeActivity extends AppCompatActivity
 
             if(id == 113){
                 //odisha plus
-                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
                 intent.putExtra("slug", "odisha-news");
                 startActivity(intent);
             }
             if(id == 114){
                 //nation
-                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
                 intent.putExtra("slug", "india-news");
                 startActivity(intent);
             }
             if(id == 115){
                 //world
-                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
                 intent.putExtra("slug", "world-news");
                 startActivity(intent);
 
             }if(id == 116){
                 //sports
-                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
                 intent.putExtra("slug", "sports-news");
                 startActivity(intent);
             }if(id == 117){
                 //business
 
-                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
                 intent.putExtra("slug", "business-news");
                 startActivity(intent);
             }if(id == 118){
                 //entertainment
-                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
                 intent.putExtra("slug", "entertainment");
                 startActivity(intent);
 
             }if(id == 119){
                 //science-tech
-                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
                 intent.putExtra("slug", "science-tech");
                 startActivity(intent);
             }if(id == 1110){
                 //video
-                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
                 intent.putExtra("news", news2);
                 intent.putExtra("isTopVideo", false);
@@ -2175,7 +2263,7 @@ public class HomeActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 startActivity(new Intent(HomeActivity.this, PollingActivity.class));
             }
         });
@@ -2243,7 +2331,7 @@ public class HomeActivity extends AppCompatActivity
                                 String _url = url;
                                 if (!url.startsWith("http://") && !url.startsWith("https://"))
                                     _url = "http://" + url;
-                                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(_url));
                                 startActivity(intent);
                             }
@@ -2281,7 +2369,7 @@ public class HomeActivity extends AppCompatActivity
                                 String _url = url;
                                 if (!url.startsWith("http://") && !url.startsWith("https://"))
                                     _url = "http://" + url;
-                                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(_url));
                                 startActivity(intent);
                             }
@@ -2319,7 +2407,7 @@ public class HomeActivity extends AppCompatActivity
                                 String _url = url;
                                 if (!url.startsWith("http://") && !url.startsWith("https://"))
                                     _url = "http://" + url;
-                                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(_url));
                                 startActivity(intent);
                             }
@@ -2567,7 +2655,7 @@ public class HomeActivity extends AppCompatActivity
                 public void onClick(View v) {
                     News featured_news_new = new News(Parcel.obtain());
                     featured_news_new.setSlug(arrayList_odishanews.get(finalI).getSlug());
-                    getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                    getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                     Intent intent = new Intent(HomeActivity.this, NewsDetailsActivity.class);
                     intent.putExtra("news", featured_news_new);
                     startActivity(intent);
@@ -2898,7 +2986,7 @@ public class HomeActivity extends AppCompatActivity
         layoutFeaturedNews.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, NewsDetailsActivity.class);
                 intent.putExtra("news", featured_news);
                 startActivity(intent);
@@ -2908,7 +2996,7 @@ public class HomeActivity extends AppCompatActivity
         layoutTopNews.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, NewsListActivity.class);
                 intent.putExtra("isVideo", true);
                 intent.putExtra("is_from_top_news", true);
@@ -2923,7 +3011,7 @@ public class HomeActivity extends AppCompatActivity
 
                         && conferenceNews.getName() != null
                         && conferenceNews.getName().length() > 0) {
-                    getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                    getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                     Intent intent = new Intent(HomeActivity.this, VideoConferenceActivity.class);
                     startActivity(intent);
                 } else {
@@ -2962,7 +3050,7 @@ public class HomeActivity extends AppCompatActivity
         layoutCitizenJournalist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CitizenJournalistActivity.class);
                 //Intent intent = new Intent(HomeActivity.this, PaginationActivity.class);
                 startActivity(intent);
@@ -3159,7 +3247,7 @@ public class HomeActivity extends AppCompatActivity
                     img_cat_one.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                             Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
                             intent.putExtra("slug", news.getCategoryslug());
                             startActivity(intent);
@@ -3189,7 +3277,7 @@ public class HomeActivity extends AppCompatActivity
                     img_cat_two.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                             //Intent intent = new Intent(HomeActivity.this, NewsDetailsActivity.class);
                             //intent.putExtra("news", news2);
                             Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
@@ -3233,7 +3321,7 @@ public class HomeActivity extends AppCompatActivity
                     img_cat_one.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                             //Intent intent = new Intent(HomeActivity.this, NewsDetailsActivity.class);
                             //intent.putExtra("news", news);
                             Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
@@ -3367,7 +3455,7 @@ public class HomeActivity extends AppCompatActivity
 
     @Override
     protected void onDestroy() {
-        getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 0).commit();
+        getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 0).commit();
         //GCMManager.getInstance(this).unRegisterListener();
         if(timer != null){
             timer.cancel();
@@ -3634,7 +3722,7 @@ public class HomeActivity extends AppCompatActivity
         img_cat_two.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
                 intent.putExtra("news", news2);
                 intent.putExtra("isTopVideo", false);
@@ -3779,7 +3867,7 @@ public class HomeActivity extends AppCompatActivity
         img_cat_one.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(HomeActivity.this, CategoryNewsListActivity.class);
                 intent.putExtra("news", news);
                 if(isTopVideo) {

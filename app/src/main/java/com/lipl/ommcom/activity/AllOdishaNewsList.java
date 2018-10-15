@@ -116,11 +116,13 @@ public class AllOdishaNewsList extends AppCompatActivity {
                 int resCode = -1;
                 String link= null;
                 if(lang==null || lang.contentEquals("English")) {
-                    link= "https://www.ommcomnews.com/public/api/v0.1/viewMoreNews"+Config.EN_CONENT;
+                    //link= "https://www.ommcomnews.com/api/v0.1/viewMoreNews"+Config.EN_CONENT;
+                    link= "https://www.ommcomnews.com/api/v0.1/odishaNewsHome"+Config.EN_CONENT;
 
                 }
                 else{
-                    link= "https://www.ommcomnews.com/public/api/v0.1/viewMoreNews"+Config.OD_CONENT;
+                    //link= "https://www.ommcomnews.com/api/v0.1/viewMoreNews"+Config.OD_CONENT;
+                    link= "https://www.ommcomnews.com/api/v0.1/odishaNewsHome"+Config.OD_CONENT;
                 }
 
                 URL url = new URL(link);
@@ -134,7 +136,7 @@ public class AllOdishaNewsList extends AppCompatActivity {
                 conn.setInstanceFollowRedirects(true);
                 Uri.Builder builder = null;
                 builder = new Uri.Builder()
-                        .appendQueryParameter("page_no", String.valueOf(page));
+                        .appendQueryParameter("page", String.valueOf(page));
 
                 String query = builder.build().getEncodedQuery();
 
@@ -218,9 +220,12 @@ public class AllOdishaNewsList extends AppCompatActivity {
                 Log.i(TAG, "Response : " + response);
                 if (response != null && response.length() > 0) {
                     JSONObject res = new JSONObject(response);
-                    server_status=res.getInt("status");
-                    if(server_status==1){
+                  //  server_status=res.getInt("status");
+                   // if(server_status==1){
                         JSONArray news_array=res.getJSONArray("odisha_news");
+                        if(news_array.length()>0){
+                            server_status=1;
+                        }
                         if(news_array.length()>10){
                             scroll_allow=false;
                         }
@@ -248,7 +253,7 @@ public class AllOdishaNewsList extends AppCompatActivity {
                             arrayList_odishanews.add(odishaNews);
 
                         }
-                    }
+                   // }
                 }
 
                 return null;

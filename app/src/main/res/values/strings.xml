@@ -8,7 +8,8 @@
     <string name="title_activity_citizen_journalist">CitizenJournalistActivity</string>
     <string name="section_format">Hello World from slug: %1$d</string>
 
-    <string name="facebook_app_id">197632853968695</string>
+    <string name="facebook_app_id">726686604352046</string>
+    <string name="fb_login_protocol_scheme">fb726686604352046</string>
     <string name="twitter_consumer_key">Bnrsv48ZWcr7dA8R80Y4l9mzf</string>
     <string name="twitter_consumer_secret_key">TA88j3gudvqrfAPmLFDeFwGWrszN3I7NvMW7a9n5n7rAWo1mTR</string>
 

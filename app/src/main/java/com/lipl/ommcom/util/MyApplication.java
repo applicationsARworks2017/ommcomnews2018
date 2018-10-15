@@ -73,8 +73,8 @@ public class MyApplication extends Application {
                 public void onLocationFound(Location location) {
                     String lat = location.getLatitude() + "";
                     String lon = location.getLongitude() + "";
-                    getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putString(Config.SP_LATITUDE, lat).commit();
-                    getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putString(Config.SP_LONGITUDE, lon).commit();
+                    getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putString(Config.SP_LATITUDE, lat).commit();
+                    getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putString(Config.SP_LONGITUDE, lon).commit();
                 }
 
                 @Override

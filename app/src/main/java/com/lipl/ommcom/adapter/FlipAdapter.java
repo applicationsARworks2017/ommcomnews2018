@@ -316,7 +316,7 @@ public class FlipAdapter extends BaseAdapter implements BaseSliderView.OnSliderC
             spanStringSd = new SpannableString(_short_description);
             spanStringSd.setSpan(new ForegroundColorSpan(Color.BLACK), 0,
                     _short_description.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-            spanStringSd.setSpan(new RelativeSizeSpan(0.9f), 0,
+            spanStringSd.setSpan(new RelativeSizeSpan(1.1f), 0,
                     _short_description.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
             spanStringSd.setSpan(new StyleSpan(typeface.getStyle()), 0,
                     _short_description.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);

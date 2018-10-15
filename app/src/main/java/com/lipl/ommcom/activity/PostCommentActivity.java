@@ -45,6 +45,8 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.auth.api.signin.GoogleSignInResult;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.ResultCallback;
+import com.google.android.gms.common.api.Status;
 import com.google.android.gms.plus.Plus;
 import com.lipl.ommcom.R;
 import com.lipl.ommcom.pojo.Item;
@@ -101,6 +103,9 @@ public class PostCommentActivity extends AppCompatActivity implements View.OnCli
 
     String _email = "";
     String _name = "";
+    MaterialEditText et_name;
+    MaterialEditText et_email;
+    ImageView btnResetTwitter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -112,6 +117,9 @@ public class PostCommentActivity extends AppCompatActivity implements View.OnCli
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        et_name = (MaterialEditText)findViewById(R.id.name);
+        et_email = (MaterialEditText)findViewById(R.id.email);
 
         if(Util.getNetworkConnectivityStatus(PostCommentActivity.this) == false){
             Util.showDialogToShutdownApp(PostCommentActivity.this);
@@ -125,11 +133,24 @@ public class PostCommentActivity extends AppCompatActivity implements View.OnCli
             return;
         }
 
-        /**
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .enableAutoManage(this, this)
+                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
+                .build();
+        /*
          * Facebook Callback
          * */
         callbackManager = CallbackManager.Factory.create();
         btnPostCommentFB = (ImageView) findViewById(R.id.btnPostCommentFB);
+        btnResetTwitter = (ImageView) findViewById(R.id.btnResetTwitter);
+
+        btnPostCommentFB.setVisibility(View.GONE);
+        btnResetTwitter.setVisibility(View.GONE);
+
         loginButton = (LoginButton) findViewById(R.id.login_button);
         List < String > permissionNeeds = Arrays.asList("user_photos", "email",
                 "user_birthday", "public_profile", "AccessToken");
@@ -167,9 +188,9 @@ public class PostCommentActivity extends AppCompatActivity implements View.OnCli
                                     gender = object.getString("gender");
                                     birthday = object.getString("birthday");
 
-                                    getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit()
+                                    getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit()
                                             .putString(Config.SP_USER_EMAIL, name).commit();
-                                    getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit()
+                                    getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit()
                                             .putString(Config.SP_USER_NAME, email).commit();
 
                                     MaterialEditText nameet = (MaterialEditText) findViewById(R.id.name);
@@ -180,7 +201,7 @@ public class PostCommentActivity extends AppCompatActivity implements View.OnCli
                                     emailet.setVisibility(View.VISIBLE);
                                     emailet.setText(email);
 
-                                    getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit()
+                                    getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit()
                                             .putString(Config.SP_LOGGED_IN_SOCIAL_SITE, "f").commit();
                                 } catch (JSONException e) {
                                     e.printStackTrace();
@@ -205,38 +226,6 @@ public class PostCommentActivity extends AppCompatActivity implements View.OnCli
                         Log.v("LoginActivity", exception.getCause().toString());
                     }
                 });
-
-        /**
-         * Google Plus Callback
-         * */
-        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestEmail()
-                .build();
-        mGoogleApiClient = new GoogleApiClient.Builder(this)
-                .enableAutoManage(this /* FragmentActivity */, PostCommentActivity.this /* OnConnectionFailedListener */)
-                .addApi(Auth.GOOGLE_SIGN_IN_API, gso)
-                .addApi(Plus.API)
-                .build();
-
-        String name = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).getString(Config.SP_USER_NAME, "");
-        MaterialEditText nameet = (MaterialEditText) findViewById(R.id.name);
-        if(name != null && name.trim().length() > 0) {
-            //nameet.setVisibility(View.VISIBLE);
-            nameet.setText(name);
-        } else {
-            //nameet.setVisibility(View.GONE);
-            nameet.setText("");
-        }
-
-        String email = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).getString(Config.SP_USER_EMAIL, "");
-        MaterialEditText emailet = (MaterialEditText) findViewById(R.id.email);
-        if(email != null && email.trim().length() > 0) {
-            //emailet.setVisibility(View.VISIBLE);
-            emailet.setText(email);
-        } else {
-            //emailet.setVisibility(View.GONE);
-            emailet.setText("");
-        }
 
         ImageView btnPostCommentFB = (ImageView) findViewById(R.id.btnPostCommentFB);
         ImageView btnResetTwitter = (ImageView) findViewById(R.id.btnResetTwitter);
@@ -366,7 +355,7 @@ public class PostCommentActivity extends AppCompatActivity implements View.OnCli
                 }
                 break;*/
             case R.id.btnPostComment:
-                int login_status = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 1).getInt(Config.SP_LOGIN_STATUS, 0);
+                int login_status = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).getInt(Config.SP_LOGIN_STATUS, 0);
 
 
 
@@ -559,10 +548,10 @@ public class PostCommentActivity extends AppCompatActivity implements View.OnCli
 
                         }
                     //} else{
-                        int _login_status = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 1).getInt(Config.SP_LOGIN_STATUS, 0);
+                        int _login_status = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).getInt(Config.SP_LOGIN_STATUS, 0);
                         if(_login_status == 1){
-                            _email = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 1).getString(Config.SP_USER_EMAIL, "");
-                            _name = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 1).getString(Config.SP_USER_NAME, "");
+                            _email = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).getString(Config.SP_USER_EMAIL, "");
+                            _name = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).getString(Config.SP_USER_NAME, "");
 
                             email.setText(_email);
                             name.setText(_name);
@@ -587,10 +576,10 @@ public class PostCommentActivity extends AppCompatActivity implements View.OnCli
                 }
                 break;
             case R.id.btnReset:
-                //MaterialEditText name = (MaterialEditText) findViewById(R.id.name);
-                //name.setText("");
-                //MaterialEditText email = (MaterialEditText) findViewById(R.id.email);
-                //email.setText("");
+               /* MaterialEditText cmt_name = (MaterialEditText) findViewById(R.id.name);
+                cmt_name.setText("");
+                MaterialEditText cmt_email = (MaterialEditText) findViewById(R.id.email);
+                cmt_email.setText("");*/
                 MaterialEditText commenttext = (MaterialEditText) findViewById(R.id.commenttext);
                 commenttext.setText("");
                 CustomTextView fileName = (CustomTextView) findViewById(R.id.fileName);
@@ -602,7 +591,7 @@ public class PostCommentActivity extends AppCompatActivity implements View.OnCli
 
             case R.id.btnLogout:
                 boolean is_sign_out = false;
-                String social_site = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 1).getString(Config.SP_LOGGED_IN_SOCIAL_SITE, "");
+                String social_site = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).getString(Config.SP_LOGGED_IN_SOCIAL_SITE, "");
                 if(social_site != null && social_site.equalsIgnoreCase("f")) {
                     loginButton.performClick();
                     com.facebook.Profile profile = com.facebook.Profile.getCurrentProfile().getCurrentProfile();
@@ -623,15 +612,25 @@ public class PostCommentActivity extends AppCompatActivity implements View.OnCli
                     setViewAsPerLoginStatus();
                 } else if(social_site != null && social_site.equalsIgnoreCase("g")) {
                     if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
+
+                        Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
+                                new ResultCallback<Status>() {
+                                    @Override
+                                    public void onResult(Status status) {
+                                        getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_LOGIN_STATUS, 0).commit();
+                                        getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putString(Config.SP_USER_NAME, "").commit();
+                                        getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putString(Config.SP_USER_EMAIL, "").commit();
+                                        getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putString(Config.SP_LOGGED_IN_SOCIAL_SITE, "").commit();
+                                        et_email.setText("");
+                                        et_name.setText("");
+                                        setViewAsPerLoginStatus();                                    }
+                                });
+
+                      /*
                         Plus.AccountApi.clearDefaultAccount(mGoogleApiClient);
                         mGoogleApiClient.disconnect();
-                        // mGoogleApiClient.connect();
-                        getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_LOGIN_STATUS, 0).commit();
-                        getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putString(Config.SP_USER_NAME, "").commit();
-                        getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putString(Config.SP_USER_EMAIL, "").commit();
-                        getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putString(Config.SP_LOGGED_IN_SOCIAL_SITE, "").commit();
+                        // mGoogleApiClient.connect();*/
 
-                        setViewAsPerLoginStatus();
                     }
             } else {
 
@@ -645,7 +644,7 @@ public class PostCommentActivity extends AppCompatActivity implements View.OnCli
                                 public void onClick(DialogInterface dialog, int which) {
                                     boolean is_sign_out = false;
                                     if (socialAuthAdapter != null) {
-                                        String social_site = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 1).getString(Config.SP_LOGGED_IN_SOCIAL_SITE, "");
+                                        String social_site = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).getString(Config.SP_LOGGED_IN_SOCIAL_SITE, "");
 
                                         if (social_site != null && social_site.equalsIgnoreCase("f")) {
                                             loginButton.performClick();
@@ -670,7 +669,7 @@ public class PostCommentActivity extends AppCompatActivity implements View.OnCli
                                                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                                                 @Override
                                                                 public void onClick(DialogInterface dialog, int which) {
-                                                                    getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit()
+                                                                    getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit()
                                                                             .putInt(Config.SP_LOGIN_STATUS, 0).commit();
                                                                 }
                                                             }
@@ -686,7 +685,7 @@ public class PostCommentActivity extends AppCompatActivity implements View.OnCli
                                                     .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                                                 @Override
                                                                 public void onClick(DialogInterface dialog, int which) {
-                                                                    getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit()
+                                                                    getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit()
                                                                             .putInt(Config.SP_LOGIN_STATUS, 1).commit();
                                                                 }
                                                             }
@@ -1037,7 +1036,7 @@ public class PostCommentActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void setViewAsPerLoginStatus(){
-        int login_status = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 1).getInt(Config.SP_LOGIN_STATUS, 0);
+        int login_status = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).getInt(Config.SP_LOGIN_STATUS, 0);
         Button btnPostComment = (Button) findViewById(R.id.btnPostComment);
         Button btnLogout = (Button) findViewById(R.id.btnLogout);
         MaterialEditText name = (MaterialEditText) findViewById(R.id.name);
@@ -1053,7 +1052,7 @@ public class PostCommentActivity extends AppCompatActivity implements View.OnCli
 
         if(login_status == 0) {
            // btnPostComment.setText("Login & Post");
-            btnPostComment.setText("Login");
+            btnPostComment.setText("Post");
             btnLogout.setVisibility(View.GONE);
             name.setText("");
             email.setText("");
@@ -1061,21 +1060,23 @@ public class PostCommentActivity extends AppCompatActivity implements View.OnCli
             //name.setVisibility(View.GONE);
             //email.setVisibility(View.GONE);
 
-            btnPostCommentFB.setVisibility(View.VISIBLE);
-            btnResetTwitter.setVisibility(View.VISIBLE);
+            // to be changed after suceess of facebbok
+
+           /* btnPostCommentFB.setVisibility(View.VISIBLE);
+            btnResetTwitter.setVisibility(View.VISIBLE);*/
             btnResetGooglePlus.setVisibility(View.VISIBLE);
             //btnResetEmail.setVisibility(View.VISIBLE);
         } else {
 
-            btnPostCommentFB.setVisibility(View.GONE);
-            btnResetTwitter.setVisibility(View.GONE);
+            /*btnPostCommentFB.setVisibility(View.GONE);
+            btnResetTwitter.setVisibility(View.GONE);*/
             btnResetGooglePlus.setVisibility(View.GONE);
             //btnResetEmail.setVisibility(View.GONE);
 
             btnPostComment.setText("Post");
             btnLogout.setVisibility(View.VISIBLE);
-            String _name = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 1).getString(Config.SP_USER_NAME, "");
-            String _email = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 1).getString(Config.SP_USER_EMAIL, "");
+            String _name = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).getString(Config.SP_USER_NAME, "");
+            String _email = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).getString(Config.SP_USER_EMAIL, "");
 
             name.setVisibility(View.VISIBLE);
             email.setVisibility(View.VISIBLE);
@@ -1090,7 +1091,7 @@ public class PostCommentActivity extends AppCompatActivity implements View.OnCli
     }
 
     private void userLogin(int which){
-        int login_status = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 1).getInt(Config.SP_LOGIN_STATUS, 0);
+        int login_status = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).getInt(Config.SP_LOGIN_STATUS, 0);
         if(login_status == 0){
             switch (which) {
                 case 0:
@@ -1142,16 +1143,16 @@ public class PostCommentActivity extends AppCompatActivity implements View.OnCli
         @Override
         public void onComplete(final Bundle values) {
             try {
-                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit()
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit()
                         .putInt(Config.SP_LOGIN_STATUS, 1).commit();
                 if(social_site.equalsIgnoreCase("f")) {
-                    getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit()
+                    getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit()
                             .putString(Config.SP_LOGGED_IN_SOCIAL_SITE, "f").commit();
                 } else if(social_site.equalsIgnoreCase("t")) {
-                    getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit()
+                    getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit()
                             .putString(Config.SP_LOGGED_IN_SOCIAL_SITE, "t").commit();
                 } else if(social_site.equalsIgnoreCase("g")) {
-                    getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit()
+                    getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit()
                             .putString(Config.SP_LOGGED_IN_SOCIAL_SITE, "g").commit();
                 }
                 setViewAsPerLoginStatus();
@@ -1224,12 +1225,12 @@ public class PostCommentActivity extends AppCompatActivity implements View.OnCli
 
             Log.i("Postcomment", "profile : "+ profileMap.toString());
 
-            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putString(Config.SP_USER_NAME, name).commit();
-            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putString(Config.SP_USER_EMAIL, email).commit();
-            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putString(Config.SP_USER_SOCIAL_SITE_ID, id).commit();
-            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putString(Config.SP_USER_SOCIAL_SITE, url).commit();
-            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putString(Config.SP_USER_AVATAR, profile_image_url).commit();
-            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putString(Config.SP_USER_AVATAR_ORIGINAL, profile_image_url).commit();
+            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putString(Config.SP_USER_NAME, name).commit();
+            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putString(Config.SP_USER_EMAIL, email).commit();
+            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putString(Config.SP_USER_SOCIAL_SITE_ID, id).commit();
+            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putString(Config.SP_USER_SOCIAL_SITE, url).commit();
+            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putString(Config.SP_USER_AVATAR, profile_image_url).commit();
+            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putString(Config.SP_USER_AVATAR_ORIGINAL, profile_image_url).commit();
 
             if(Util.getNetworkConnectivityStatus(PostCommentActivity.this) == false){
                 Util.showDialogToShutdownApp(PostCommentActivity.this);
@@ -1272,8 +1273,8 @@ public class PostCommentActivity extends AppCompatActivity implements View.OnCli
                 String avatar = params[4];
                 String avatar_original = params[5];
 
-                String lat = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 1).getString(Config.SP_LATITUDE, "");
-                String lon = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 1).getString(Config.SP_LONGITUDE, "");
+                String lat = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).getString(Config.SP_LATITUDE, "");
+                String lon = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).getString(Config.SP_LONGITUDE, "");
 
                 InputStream in = null;
                 int resCode = -1;
@@ -1347,9 +1348,9 @@ public class PostCommentActivity extends AppCompatActivity implements View.OnCli
                 progressDialog.dismiss();
 
             if(is_success){
-                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_LOGIN_STATUS, 1).commit();
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_LOGIN_STATUS, 1).commit();
             } else{
-                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_LOGIN_STATUS, 0).commit();
+                getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_LOGIN_STATUS, 0).commit();
             }
         }
     }
@@ -1372,20 +1373,26 @@ public class PostCommentActivity extends AppCompatActivity implements View.OnCli
             GoogleSignInAccount acct = result.getSignInAccount();
             String name = acct.getDisplayName();
             String email = acct.getEmail();
-            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_LOGIN_STATUS, 1).commit();
-            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putString(Config.SP_USER_NAME, name).commit();
-            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putString(Config.SP_USER_EMAIL, email).commit();
-            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putString(Config.SP_LOGGED_IN_SOCIAL_SITE, "g").commit();
+
+            et_name.setText(name);
+            et_email.setText(email);
+
+            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_LOGIN_STATUS, 1).commit();
+            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putString(Config.SP_USER_NAME, name).commit();
+            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putString(Config.SP_USER_EMAIL, email).commit();
+            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putString(Config.SP_LOGGED_IN_SOCIAL_SITE, "g").commit();
         } else {
             // Signed out, show unauthenticated UI.
-            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_LOGIN_STATUS, 0).commit();
-            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putString(Config.SP_USER_NAME, "").commit();
-            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putString(Config.SP_USER_EMAIL, "").commit();
+            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_LOGIN_STATUS, 0).commit();
+            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putString(Config.SP_USER_NAME, "").commit();
+            getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putString(Config.SP_USER_EMAIL, "").commit();
         }
         setViewAsPerLoginStatus();
     }
 
     private void signIn() {
+
+
         if(mGoogleApiClient != null) {
             Intent signInIntent = Auth.GoogleSignInApi.getSignInIntent(mGoogleApiClient);
             startActivityForResult(signInIntent, RC_SIGN_IN);

@@ -26,6 +26,8 @@ import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
 import java.util.ArrayList;
 
+import static android.content.Context.MODE_PRIVATE;
+
 /**
  * Created by Amaresh on 7/11/18.
  */
@@ -75,7 +77,7 @@ public class AllOdishaNewsAdapter extends  RecyclerView.Adapter<AllOdishaNewsAda
             public void onClick(View v) {
                 News featured_news_new = new News(Parcel.obtain());
                 featured_news_new.setSlug(_pos.getSlug());
-                _context.getSharedPreferences(Config.SHARED_PREFERENCE_KEY, 2).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
+                _context.getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE).edit().putInt(Config.SP_IS_FROM_CHILD_ACTIVITY, 1).commit();
                 Intent intent = new Intent(_context, NewsDetailsActivity.class);
                 intent.putExtra("news", featured_news_new);
                 _context.startActivity(intent);
