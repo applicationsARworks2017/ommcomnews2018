@@ -3,33 +3,6 @@
 
     <item
         is-multidex="true"
-        jar="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/libs/httpclient-4.0.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="1d7d28fa738bdbfe4fbd895d9486308999bdf440">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/2/httpclient-4.0.1_8039a8129dbfbc2d7f4fe40c67ff220413d3d8bd/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/amaresh/.android/build-cache/b0862bae0c821fb078d54f2f4f13177b47f76d8e/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="3627eacd7f7cafb5e8ae683992e7b2f9b7dcab1a">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_72489f581f80b8a1bfd67035c69f509352177e5f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/amaresh/.android/build-cache/4230e59a4687d614c0f99d9f7c17f574a9fbd765/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="08962e03b6a954c65d4944e092879b7f5ee1208d">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_897da19be82d8d4a9dffd757cf11665027ef1377/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/amaresh/.android/build-cache/d3d3d7d66bf5dfc193accf65cb4e7c01f678434a/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
@@ -48,57 +21,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/amaresh/.android/build-cache/78db0de3788c7e0d6c427e7b1f1512f3981651ea/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="f0001e71cea6ae432a00021c6f727f5ef0f3d27e">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_9910018f056e48ee3997ff446a6c285db8051aa2/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/libs/nodemedia-client-v1.2.7.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="cb21926990548b4a5f37279d7b8f8a2b4aeac31a">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/2/nodemedia-client-v1.2.7_35e568c67cb12d0dffc097c801d9019f219fbd23/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/amaresh/.android/build-cache/2bbad3ef40f71df823d813b3b36b4def592ccdcc/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="182370a4a0bba7903c6ff2cb7b6ac21ca4a4bf89">
         <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_6af80d0f82ce899d7a5c322bf416666a4c5223f4/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/amaresh/.android/build-cache/9a60187e6e94012f249cb96505a7d417c2214659/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="5337354083e89ed67151859ab0b6b80935c60eaf">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_781be2ef320f1595701d557d413e588e968bfb34/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/amaresh/.android/build-cache/749d5fccdf696d9c27375bbf053f9b0427a362b5/output/jars/libs/internal_impl-23.3.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.3.0_2823f899b7c7db74a3002e4b6857b0a9c24a3f4b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/amaresh/.android/build-cache/e2156104eab0c7c1c28b0f47457ce1dd00374beb/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="debf30ce0a7560396b6235edef77e447006454c2">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_26597e1dbbd7ca6c736fc1c6b2072d7e04441d5f/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -111,39 +39,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/amaresh/.android/build-cache/b0932d6d1465bc31f72c04c356d1423aadb1252e/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="8d1d93a88af982b2dcc2dca771aaa78bee2772d8">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_5e40a1102d1ad0edd3d28790d270c3093d5b931e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/amaresh/.android/build-cache/a465de0a4d919fa40d524b5184c5615a0003d457/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="6a0f2d219f82db499ac03d5a985c4eb3e83fc422">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3010b1079bc6000a3fc765e800c51d50e3dbd0ba/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/libs/socialauth-4.12.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="568176a2e47e9cbed808a4350b595eccce4465de">
         <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/2/socialauth-4.12_57c4cbbccc5550730fcd9999566f7d80ab46f91c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/amaresh/.android/build-cache/9a3297c2e9909ac83eb4eb927224ac78d1fa9834/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="819c2c3a4fb135e085445d11131d069cf9c32b2a">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_73cf1d43a9a92a9c63297ade79fd40da127047bf/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -156,39 +57,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/amaresh/.android/build-cache/275a7acbaba17f5348f2d80ad82dade3c3609885/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="421b36cf4f0d3bbd75e8f28647fccf36674ef049">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_90ead868f8cb494b8f275ca08642c9c6b1a111ef/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/amaresh/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.0/6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd/bolts-android-1.2.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/bolts-android-1.2.0_6106f6fc8f41a817c516a97a1cbf3a11c46b8b45/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/amaresh/.gradle/caches/modules-2/files-2.1/com.github.PhilJay/MPAndroidChart/v2.2.4/7abd1ecef320da6a7679b137083151401fe8bf43/MPAndroidChart-v2.2.4.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="7abd1ecef320da6a7679b137083151401fe8bf43">
         <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/MPAndroidChart-v2.2.4_b2f1dfa99e22b284947d4243217134b0cc6838a1/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/amaresh/.android/build-cache/2399b1517112a84c0b47c101396e7b868e28be40/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="d2ce88db16786c9c2a839f1839af47a9a96dad17">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_e54163243c799b8f663b6060659b9fcc37144630/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -210,30 +84,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/amaresh/.android/build-cache/0bbcc24aac942c06343d02d12010033508827142/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_2e27122691dbcf579758985cc95a6572a205e806/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/amaresh/.android/build-cache/fa80631df09eccdbbe5a3bae7b425f8d0136f6e7/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="288913b440a3c61c30aa171095453a605432277a">
         <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0570a16de96076299ba96ce279f860c3c032763f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/amaresh/.android/build-cache/cb5190d5b47b740085c1fa717089ee5006fe377f/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="e1bec33f1ec5367e25676638b430b9d585f3dbec">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f3c20be1131351b79e4041f089cb266fbde050a9/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -255,39 +111,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/amaresh/.android/build-cache/2659b22c94fc9fb4262d07b40e2a06f882b4dc0f/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="3575e73a22dce98f0bdbcdb475ef55a84606a9a6">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_954a7822715b80a6bb080b4980ec6bd059d74fca/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/amaresh/.android/build-cache/c5233c6a555c79ba0f48f186fb15a7d760ef9117/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="6b896c1067633db41e9c10a3a5d0919c5c4cfc8c">
         <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_4d0fc22819a624fba82590c993fbd8221b1a6328/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/amaresh/.android/build-cache/5a6babfbd9734fb626fec559749556a2cc0b12fc/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="8cec50fc9cc847bad0d6ed7d93814f4b34744521">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_823d5c2a304ee0fc6c7c5499f3735756add5376e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/amaresh/.android/build-cache/574eedd30db62d5d9310638b564a70f7dbedd59f/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="d41b5d21cc9dd7d210f0ae82ac509ba7f091d611">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_45bbc36c0a5b34689759d292042d2ae55f9ee4d2/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -309,30 +138,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/libs/universal-image-loader-1.9.5.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="442dbfb517b9ab5cb5c6da7ebf8cc28ec5bd0375">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/2/universal-image-loader-1.9.5_a0e96a0a3cfea31c19e56477a8b9e7dbfeb604c0/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/library/build/intermediates/bundles/default/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="8aca37e7458a589567f16d9700fbad7176d8fb2e">
         <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/4/classes_072fc8e8bcc90ece0f872ba2e189e85f4da8fcd4/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/libs/signpost-core-1.2.1.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="d1b39a438178bc885d724458de64cee33f1932a6">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/2/signpost-core-1.2.1.1_ac68f001621a63c7cf1534a2ce777e0d759dc6f0/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -363,66 +174,12 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/amaresh/.android/build-cache/0711c2ddc1dd9878e1feb421490fca6c5e213c21/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="a78bfd2ec508b123ee7c03f4006ba7996ef9a8dc">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f123cdd3fccc5eac335a331d051f727f54bc29ea/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/amaresh/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/2.0.1/516c03b21d50a644d538de0f0369c620989cd8f0/jsr305-2.0.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="516c03b21d50a644d538de0f0369c620989cd8f0">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/jsr305-2.0.1_76ad3fcd4a364eff5b5ba60ff447756bd2a7c79c/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/libs/MarkdownView.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="f601a6169f4c1775dafcd32fb6dbd27336fc9c76">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/2/MarkdownView_944f9f4525ed36d8fc8643eb0f9833d2b4f7bfe6/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/amaresh/.android/build-cache/ba7c8eb3d2fbceed0713438e97862b3f54dc7b5e/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="f8023822963e161a6bdc9bcbff31231abab914c8">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_139737db1722e1dee0e0a29a16eeffddf3908dc6/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/amaresh/.android/build-cache/f27c08ca49d4b7a0e5714451276eaf9f9c5bf427/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="005786793d72c6deacbbbfd38177ed58e1aa6653">
         <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_aa7b6e9e311cb3f0e4530d2dcd91a1ae226ff0ca/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/amaresh/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.3.0/support-annotations-23.3.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="db7791d75a07fef9844d06236c1c59ba7bf6997c">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.3.0_f6cb28e8b13be3f1018084c954884da2af451f27/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/amaresh/.android/build-cache/f37b416a174d777e60a5ea09550ce4864c5c31c8/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="def5530cb13311617fc8f962e2a90225bb6904e2">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_784366d12c0597688c7b553ac981a464633b9371/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -462,21 +219,264 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/amaresh/.android/build-cache/3fa778b0a684c1a700381b966606881ac2d95089/output/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.3"
-        sha1="48917c60ea81213ea39cbd7123996a5401106dc3">
-        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_b416fb0f6cb718b1bf634740f9768a10f361dbd2/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/amaresh/.android/build-cache/cc186d652d095606e4d0eb615103dafa67e84d4b/output/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="25.0.3"
         sha1="99c0128e5e416cf65c7dc8465c1cb1d5fd7c4f92">
         <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a5a4513582c0387ab1dfc737dd156829e69bf022/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/libs/httpclient-4.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="1d7d28fa738bdbfe4fbd895d9486308999bdf440">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/2/httpclient-4.0.1_8039a8129dbfbc2d7f4fe40c67ff220413d3d8bd/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/.android/build-cache/b0862bae0c821fb078d54f2f4f13177b47f76d8e/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3627eacd7f7cafb5e8ae683992e7b2f9b7dcab1a">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_72489f581f80b8a1bfd67035c69f509352177e5f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/.android/build-cache/4230e59a4687d614c0f99d9f7c17f574a9fbd765/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="08962e03b6a954c65d4944e092879b7f5ee1208d">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_897da19be82d8d4a9dffd757cf11665027ef1377/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/.android/build-cache/78db0de3788c7e0d6c427e7b1f1512f3981651ea/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="f0001e71cea6ae432a00021c6f727f5ef0f3d27e">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_9910018f056e48ee3997ff446a6c285db8051aa2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/libs/nodemedia-client-v1.2.7.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="cb21926990548b4a5f37279d7b8f8a2b4aeac31a">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/2/nodemedia-client-v1.2.7_35e568c67cb12d0dffc097c801d9019f219fbd23/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/.android/build-cache/9a60187e6e94012f249cb96505a7d417c2214659/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="5337354083e89ed67151859ab0b6b80935c60eaf">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_781be2ef320f1595701d557d413e588e968bfb34/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/.android/build-cache/749d5fccdf696d9c27375bbf053f9b0427a362b5/output/jars/libs/internal_impl-23.3.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="4da5a4d697d32497c6f85567a5112e62fdfd0676">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-23.3.0_2823f899b7c7db74a3002e4b6857b0a9c24a3f4b/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/.android/build-cache/e2156104eab0c7c1c28b0f47457ce1dd00374beb/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="debf30ce0a7560396b6235edef77e447006454c2">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_26597e1dbbd7ca6c736fc1c6b2072d7e04441d5f/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/.android/build-cache/b0932d6d1465bc31f72c04c356d1423aadb1252e/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="8d1d93a88af982b2dcc2dca771aaa78bee2772d8">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_5e40a1102d1ad0edd3d28790d270c3093d5b931e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/.android/build-cache/a465de0a4d919fa40d524b5184c5615a0003d457/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6a0f2d219f82db499ac03d5a985c4eb3e83fc422">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3010b1079bc6000a3fc765e800c51d50e3dbd0ba/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/.android/build-cache/9a3297c2e9909ac83eb4eb927224ac78d1fa9834/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="819c2c3a4fb135e085445d11131d069cf9c32b2a">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_73cf1d43a9a92a9c63297ade79fd40da127047bf/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/.android/build-cache/275a7acbaba17f5348f2d80ad82dade3c3609885/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="421b36cf4f0d3bbd75e8f28647fccf36674ef049">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_90ead868f8cb494b8f275ca08642c9c6b1a111ef/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-android/1.2.0/6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd/bolts-android-1.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="6ee2953ccf51ce72b6d548c30c4633b99eb4f9dd">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/bolts-android-1.2.0_6106f6fc8f41a817c516a97a1cbf3a11c46b8b45/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/.android/build-cache/2399b1517112a84c0b47c101396e7b868e28be40/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d2ce88db16786c9c2a839f1839af47a9a96dad17">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_e54163243c799b8f663b6060659b9fcc37144630/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/.android/build-cache/0bbcc24aac942c06343d02d12010033508827142/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="a0b5d60246cd9d4f3f2443611b3b4c25265840b5">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_2e27122691dbcf579758985cc95a6572a205e806/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/.android/build-cache/cb5190d5b47b740085c1fa717089ee5006fe377f/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="e1bec33f1ec5367e25676638b430b9d585f3dbec">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f3c20be1131351b79e4041f089cb266fbde050a9/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/.android/build-cache/2659b22c94fc9fb4262d07b40e2a06f882b4dc0f/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="3575e73a22dce98f0bdbcdb475ef55a84606a9a6">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_954a7822715b80a6bb080b4980ec6bd059d74fca/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/.android/build-cache/5a6babfbd9734fb626fec559749556a2cc0b12fc/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="8cec50fc9cc847bad0d6ed7d93814f4b34744521">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_823d5c2a304ee0fc6c7c5499f3735756add5376e/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/.android/build-cache/574eedd30db62d5d9310638b564a70f7dbedd59f/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d41b5d21cc9dd7d210f0ae82ac509ba7f091d611">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_45bbc36c0a5b34689759d292042d2ae55f9ee4d2/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/libs/universal-image-loader-1.9.5.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="442dbfb517b9ab5cb5c6da7ebf8cc28ec5bd0375">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/2/universal-image-loader-1.9.5_a0e96a0a3cfea31c19e56477a8b9e7dbfeb604c0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/libs/signpost-core-1.2.1.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="d1b39a438178bc885d724458de64cee33f1932a6">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/2/signpost-core-1.2.1.1_ac68f001621a63c7cf1534a2ce777e0d759dc6f0/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/.android/build-cache/0711c2ddc1dd9878e1feb421490fca6c5e213c21/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="a78bfd2ec508b123ee7c03f4006ba7996ef9a8dc">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_f123cdd3fccc5eac335a331d051f727f54bc29ea/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/2.0.1/516c03b21d50a644d538de0f0369c620989cd8f0/jsr305-2.0.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="516c03b21d50a644d538de0f0369c620989cd8f0">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/jsr305-2.0.1_76ad3fcd4a364eff5b5ba60ff447756bd2a7c79c/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/.android/build-cache/ba7c8eb3d2fbceed0713438e97862b3f54dc7b5e/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="f8023822963e161a6bdc9bcbff31231abab914c8">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_139737db1722e1dee0e0a29a16eeffddf3908dc6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/libs/MarkdownView.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="f601a6169f4c1775dafcd32fb6dbd27336fc9c76">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/2/MarkdownView_944f9f4525ed36d8fc8643eb0f9833d2b4f7bfe6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.3.0/support-annotations-23.3.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="db7791d75a07fef9844d06236c1c59ba7bf6997c">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-23.3.0_f6cb28e8b13be3f1018084c954884da2af451f27/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/.android/build-cache/f37b416a174d777e60a5ea09550ce4864c5c31c8/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="def5530cb13311617fc8f962e2a90225bb6904e2">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_784366d12c0597688c7b553ac981a464633b9371/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/amaresh/.android/build-cache/3fa778b0a684c1a700381b966606881ac2d95089/output/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.3"
+        sha1="48917c60ea81213ea39cbd7123996a5401106dc3">
+        <dex dex="/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_b416fb0f6cb718b1bf634740f9768a10f361dbd2/classes.dex" />
     </item>
     <item
         is-multidex="true"
