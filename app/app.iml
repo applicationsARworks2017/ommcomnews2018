@@ -130,6 +130,7 @@
     <orderEntry type="library" exported="" name="Gradle: __local_jars__:/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/libs/httpclient-4.0.1.jar:unspecified@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.google.firebase:firebase-analytics-impl-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:recyclerview-v7-23.3.0" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.felipecsl:gifimageview-2.1.0" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.github.quentin7b:android-location-tracker-3.2" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.squareup.picasso:picasso:2.3.2@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.google.firebase:firebase-iid-9.2.1" level="project" />

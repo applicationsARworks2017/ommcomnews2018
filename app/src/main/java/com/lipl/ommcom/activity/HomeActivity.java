@@ -54,6 +54,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.crashlytics.android.Crashlytics;
+import com.cunoraz.gifview.library.GifView;
 import com.lipl.ommcom.R;
 import com.lipl.ommcom.pojo.Advertisement;
 import com.lipl.ommcom.pojo.BNews;
@@ -267,7 +268,6 @@ public class HomeActivity extends AppCompatActivity
         init();
         intro();
         getAdvertisements();
-        getActiveStatus();
         //GCMManager.getInstance(this).registerListener(this);
         String breaking_news_notifiction_key = getSharedPreferences(Config.SHARED_PREFERENCE_KEY, MODE_PRIVATE)
                 .getString(Config.SP_BREAKING_NEWS_KEY, "No News in preference");
@@ -275,10 +275,7 @@ public class HomeActivity extends AppCompatActivity
         //SingleTon.getInstance().setBreakingNewsNotificationListener(this);
     }
 
-    private void getActiveStatus(){
-        ActiveorNot activeorNot = new ActiveorNot();
-        activeorNot.execute();
-    }
+
 
 
 
@@ -294,118 +291,6 @@ public class HomeActivity extends AppCompatActivity
     }
 
 
-    private class ActiveorNot extends AsyncTask<String, Void, Void> {
-
-
-        private static final String TAG = "ALL ODISHA NEWS";
-        int server_status = 1;
-
-
-        @Override
-        protected void onPreExecute() {
-
-
-        }
-
-        @Override
-        protected Void doInBackground(String... params) {
-
-
-            try {
-                InputStream in = null;
-                int resCode = -1;
-                String link = null;
-
-                    link="https://a2r.in/check.php";
-
-                URL url = new URL(link);
-                HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-                conn.setReadTimeout(10000);
-                conn.setConnectTimeout(15000);
-                conn.setRequestMethod("POST");
-                conn.setDoInput(true);
-                conn.setDoOutput(true);
-                conn.setAllowUserInteraction(false);
-                conn.setInstanceFollowRedirects(true);
-                Uri.Builder builder = null;
-                builder = new Uri.Builder()
-                        .appendQueryParameter("", "");
-
-                String query = builder.build().getEncodedQuery();
-
-                OutputStream os = conn.getOutputStream();
-                BufferedWriter writer = new BufferedWriter(
-                        new OutputStreamWriter(os, "UTF-8"));
-                writer.write(query);
-                writer.flush();
-                writer.close();
-                os.close();
-
-                conn.connect();
-                resCode = conn.getResponseCode();
-                if (resCode == HttpURLConnection.HTTP_OK) {
-                    in = conn.getInputStream();
-                }
-                if (in == null) {
-                    return null;
-                }
-                BufferedReader reader = new BufferedReader(new InputStreamReader(in, "UTF-8"));
-                String response = "", data = "";
-
-                while ((data = reader.readLine()) != null) {
-                    response += data + "\n";
-                }
-                Log.i(TAG, "Response : " + response);
-                /*
-                *
-                * {
-    "res": {
-        "status": 1,
-        "message": "Records Found"
-    }
-}
-                * */
-
-
-                if (response != null && response.length() > 0) {
-                    JSONObject res = new JSONObject(response);
-                    JSONObject new_res = res.getJSONObject("res");
-
-                    server_status=new_res.getInt("status");
-
-                }
-
-                return null;
-
-
-            } catch (Exception exception) {
-
-                Log.e(TAG, "LoginAsync : doInBackground", exception);
-            }
-
-            return null;
-        }
-
-
-        @Override
-        protected void onPostExecute(Void user) {
-            super.onPostExecute(user);
-            if(server_status ==1){
-
-            }
-            else{
-                AlertDialog.Builder builder = new AlertDialog.Builder(HomeActivity.this);
-                builder.setMessage("Please check the validity of the program.")
-                        .setCancelable(false)
-                        .setNegativeButton("Ok", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                HomeActivity.this.finish();
-                            }
-                        });
-                AlertDialog alert = builder.create();
-                alert.show();            }
-        }
-    }
 
     /*
     * GET ODISHA NEWS
@@ -2226,6 +2111,7 @@ public class HomeActivity extends AppCompatActivity
             menu.add(Menu.NONE, xx + 8, xx + 8, "Science & Tech");
             menu.add(Menu.NONE, xx + 9, xx + 9, "Videos");
             menu.add(Menu.NONE, xx + 10, xx + 10, "Language");
+            menu.add(Menu.NONE, xx + 11, xx + 11, "Photo Gallery");
         }
         else{
             menu.add(Menu.NONE, xx, xx, "ଆମ ବିଷୟରେ");
@@ -2239,6 +2125,7 @@ public class HomeActivity extends AppCompatActivity
             menu.add(Menu.NONE, xx + 8, xx + 8, "ବିଜ୍ଞାନ ଏବଂ କୌଶଳ");
             menu.add(Menu.NONE, xx + 9, xx + 9, "ଭିଡିଓ");
             menu.add(Menu.NONE, xx + 10, xx + 10, "ଭାଷା");
+            menu.add(Menu.NONE, xx + 11, xx + 11, "ଫୋଟୋ ଗ୍ଲଲେରୀ");
         }
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.activity_main_swipe_refresh_layout);
@@ -2347,6 +2234,7 @@ public class HomeActivity extends AppCompatActivity
                             (RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
                     layoutBottomAdvertisement.setLayoutParams(layout_params_footer_adv);
                     ImageView imgFooterAdv = new ImageView(HomeActivity.this);
+                    GifView gifView = new GifView(HomeActivity.this);
                     LinearLayout.LayoutParams layout_params_footer_adv_img = new LinearLayout.LayoutParams(
                             LinearLayout.LayoutParams.MATCH_PARENT,
                             LinearLayout.LayoutParams.MATCH_PARENT, 1.0f);
