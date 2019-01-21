@@ -102,7 +102,7 @@ public class NewsDetailsActivity extends AppCompatActivity implements FlipAdapte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Fabric.with(this, new Crashlytics());
-        setContentView(R.layout.activity_main2);
+        setContentView(R.layout.activity_main_update);
 
 
 
@@ -148,7 +148,7 @@ public class NewsDetailsActivity extends AppCompatActivity implements FlipAdapte
 
     }
 
-    private void updateView() {
+    /*private void updateView() {
 
         if (news == null) {
             return;
@@ -298,7 +298,7 @@ public class NewsDetailsActivity extends AppCompatActivity implements FlipAdapte
                     layoutParent.addView(flipView);
             }
         });
-    }
+    }*/
 
     private int mFBCount = 0;
     private int mTwitterCount = 0;
@@ -325,7 +325,7 @@ public class NewsDetailsActivity extends AppCompatActivity implements FlipAdapte
                     pBar.setVisibility(View.GONE);
                 }
                 if(aVoid != null && aVoid.booleanValue() == true) {
-                    updateView();
+                   // updateView();
                 }
             }
 

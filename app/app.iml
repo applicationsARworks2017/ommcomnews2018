@@ -137,6 +137,7 @@
     <orderEntry type="library" exported="" name="Gradle: com.daimajia.androidanimations:library-1.1.3" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.google.firebase:firebase-common-9.2.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.google.firebase:firebase-core-9.2.1" level="project" />
+    <orderEntry type="library" exported="" name="Gradle: com.github.JakeWharton:ViewPagerIndicator-2.4.1" level="project" />
     <orderEntry type="library" exported="" name="Gradle: __local_jars__:/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/libs/signpost-commonshttp4-1.2.1.1.jar:unspecified@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: __local_jars__:/Users/amaresh/Desktop/AmareshWorks/ommcomnews2018/app/libs/twitter4j-media-support-4.0.4.jar:unspecified@jar" level="project" />
     <orderEntry type="library" exported="" name="Gradle: com.android.support:design-23.3.0" level="project" />

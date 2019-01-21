@@ -79,6 +79,8 @@ dependencies {
         transitive = true;
     }
     compile 'com.google.firebase:firebase-messaging:9.0.0'
+    compile 'com.github.JakeWharton:ViewPagerIndicator:2.4.1'
+
 
     //compile 'com.andkulikov:transitionseverywhere:1.6.5'
     compile files('libs/nodemedia-client-v1.2.7.jar')
