@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<title>:: Ommcom News ::</title>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<link rel="stylesheet" type="text/css" href="css/ommcom.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="js/sticky.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#sticker").sticky({topSpacing:0});
+		});
+	</script>
+	<link rel="stylesheet" href="css/swiper.min.css">
+	<script type="text/javascript" src="js/swiper.min.js"></script>
+
+</head>
+<body>
+<div id="sticker">
+	<div class="header">
+		<a onclick="shistory();" class="menuOpen material_ripple" data-color="#39a1f4"><i class="fa fa-long-arrow-left"></i></a>
+		<div class="logo material_ripple" data-color="#39a1f4"><img  onclick="logo_click()" src="images/logo.jpg" alt="" title="" /></div>
+		<a onclick="window.stop();document.location='search.html'" class="fr search"><i class="fa fa-search"></i></a>
+	</div>
+</div>
+
+<div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+            	<img id="news_image" src="images/blank.jpg" alt="" title="" />
+            <!--	<div class="slidTxt">
+            		<p id="news_name"></p>
+            	</div>-->
+            </div>
+
+
+        </div>
+        <!-- Add Pagination -->
+        <!-- <div class="swiper-pagination"></div> -->
+        <!-- Add Arrows -->
+        <!-- <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div> -->
+    </div>
+
+<div class="innerSocials">
+	<!-- AddToAny BEGIN -->
+	<div class="a2a_kit a2a_kit_size_32 a2a_default_style">
+	<a class="a2a_dd" href="https://www.addtoany.com/share"></a>
+<!--	<a class="a2a_button_facebook" ></a>-->
+	<!--<a class="a2a_button_twitter"></a>
+	<a class="a2a_button_google_plus"></a>-->
+	<a class="a2a_button_whatsapp"></a>
+	<div class="innerSocial">
+		<a id="funfid" onclick="funf()"><i class="fa fa-facebook"></i></a>
+		<a id="funtid" onclick="funt()"><i class="fa fa-twitter"></i></a>
+		<a id="fungid" onclick="fung()"><i class="fa fa-google-plus"></i></a>
+	</div>
+	</div>
+
+
+	<script async src="https://static.addtoany.com/menu/page.js"></script>
+	<!-- AddToAny END -->
+<script type="text/javascript">
+function getslug(n) {
+		var half = location.search.split('&' + n + '=')[1];
+		if (!half) half = location.search.split('?' + n + '=')[1];
+		return half !== undefined ? decodeURIComponent(half.split('&')[0]) : null;
+}
+</script>
+<script>
+var a2a_config = a2a_config || {};
+a2a_config.linkurl = "http://ommcomnews.com/public/"+getslug('slug');
+</script>
+<script async src="https://static.addtoany.com/menu/page.js"></script>
+
+<!-- AddToAny END -->
+<!--	<div class="fl"> -->
+		<!-- Go to www.addthis.com/dashboard to customize your tools -->
+
+	<!--	<a href="#"><i class="fa fa-share-alt fa-fw"></i></a>
+		<a href="comment.html"><i class="fa fa-comments fa-fw"></i></a>
+	</div>-->
+<!--	<div class="fr">-->
+
+	<!--	<i class="fa fa-twitter fa-fw"></i> <span>0</span>
+		<i class="fa fa-facebook fa-fw"></i> <span>0</span>
+		<i class="fa fa-google-plus fa-fw"></i> <span>0</span>-->
+	<!--</div>-->
+	<div class="clear"></div>
+</div>
+
+<div class="innerPages">
+	<h2 id="news_name"></h2>
+	<p class="time" id="ndtime"></p>
+
+<p id="news_desc">
+
+</p>
+
+</div>
+<div class="" id="newsvideos">
+
+</div>
+<div class="" id="newscomment">
+	<form name="form12" id="form12" method="post" action="" onsubmit="return false">
+		<input type="hidden" id="id" name="id">
+	<div class="centerDiv">
+		<a onclick="funtt()" href="javascript:" class="commBtn"><i class="fa fa-plus fa-fw"></i> Post Comment</a>
+	</div>
+	<div id="postid" style="display:none">
+	<div class="innerPages">
+		<div class="formPanel">
+		<div class="userF"></div>
+		<input type="text" placeholder="Name" class="input" id="name" name="name" required>
+		<div class="clear"></div>
+	</div>
+	<div class="formPanel">
+		<div class="emailF"></div>
+		<input type="email" placeholder="Email" class="input2" id="email" name="email" required>
+		<div class="clear"></div>
+	</div>
+	<div class="formPanel">
+		<div class="commentF"></div>
+		<input type="text" placeholder="Contact No." class="input3" id="contact_no" name="contact_no" required>
+		<div class="clear"></div>
+	</div>
+	<div class="formPanel">
+		<div class="descF"></div>
+		<textarea  class="input4" id="comment" name="comment" required></textarea>
+		<div class="clear"></div>
+	</div>
+</div>
+<div class="centerDiv">
+	<button class="voteBtn" onclick="savedata()">Save</button>
+</div>
+	</div>
+	<div>
+
+	</div>
+</form>
+<hr>
+</div>
+<script type="text/javascript">
+var swiper = new Swiper('.swiper-container', {
+    pagination: '.swiper-pagination',
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    paginationClickable: true,
+    spaceBetween: 0,
+    centeredSlides: false,
+    autoplay: 2500,
+    autoplayDisableOnInteraction: false
+});
+</script>
+<script type="text/javascript" src="ommcom.js"></script>
+<script type="text/javascript">
+	getnewsdetail();
+</script>
+
+<script type="text/javascript">
+		$(document).ready(function(){
+			$('.formPanel .input').on({
+			    'focusin': function() {
+			        $('.userF').addClass('active');
+			    },
+			    'focusout': function() {
+			        $('.userF').removeClass('active');
+			    }
+			});
+			$('.formPanel .input2').on({
+			    'focusin': function() {
+			        $('.emailF').addClass('active');
+			    },
+			    'focusout': function() {
+			        $('.emailF').removeClass('active');
+			    }
+			});
+			$('.formPanel .input3').on({
+			    'focusin': function() {
+			        $('.commentF').addClass('active');
+			    },
+			    'focusout': function() {
+			        $('.commentF').removeClass('active');
+			    }
+			});
+			$('.formPanel .input4').on({
+			    'focusin': function() {
+			        $('.descF').addClass('active');
+			    },
+			    'focusout': function() {
+			        $('.descF').removeClass('active');
+			    }
+			});
+			$('.formPanel .input5').on({
+			    'focusin': function() {
+			        $('.lgDescF').addClass('active');
+			    },
+			    'focusout': function() {
+			        $('.lgDescF').removeClass('active');
+			    }
+			});
+		});
+
+		function funtt(){
+			$('#postid').toggle();
+			return false;
+		}
+
+		function savedata(){
+			if(document.getElementById("name").value == ''){
+				document.getElementById("name").focus();
+				return false;
+			}
+			if(document.getElementById("email").value == ''){
+				document.getElementById("email").focus();
+				return false;
+			}
+			if(document.getElementById("contact_no").value == ''){
+				document.getElementById("contact_no").focus();
+				return false;
+			}
+			if(document.getElementById("comment").value == ''){
+				document.getElementById("comment").focus();
+				return false;
+			}
+			//var file_data = $('#file_path').prop("files");
+$.get( "http://ommcomnews.com/public/api/v0.1/postComment?news_id="+
+document.getElementById("id").value+"&name="+
+document.getElementById("name").value+"&email="+
+document.getElementById("email").value+"&contact_no="+
+document.getElementById("contact_no").value+"&comment="+
+document.getElementById("comment").value, function( data ) {
+  alert( "Comment Posted Successfully !" );
+		location.reload();
+	return false;
+
+});
+			 			//return false;
+
+						return false;
+		}
+		////////////////////////////////
+		function getParameterByName(name) {
+	    var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
+	    return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
+	}
+
+function funf(){
+var x1="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fommcomnews.com%2Fpublic%2F"+getParameterByName("slug")+"&t=%3A%3A%20Ommcom%20News%20%3A%3A&v=3";
+$("#funfid").attr("href", x1);
+    //	return false;
+		}
+		function funt(){
+//document.open("https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Fommcomnews.com%2Fpublic%2F"+getParameterByName("slug")+"&t=%3A%3A%20Ommcom%20News%20%3A%3A&v=3","","height=400,width=400");
+var x2="https://twitter.com/intent/tweet?text=%3A%3A%20Ommcom%20News%20%3A%3A%20http%3A%2F%2Fommcomnews.com%2Fpublic%2F"+getParameterByName("slug")+"&related=AddToAny,micropat";
+$("#funtid").attr("href", x2);
+    	//		return false;
+				}
+				function fung(){
+					var x3="https://www.addtoany.com/add_to/google_plus?linkurl=http%3A%2F%2Fommcomnews.com%2Fpublic%2F"+getParameterByName("slug")+"&linkname=%3A%3A%20Ommcom%20News%20%3A%3A&linknote=";
+$("#fungid").attr("href", x3);
+                //		return false;
+
+
+				}
+	</script>
+</body>
+</html>

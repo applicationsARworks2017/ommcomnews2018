@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+<title>:: Ommcom News ::</title>
+<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,300' rel='stylesheet' type='text/css'>
+<!-- <link rel="stylesheet" type="text/css" href="css/animate.css"> -->
+<link rel="stylesheet" type="text/css" href="css/ommcom.css">
+<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+	    $(document).ready(function() {
+	        $(".menuOpen").click(function(){
+			    $(".menu").animate({width: 'toggle'});
+			});
+			$("html").mouseup(function(){
+			    $(".menu").hide();
+			});
+	    });
+    </script>
+<script type="text/javascript" src="js/sticky.js"></script>
+<script type="text/javascript">
+		$(document).ready(function(){
+			$("#sticker").sticky({topSpacing:0});
+		});
+	</script>
+<script src="js/wow.min.js"></script>
+<script type="text/javascript">
+		new WOW().init();
+	</script>
+</head>
+<body class="homeBotPad">
+<div id="sticker">
+  <div class="header"> <a href="javascript:" class="menuOpen"><i class="fa fa-bars"></i></a>
+    <div class="logo material_ripple" data-color="#39a1f4"><img  onclick="logo_click()" src="images/logo.jpg" alt="" title="" /></div>
+    <a onClick="window.stop();document.location='search.html'" class="fr search"><i class="fa fa-search"></i></a>
+    <div class="clear"></div>
+  </div>
+</div>
+
+<div class="menu"> </div>
+
+<div class="topAdv">
+  <div class="" id="adv_top"> <img src="images/blank.jpg" alt="" title="" /> </div>
+</div>
+
+<div class="imgClass"> <a href="innerPage.html">
+  <div class="imgText">
+    <div class="pad">
+      <h2 id="featured_news" style="font-size:16px"></h2>
+      <p class="time" id="fdate"><i class="fa fa-clock-o fa-fw"></i></p>
+    </div>
+  </div>
+  <span class="beveled"></span>
+  <div class="" id="top1_media"> <img id="featured_news_image" src="images/blank.jpg" alt="" title="" /> </div>
+  </a>
+</div>
+
+<div class="multi3Img"> <a href="top5News.html">
+  <div class="blankShadow">
+    <h2>Top 5 News Now</h2>
+  </div>
+  <div class="multiImg">
+    <div class="imgClass"> <span class="beveled"></span> <img id="top1" src="images/blank.jpg" alt="" title="" /> </div>
+  </div>
+  <div class="multiImg">
+    <div class="imgClass"> <span class="beveled"></span> <img id="top2" src="images/blank.jpg" alt="" title="" /> </div>
+  </div>
+  <div class="multiImg">
+    <div class="imgClass"> <span class="beveled"></span> <img id="top3" src="images/blank.jpg" alt="" title="" /> </div>
+  </div>
+  <div class="clear"></div>
+  </a>
+</div>
+
+<div class="debatePanel">
+  <div class="debateTxt">
+    <div class="pad">
+      <h2></h2>
+      <p></p>
+    </div>
+  </div>
+  <div class="imgClass"> <span class="beveled"></span> <img src="images/Conference-Image.jpg" alt="" title="" /> </div>
+</div>
+
+<div class="debatePanel"> <a href="citizenJournalist.html">
+  <div class="blankShadow">
+    <h2>Citizen Journalist</h2>
+  </div>
+  <div class="imgClass"> <span class="beveled"></span> <img id="citizen_image" src="images/citizen.jpg" alt="" title="" /> </div>
+  </a>
+</div>
+
+<div class="topAdv2">
+  <div class="" id="adv_middle"> <img src="images/blank.jpg" alt="" title="" /> </div>
+</div>
+
+<div class="imgClass">
+  <h4 class="smallHeading" id="cat7_title" onClick="document.location='catnewslist.html?slug=odishaplus'"></h4>
+  <div class="imgText">
+    <div class="pad">
+      <h2 class="headsmallFont" id="cat7_desc"></h2>
+      <p class="time" id="cat6time"><i class="fa fa-clock-o fa-fw"></i></p>
+    </div>
+  </div>
+  <span class="beveled"></span> <img id="cat7_image" src="images/blank.jpg" alt="" title="" />
+</div>
+
+<div>
+  <div class="videoPanel">
+    <h4 class="smallHeading" id="cat1_title" onClick="document.location='catnewslist1.html?slug=world'"></h4>
+    <div class="imgText">
+      <div class="pad">
+        <h2 id="cat1_desc"></h2>
+        <p class="time" id="cat1time"><i class="fa fa-clock-o fa-fw"></i></p>
+      </div>
+    </div>
+    <div class="imgClass"> <span class="beveled"></span> <img id="cat1_image" src="images/blank.jpg" alt="" title="" /> </div>
+  </div>
+  <div class="videoPanel">
+    <h4 class="smallHeading" id="cat2_title" onClick="document.location='catnewslist1.html?slug=nation'"></h4>
+    <div class="imgText">
+      <div class="pad">
+        <h2 id="cat2_desc"></h2>
+        <p class="time" id="cat2time"><i class="fa fa-clock-o fa-fw"></i></p>
+      </div>
+    </div>
+    <div class="imgClass"> <span class="beveled"></span> <img id="cat2_image" src="images/blank.jpg" alt="" title="" /> </div>
+  </div>
+  <div class="clear"></div>
+</div>
+
+<div class="imgClass">
+  <h4 class="smallHeading" id="cat3_title" onClick="document.location='catnewslist1.html?slug=business'"></h4>
+  <div class="imgText">
+    <div class="pad">
+      <h2 class="headsmallFont" id="cat3_desc"></h2>
+      <p class="time" id="cat3time"><i class="fa fa-clock-o fa-fw"></i></p>
+    </div>
+  </div>
+  <span class="beveled"></span> <img id="cat3_image" src="images/blank.jpg" alt="" title="" />
+</div>
+
+<div>
+  <div class="videoPanel">
+    <h4 class="smallHeading" id="cat4_title" onClick="document.location='catnewslist1.html?slug=sports'"></h4>
+    <div class="imgText">
+      <div class="pad">
+        <h2 id="cat4_desc"></h2>
+        <p class="time" id="cat4time"><i class="fa fa-clock-o fa-fw"></i></p>
+      </div>
+    </div>
+    <div class="imgClass"> <span class="beveled"></span> <img id="cat4_image" src="images/blank.jpg" alt="" title="" /> </div>
+  </div>
+  <div class="videoPanel">
+    <h4 class="smallHeading" id="cat5_title" onClick="document.location='catnewslist1.html?slug=entertainment'"></h4>
+    <div class="imgText">
+      <div class="pad">
+        <h2 id="cat5_desc"></h2>
+        <p class="time" id="cat5time"><i class="fa fa-clock-o fa-fw"></i></p>
+      </div>
+    </div>
+    <div class="imgClass"> <span class="beveled"></span> <img id="cat5_image" src="images/blank.jpg" alt="" title="" /> </div>
+  </div>
+  <div class="clear"></div>
+</div>
+
+<div class="imgClass">
+  <h4 class="smallHeading" id="cat6_title" onClick="document.location='catnewslist1.html?slug=science-tech'"></h4>
+  <div class="imgText">
+    <div class="pad">
+      <h2 class="headsmallFont" id="cat6_desc"></h2>
+      <p class="time" id="cat6time"><i class="fa fa-clock-o fa-fw"></i></p>
+    </div>
+  </div>
+  <span class="beveled"></span> <img id="cat6_image" src="images/blank.jpg" alt="" title="" />
+</div>
+
+<div class="viralVideoPanel">
+  <h4 class="smallHeading" onClick="document.location='virallist.html'">Viral Video</h4>
+  <div class="imgText">
+    <div class="pad">
+      <h2 id="viral_video"></h2>
+    </div>
+  </div>
+  <div class="imgClass">
+    <video id="viral_video_frame" width="100%" height="224deb" controls poster="">
+  </div>
+</div>
+
+<div class="topAdv">
+  <div class="" id="adv_footer"> <img src="images/blank.gif" alt="" title="" /> </div>
+</div>
+
+<a onClick="window.stop();document.location='polling.html'" class="pollLink"><img src="images/pollIcon.png" alt="" title="" /></a>
+<div class="breakNews">
+  <div class="breakNewsPanel" style="background-color:rgb(198,38,38)">
+    <div class="brkNews" style="display:none;">BREAKING NEWS</div><!-- id="breaknewsDiv" -->
+    <div class="newsMain" id="newsData">
+      <ul id="newsList" class="breakingnewsstrip">
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+$(function(){
+    var i = 1;
+    var newsCnt = 1;
+      setTimeout(explode, 2000,i,newsCnt);
+  });
+  function explode(i,newsCnt){
+    animatedNews(i,newsCnt);
+  }
+  function explode2(i,newsCnt){
+    $('.brkNews').fadeIn();
+    setTimeout(animatedNews, 2000,i,newsCnt);
+  }
+	function animatedNews(attrId,newsCnt){
+    $('.brkNews').fadeOut();
+		var attrLength = $('.news-item').length;
+		$('#item'+attrId).fadeIn('slow', function () {
+			if(attrId == attrLength){
+				var cnt = 1;
+			}else{
+				var cnt = attrId + 1;
+			}
+			if(newsCnt == 3){
+				newsCnt = 1;
+				$('#item'+attrId).delay(2000).fadeOut('complete',function(){ explode2(cnt,newsCnt) });
+			}else{
+        if(cnt == 1){
+          newsCnt = 1;
+          $('#item'+attrId).delay(5000).fadeOut('complete',function(){ animatedNews(cnt,newsCnt) });
+        }else{
+          newsCnt++;
+          $('#item'+attrId).delay(5000).fadeOut('complete',function(){ animatedNews(cnt,newsCnt) });
+        }
+      }
+		});
+	}
+</script>
+<script type="text/javascript" src="ommcom.js"></script>
+<script type="text/javascript">
+	getmenu();
+	odishaplus();
+	breakingnews();
+	featurednews();
+</script>
+</body>
+</html>

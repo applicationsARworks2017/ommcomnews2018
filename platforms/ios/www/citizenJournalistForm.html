@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="initial-scale=1.0,user-scalable=no,maximum-scale=1,width=device-width" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<title>:: Ommcom News ::</title>
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,300' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<link rel="stylesheet" type="text/css" href="css/ommcom.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript">
+	    $(document).ready(function() {
+	        $(".menuOpen").click(function(){
+			    $(".menu").animate({width: 'toggle'});
+			});
+			$("html").mouseup(function(){
+			    $(".menu").hide();
+			});
+	    });
+    </script>
+    <script type="text/javascript" src="js/sticky.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#sticker").sticky({topSpacing:0});
+		});
+	</script>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$('.formPanel .input').on({
+			    'focusin': function() {
+			        $('.userF').addClass('active');
+			    },
+			    'focusout': function() {
+			        $('.userF').removeClass('active');
+			    }
+			});
+			$('.formPanel .input2').on({
+			    'focusin': function() {
+			        $('.emailF').addClass('active');
+			    },
+			    'focusout': function() {
+			        $('.emailF').removeClass('active');
+			    }
+			});
+			$('.formPanel .input3').on({
+			    'focusin': function() {
+			        $('.commentF').addClass('active');
+			    },
+			    'focusout': function() {
+			        $('.commentF').removeClass('active');
+			    }
+			});
+			$('.formPanel .input4').on({
+			    'focusin': function() {
+			        $('.descF').addClass('active');
+			    },
+			    'focusout': function() {
+			        $('.descF').removeClass('active');
+			    }
+			});
+			$('.formPanel .input5').on({
+			    'focusin': function() {
+			        $('.lgDescF').addClass('active');
+			    },
+			    'focusout': function() {
+			        $('.lgDescF').removeClass('active');
+			    }
+			});
+		});
+	</script>
+</head>
+<body>
+<div id="sticker">
+	<div class="header">
+		<a onclick="shistory();" class="menuOpen"><i class="fa fa-long-arrow-left"></i></a>
+		<div class="logo material_ripple" data-color="#39a1f4"><img  onclick="logo_click()" src="images/logo.jpg" alt="" title="" /></div>
+		<a onclick="window.stop();document.location='search.html'" class="fr search"><i class="fa fa-search"></i></a>
+	</div>
+</div>
+<form action="" method="post" id="form1" name="form1" enctype="multipart/form-data">
+<div class="innerPages">
+<!--	<div align="right"><a href="#" class="logoutBt">Logout</a></div>-->
+<div class="formPanel">
+	<strong>
+		Want to be a Citizen Journalist ?  Simply fill in, upload your video/pictures.  Describe in short on the issue. We post it unedited.
+	</strong>
+	<div class="clear"></div>
+</div>
+	<div class="formPanel">
+		<div class="userF"></div>
+		<input type="text" placeholder="Name" class="input" id="name" name="name" required>
+		<div class="clear"></div>
+	</div>
+	<div class="formPanel">
+		<div class="emailF"></div>
+		<input type="text" placeholder="Email" class="input2" id="email" name="email">
+		<div class="clear"></div>
+	</div>
+	<div class="formPanel">
+		<div class="commentF"></div>
+		<input type="text" placeholder="Title" class="input3" id="description" name="description" required>
+		<div class="clear"></div>
+	</div>
+	<div class="formPanel">
+		<div class="descF"></div>
+		<input type="text" placeholder="Description" class="input4" id="long_description" name="long_description">
+		<div class="clear"></div>
+	</div>
+	<div>
+		<div class="fl" style="margin-top:10px;">Choose File</div>
+		<div class="fr">
+			<input type="file" id="file_path" name="file_path" class="inputfile inputfile-1" required>
+			<label for="file_path"><span>Choose file</span></label>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<div class="tasks-list">
+      <label class="tasks-list-item">
+        <input type="checkbox" id="is_anonymous" name="is_anonymous" value="1" class="tasks-list-cb">
+        <span class="tasks-list-mark"></span>
+        <span class="tasks-list-desc">Post as anonymous</span>
+      </label>
+    </div>
+    <!--<div class="socialSignIn">
+    	<a href="#"><i class="fa fa-facebook"></i></a>
+    	<a href="#"><i class="fa fa-twitter"></i></a>
+    	<a href="#"><i class="fa fa-google-plus"></i></a>
+    	<span>or</span>
+    	<a href="#"><i class="fa fa-user"></i></a>
+    </div>-->
+	<!--<div class="textCenter">
+		<a href="#" class="voteBtn">Login &amp; Post</a>
+		<a href="#" class="voteBtn">Reset</a>
+	</div>-->
+	<div class="textCenter">
+		<input type="button" name="save" value="Upload" class="voteBtn" onclick='save_citizen_data()'>
+	</div>
+	<div class="" id="loading">
+
+	</div>
+</div>
+</form>
+<script type="text/javascript" src="ommcom.js"></script>
+<script type="text/javascript">
+function save_citizen_data(){
+	if(document.getElementById('name').value != ''){
+//alert(document.getElementById('is_anonymous').checked);
+		if(document.getElementById('is_anonymous').checked == true){
+			document.getElementById("name").value="Anonymous";
+		}
+		var file_data = $('#file_path').prop("files");
+var formData = new FormData($('form')[0]);
+document.getElementById("loading").innerHTML="<font color=blue>Uploading.....</font>";
+	$.ajax({
+					 type: "POST",
+					 processData: false,
+    contentType: false,
+					 url: "http://ommcomnews.com/public/api/v0.1/postCitizenNews",
+					 data: formData,
+					 success: function(content) {
+						 	 document.getElementById("loading").innerHTML="";
+							 alert("Uploaded Successfully !");
+					 }
+			 });
+		 }
+}
+</script>
+</body>
+</html>
