@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:gravity="center"
+    android:background="@color/light_grey">
+    <!--<VideoView-->
+        <!--android:id="@+id/videoView"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"/>-->
+    <!--<ImageView-->
+        <!--android:id="@+id/imgPlay"-->
+        <!--android:layout_width="36dp"-->
+        <!--android:layout_height="36dp"-->
+        <!--android:src="@mipmap/ic_play_white"-->
+        <!--android:layout_centerInParent="true"/>-->
+    <!--<ProgressBar-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/progressBar"-->
+        <!--android:visibility="gone"-->
+        <!--android:layout_centerInParent="true"/>-->
+    <ImageView
+        android:id="@+id/imgPlayVideo"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@mipmap/ic_play_white"/>
+
+    <TextView
+        android:layout_marginTop="12dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/app_logo_color_blue"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:text="Tap here to play."/>
+
+</LinearLayout>

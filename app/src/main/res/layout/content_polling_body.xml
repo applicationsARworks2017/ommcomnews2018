@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="12dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+<ScrollView
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.lipl.ommcom.util.CustomTextView
+        android:id="@+id/tvQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/home_cat_news_title_margin_left_right_and_time"
+        android:layout_marginLeft="@dimen/home_cat_news_title_margin_left_right_and_time"
+        android:layout_marginTop="@dimen/home_cat_news_title_margin_left_right_and_time"
+        android:layout_above="@+id/layoutPostedAt"
+        android:layout_below="@+id/tvNewsCategoryName"
+        android:gravity="bottom"
+        android:ellipsize="end"
+        app:customFont="@string/text_font_family_for_headlines"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:text="Please wait..."
+        android:textColor="@color/news_long_desc_text_color"/>
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnVoteNow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginRight="6dp"
+            android:textColor="@color/qa_text_color"
+            android:background="@drawable/button_selector"
+            android:text="Vote Now"/>
+
+        <Button
+            android:id="@+id/btnResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginLeft="6dp"
+            android:textColor="@color/qa_text_color"
+            android:background="@drawable/button_selector"
+            android:text="Result"/>
+    </LinearLayout>
+
+    <com.github.mikephil.charting.charts.HorizontalBarChart
+        android:id="@+id/chart1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:visibility="gone"
+        android:background="@android:color/white"/>
+
+</LinearLayout>
+</ScrollView>
+    <ProgressBar
+        android:id="@+id/pBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true"/>
+    </RelativeLayout>

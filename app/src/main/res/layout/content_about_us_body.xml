@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="12dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+<ScrollView
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.lipl.ommcom.util.CustomTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/home_cat_news_title_margin_left_right_and_time"
+        android:layout_marginLeft="@dimen/home_cat_news_title_margin_left_right_and_time"
+        android:layout_marginTop="@dimen/home_cat_news_title_margin_left_right_and_time"
+        android:layout_above="@+id/layoutPostedAt"
+        android:layout_below="@+id/tvNewsCategoryName"
+        android:gravity="bottom"
+        app:customFont="@string/text_font_family_for_headlines"
+        android:textAppearance="?android:textAppearanceLarge"
+        android:text="About Us"
+        android:textColor="@android:color/black"/>
+
+    <com.lipl.ommcom.util.CustomTextView
+        android:id="@+id/tvQuestion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="@dimen/home_cat_news_title_margin_left_right_and_time"
+        android:layout_marginLeft="@dimen/home_cat_news_title_margin_left_right_and_time"
+        android:layout_marginTop="@dimen/home_cat_news_title_margin_left_right_and_time"
+        android:layout_above="@+id/layoutPostedAt"
+        android:layout_below="@+id/tvNewsCategoryName"
+        android:gravity="bottom"
+        app:customFont="@string/text_font_family_for_time"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:text="@string/about_us"
+        android:textColor="@android:color/black"/>
+
+</LinearLayout>
+</ScrollView>
+
+    </RelativeLayout>

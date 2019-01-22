@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="12dp"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+<ScrollView
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+<LinearLayout
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Logout"
+        android:visibility="gone"
+        android:layout_gravity="right"
+        android:textColor="@android:color/white"
+        android:layout_weight="1"/>
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:id="@+id/name"
+        android:singleLine="true"
+        android:visibility="gone"
+        app:met_floatingLabelTextColor="@android:color/black"
+        app:met_iconLeft="@mipmap/ic_person"
+        app:met_floatingLabel="highlight"
+        app:met_errorColor="@color/red"
+        app:met_typeface="@string/text_font_family_for_body"
+        android:textColorHint="@color/text_dark"
+        android:textColor="@android:color/black"
+        app:met_iconPadding="0dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:inputType="textPersonName"/>
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:id="@+id/tvName"
+        android:singleLine="true"
+        app:met_floatingLabelTextColor="@android:color/black"
+        app:met_iconLeft="@mipmap/ic_person"
+        app:met_floatingLabel="highlight"
+        app:met_errorColor="@color/red"
+        app:met_typeface="@string/text_font_family_for_body"
+        android:textColorHint="@color/text_dark"
+        android:textColor="@android:color/black"
+        app:met_iconPadding="0dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:inputType="textPersonName"/>
+
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:id="@+id/email"
+        android:singleLine="true"
+        app:met_floatingLabelTextColor="@android:color/black"
+        app:met_iconLeft="@mipmap/ic_contact_mail_white"
+        app:met_floatingLabel="highlight"
+        app:met_errorColor="@color/red"
+        app:met_typeface="@string/text_font_family_for_body"
+        android:textColorHint="@color/text_dark"
+        android:textColor="@android:color/black"
+        app:met_iconPadding="0dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:inputType="textEmailAddress"/>
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Mobile No"
+        android:id="@+id/mobile"
+        android:singleLine="true"
+        app:met_floatingLabelTextColor="@android:color/black"
+        app:met_iconLeft="@mipmap/ic_contact_phone"
+        app:met_floatingLabel="highlight"
+        app:met_errorColor="@color/red"
+        app:met_typeface="@string/text_font_family_for_body"
+        android:textColorHint="@color/text_dark"
+        android:textColor="@android:color/black"
+        android:maxLength="10"
+        app:met_iconPadding="0dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:inputType="phone"/>
+
+    <com.rengwuxian.materialedittext.MaterialEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Message"
+        android:id="@+id/message"
+        android:singleLine="true"
+        app:met_floatingLabelTextColor="@android:color/black"
+        app:met_iconLeft="@mipmap/ic_comment_white"
+        app:met_floatingLabel="highlight"
+        app:met_errorColor="@color/red"
+        app:met_typeface="@string/text_font_family_for_body"
+        android:textColorHint="@color/text_dark"
+        android:textColor="@android:color/black"
+        app:met_iconPadding="0dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:inputType="text"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp">
+
+        <Button
+            android:id="@+id/btnSubmit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Submit"
+            android:layout_weight="1"
+            android:layout_margin="12dp"
+            android:src="@mipmap/ic_person"
+            android:textColor="@color/qa_text_color"
+            android:background="@drawable/button_selector"/>
+
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Reset"
+            android:layout_weight="1"
+            android:layout_margin="12dp"
+            android:textColor="@color/qa_text_color"
+            android:background="@drawable/button_selector"/>
+    </LinearLayout>
+</LinearLayout>
+</ScrollView>
+    <ProgressBar
+        android:id="@+id/pBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_centerInParent="true"/>
+    </RelativeLayout>

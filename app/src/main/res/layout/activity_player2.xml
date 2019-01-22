@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:background="#000000">
+
+
+<SurfaceView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="0.1"
+    android:id="@+id/surfaceView_play2" />
+
+<!--
+<RelativeLayout
+    android:id="@+id/relativeLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="20dp"
+    android:layout_alignParentBottom="true"
+    android:layout_alignParentLeft="true"
+    android:background="@drawable/bar_bg" >
+
+     <TextView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="Play"
+    android:textColor="#FFF"
+         android:id="@+id/b_screenname"
+    android:layout_alignParentLeft="true"
+    android:layout_centerVertical="true"
+    android:textStyle="bold"
+    android:textSize="15dp"
+    android:textAllCaps="true"
+    android:layout_marginTop="5dp"/>
+</RelativeLayout>
+-->
+</RelativeLayout>

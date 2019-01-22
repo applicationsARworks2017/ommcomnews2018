@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/iv_pos2obj1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"/>
+
+
+
+    <include layout="@layout/gradient"/>
+
+    <!--<com.lipl.ommcom.util.CustomTextView
+        android:id="@+id/tvCJTitle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textColor="@color/news_title_color"
+        android:text="CITIZEN JOURNALIST"
+        android:gravity="center_horizontal|bottom"
+        android:paddingBottom="12dp"
+        android:textSize="@dimen/home_cj_debate_top_news_title_size"
+        app:customFont="@string/text_font_family_for_headlines"
+        android:layout_centerInParent="true"/>-->
+
+</RelativeLayout>

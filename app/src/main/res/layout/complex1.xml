@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@android:color/white">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:layout_above="@+id/pageNumber"
+        android:background="@android:color/white"
+        >
+
+        <ImageView
+            android:layout_gravity="center_horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="200dp"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:scaleType="centerCrop"
+            android:id="@+id/photo"
+            />
+
+        <com.lipl.ommcom.util.CustomTextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/news_title_size_in_list"
+            app:customFont="@string/text_font_family_for_headlines"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textColor="@android:color/black"/>
+
+        <LinearLayout
+            android:id="@+id/layoutPostedBy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/layoutPostedAt"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imgPostedBy"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="fitStart"
+                android:visibility="invisible"
+                android:src="@mipmap/ic_person_blue"/>
+
+            <com.lipl.ommcom.util.CustomTextView
+                android:id="@+id/tvNewsPostedBy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:customFont="@string/text_font_family_for_time"
+                android:textSize="@dimen/news_post_details_size"
+                android:textColor="@android:color/black"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutPostedAt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_margin="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/imgPostedAt"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="fitStart"
+                android:visibility="invisible"
+                android:src="@mipmap/ic_schedule_black"/>
+
+            <com.lipl.ommcom.util.CustomTextView
+                android:id="@+id/tvNewsPostedAt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:customFont="@string/text_font_family_for_time"
+                android:textSize="@dimen/news_post_details_size"
+                android:textColor="@color/news_long_desc_text_color"/>
+
+        </LinearLayout>
+
+        <com.lipl.ommcom.util.CustomTextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="12sp"
+            app:customFont="@string/text_font_family_for_news_long_desc"
+            android:textColor="@android:color/black"/>
+
+    </LinearLayout>
+
+    <com.lipl.ommcom.util.CustomTextView
+        android:id="@+id/pageNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_margin="12dp"
+        android:visibility="invisible"
+        android:text="Page 1 of 23"/>
+
+    <com.lipl.ommcom.util.CustomTextView
+        android:id="@+id/hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="12dp"
+        android:layout_toLeftOf="@+id/pageNumber"
+        android:visibility="invisible"
+        android:text="Slide up to go next page and down to go previous page"/>
+</RelativeLayout>

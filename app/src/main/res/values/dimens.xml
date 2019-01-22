@@ -1,0 +1,58 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="spacing_micro">4dp</dimen>
+    <dimen name="spacing_normal">8dp</dimen>
+    <dimen name="spacing_double">16dp</dimen>
+    <dimen name="spacing_huge">72dp</dimen>
+
+
+    <dimen name="elevation_header">4dp</dimen>
+    <dimen name="elevation_fab">8dp</dimen>
+
+    <dimen name="size_icon_toolbar">40dp</dimen>
+
+    <integer name="anim_duration_very_long">1500</integer>
+    <integer name="anim_duration_long">500</integer>
+    <integer name="anim_duration_medium">300</integer>
+    <integer name="grid_column_count">2</integer>
+
+    <dimen name="action_bar_height">56dp</dimen>
+
+    <dimen name="home_debate_text_margin">6dp</dimen>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="nav_header_vertical_spacing">16dp</dimen>
+    <dimen name="nav_header_height">160dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="fab_margin_two">32dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
+
+    <dimen name="news_title_size">32sp</dimen>
+    <dimen name="cat_news_title_size">16sp</dimen>
+    <dimen name="cat_news_cat_title_size">15sp</dimen>
+    <dimen name="home_cj_debate_top_news_title_size">22sp</dimen>
+    <dimen name="news_title_size_in_list">20sp</dimen>
+    <dimen name="news_description_size">18sp</dimen>
+    <dimen name="news_post_details_size">13sp</dimen>
+    <dimen name="conference_time_text_size">14sp</dimen>
+    <dimen name="splash_app_name_text_size">20sp</dimen>
+    <dimen name="top_news_cj_debate_title_text_size">22sp</dimen>
+    <dimen name="home_cat_news_title_margin_left_right_and_time">12dp</dimen>
+    <dimen name="home_cat_news_time_margin_below">12dp</dimen>
+    <dimen name="top_news_list_item_title_text_size">16sp</dimen>
+
+    <integer name="home_cat_news_title_max_number_of_line">2</integer>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+    <dimen name="padding_image_bevel_effect">0dp</dimen>
+    <dimen name="padding_image_bevel_effect_top">0dp</dimen>
+
+    <dimen name="item_size">60dp</dimen>
+    <dimen name="item_margin">4dp</dimen>
+    <dimen name="item_text_size">18sp</dimen>
+    <dimen name="item_text_size_small">9sp</dimen>
+    <dimen name="expandable_selector_margin">10dp</dimen>
+    <dimen name="background_radius">100dp</dimen>
+    <dimen name="bottom_player_width_and_height">120dp</dimen>
+</resources>
