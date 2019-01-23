@@ -112,12 +112,13 @@ public class NewsDetailsActivity extends AppCompatActivity implements FlipAdapte
     private News news;
     private boolean isFromNotification = false;
     private String slug = "",lang;
-    ImageView home;
+    ImageView home,imgShare,imgComment;
     private static ViewPager mPager;
     CirclePageIndicator indicator;
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
     private DisplayImageOptions options;
+    TextView newstitle,tvNewsLongDesc;
 
 
     @Override
@@ -125,7 +126,8 @@ public class NewsDetailsActivity extends AppCompatActivity implements FlipAdapte
         super.onCreate(savedInstanceState);
         Fabric.with(this, new Crashlytics());
         setContentView(R.layout.activity_main_update);
-
+        imgShare = (ImageView)findViewById(R.id.imgShare);
+        imgComment = (ImageView)findViewById(R.id.imgComment);
         mPager = (ViewPager)findViewById(R.id.pager);
         indicator = (CirclePageIndicator) findViewById(R.id.indicator);
 
@@ -177,6 +179,59 @@ public class NewsDetailsActivity extends AppCompatActivity implements FlipAdapte
                 .bitmapConfig(Bitmap.Config.ARGB_8888)
                 .displayer(new SimpleBitmapDisplayer())
                 .build();
+
+
+        imgShare.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(news != null) {
+                    if(lang==null || lang.contentEquals("English")) {
+
+                        String link = Config.DOMAIN + "/" + news.getCategoryslug() + "/" + news.getSlug();
+                        String description = news.getShort_description();
+                        String title = news.getName();
+                        // we will use later
+                        //  showAlertForShare(link, description, title);
+
+                        Intent share = new Intent(Intent.ACTION_SEND);
+                        share.setType("text/plain");
+                        share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+                        share.putExtra(Intent.EXTRA_SUBJECT, "OMMCOM");
+                        share.putExtra(Intent.EXTRA_TEXT, link);
+                        startActivity(Intent.createChooser(share, "Share link!"));
+
+                    }
+                    else {
+                        String link = Config.DOMAIN + "/" + news.getCategoryslug() + "/" + news.getSlug()+ "/odia";
+                        String description = news.getShort_description();
+                        String title = news.getName();
+
+
+                        Intent share = new Intent(Intent.ACTION_SEND);
+                        share.setType("text/plain");
+                        share.addFlags(Intent.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET);
+                        share.putExtra(Intent.EXTRA_SUBJECT, "OMMCOM");
+                        share.putExtra(Intent.EXTRA_TEXT, link);
+                        startActivity(Intent.createChooser(share, "Share link!"));
+                        //showAlertForShare(link, description, title);
+                    }
+                }
+            }
+        });
+
+        imgComment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(NewsDetailsActivity.this, CommentListActivity.class);
+                intent.putExtra("news", news);
+                startActivity(intent);
+            }
+        });
+
+        newstitle = (TextView)findViewById(R.id.newstitle);
+        tvNewsLongDesc = (TextView)findViewById(R.id.tvNewsLongDesc);
+
+
 
     }
 
@@ -353,9 +408,7 @@ public class NewsDetailsActivity extends AppCompatActivity implements FlipAdapte
             @Override
             protected void onPostExecute(Boolean aVoid) {
                 super.onPostExecute(aVoid);
-                if(pBar != null) {
-                    pBar.setVisibility(View.GONE);
-                }
+
                 if(aVoid != null && aVoid.booleanValue() == true) {
                    // updateView();
                     init();
@@ -972,10 +1025,22 @@ public class NewsDetailsActivity extends AppCompatActivity implements FlipAdapte
             }
         }
 
-        final String title = news.getName() + "\n";
-        final String posted_by = news.getJounalist_name() + "\n";
-        final String posted_at = " " + Util.getTime(news.getApproved_date()) + "\n";
+        final String title = news.getName();
+        String description = news.getLong_description();
+        description=description.replace("*".toString(),"");
+       // final String posted_by = news.getJounalist_name() + "\n";
+        //final String posted_at = " " + Util.getTime(news.getApproved_date()) + "\n";
+        newstitle.setText(title);
+        String arr[] = description.split(" ", 2);
+        String firstWord = arr[0];   //the
+        String theRest = arr[1];
+        String sourceString = "<b>" + firstWord + "</b> " + theRest;
+        tvNewsLongDesc.setText(Html.fromHtml(sourceString.replace("\n","<br />")));
+      //  tvNewsLongDesc.setText(news.getLong_description());
 
+        if(pBar != null) {
+            pBar.setVisibility(View.GONE);
+        }
        /* mPager.setAdapter(new SlidingImage_Adapter(getApplicationContext(),NewsDetailsActivity.this,
                 title, posted_at, posted_by,fImageListItems,
                 NewsDetailsActivity.this, NewsDetailsActivity.this, news, mFBCount, mTwitterCount, mGPlusCount));
