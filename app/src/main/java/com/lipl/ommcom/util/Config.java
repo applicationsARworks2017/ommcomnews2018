@@ -102,6 +102,8 @@ public class Config {
     public static final String FOLDER_AD_480W_800H = "/ad_480w_800h/";
     public static final String FOLDER_AD_1080W_1920H = "/ad_1080w_1920h/";
     public static final String FOLDER_AD_1440W_2560H = "/ad_1440w_2560h/";
+    public static final String YOUTUBE_API_KEY = "AIzaSyCBPFulLWv_I19VelBrt0_6chxIJ21RdzE";
+
 
     public static final String getFolderForDP(){
         int width = Util.getScreenWidth();

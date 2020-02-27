@@ -9,6 +9,7 @@ import android.os.Parcelable;
 public class FImageListItem implements Parcelable {
     private String name;
     private String file_path;
+    private String youtublink;
     private String is_image;
     private String is_video;
     private String is_audio;
@@ -21,6 +22,13 @@ public class FImageListItem implements Parcelable {
         this.name = name;
     }
 
+    public String getYoutublink() {
+        return youtublink;
+    }
+
+    public void setYoutublink(String youtublink) {
+        this.youtublink = youtublink;
+    }
     public String getFile_path() {
         return file_path;
     }

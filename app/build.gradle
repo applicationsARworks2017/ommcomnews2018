@@ -87,6 +87,7 @@ dependencies {
     compile 'com.facebook.network.connectionclass:connectionclass:1.0.1'
     compile project(':library')
     compile 'com.felipecsl:gifimageview:2.1.0'
+    compile files('libs/YouTubeAndroidPlayerApi.jar')
 
     compile files('libs/nodemedia-client-v1.2.7.jar') }
 apply plugin: 'com.google.gms.google-services'

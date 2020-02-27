@@ -18,10 +18,18 @@ public class NewsVideo implements Parcelable {
     private String is_video;
     private String is_audio;
     private String file_link;
+    private String youtube_link;
     private String news_id;
 
     public String getIs_video() {
         return is_video;
+    }
+
+    public void setYoutube_link(String youtube_link) {
+        this.youtube_link = youtube_link;
+    }
+    public String getYoutube_link() {
+        return youtube_link;
     }
 
     public void setIs_video(String is_video) {

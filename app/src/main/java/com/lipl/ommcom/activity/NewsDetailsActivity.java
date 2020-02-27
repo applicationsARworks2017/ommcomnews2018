@@ -541,6 +541,10 @@ public class NewsDetailsActivity extends AppCompatActivity implements FlipAdapte
                             String slug = jsonObj.getString("slug");
                             news.setSlug(slug);
                         }
+                        if(jsonObj.isNull("youtube_link") == false){
+                            String youtube_link = jsonObj.getString("youtube_link");
+                            news.setyoutubelink(youtube_link);
+                        }
 
                         if(jsonObj.isNull("cat_id") == false){
                             String cat_id = jsonObj.getString("cat_id");
@@ -1006,6 +1010,7 @@ public class NewsDetailsActivity extends AppCompatActivity implements FlipAdapte
             imageListItem.setName(news.getName());
             imageListItem.setIs_video("1");
             imageListItem.setFile_path(news.getFile_path());
+            imageListItem.setYoutublink(news.getyoutubelink());
             fImageListItems.add(imageListItem);
         } else {
             if(news.getImage() != null && news.getImage().trim().length() > 0){
@@ -1113,6 +1118,7 @@ public class NewsDetailsActivity extends AppCompatActivity implements FlipAdapte
                 newsImage1.setIs_video("0");
             }
             newsImage1.setFile_link(newsImage.getFile_path());
+            newsImage1.setYoutube_link(newsImage.getYoutublink());
             file_maps.put(imageListItems.get(i).getName(), newsImage1);
         }
 
@@ -1151,6 +1157,8 @@ public class NewsDetailsActivity extends AppCompatActivity implements FlipAdapte
                     + Config.FOLDER_VIDEO
                     + "/" +file_maps.get(name).getFile_link();
             bundle.putString("video_url", video_url);
+            String youtube_url = file_maps.get(name).getYoutube_link();
+            bundle.putString("youtube_url", youtube_url);
             bundle.putString("extra",name);
 
             mDemoSlider.addSlider(textSliderView);
@@ -1585,13 +1593,16 @@ FLAG_ACTIVITY_NEW_TASK
     @Override
     public void onSliderClick(BaseSliderView slider) {
         //Toast.makeText(context,slider.getBundle().get("extra") + "", Toast.LENGTH_SHORT).show();
-        String is_video = (String) slider.getBundle().get("is_video");
+        //String is_video = (String) slider.getBundle().get("is_video");
+        String is_video = "1";
         if(is_video != null && is_video.trim().length() > 0 && is_video.trim().equalsIgnoreCase("1")){
             String video_url = (String) slider.getBundle().get("video_url");
+            String youtube_url = (String) slider.getBundle().get("youtube_url");
 
             if(video_url != null && video_url.trim().length() > 0) {
+                // here we need to redirect to youtube
                 Intent intent = new Intent(NewsDetailsActivity.this, VideoPlayerActivity.class);
-                intent.putExtra("video_url", video_url);
+                intent.putExtra("youtube_url", youtube_url);
                 startActivity(intent);
             }
         }

@@ -14,6 +14,7 @@ public class News implements Parcelable {
     private String id;
     private String name;
     private String slug;
+    private String youtubelink;
     private String image;
     private String short_description;
     private String long_description;
@@ -335,6 +336,15 @@ public class News implements Parcelable {
     public void setName(String name) {
         this.name = name;
     }
+
+    public String getyoutubelink() {
+        return youtubelink;
+    }
+
+    public void setyoutubelink(String youtubelink) {
+        this.youtubelink = youtubelink;
+    }
+
 
     public String getSlug() {
         return slug;

@@ -1,10 +1,12 @@
 <component name="libraryTable">
   <library name="Gradle: com.jcodecraeer:xrecyclerview:1.2.7@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.android/build-cache/9257127e804b94d42e2baeb648cfdd961327f1c7/output/res" />
-      <root url="jar://$USER_HOME$/.android/build-cache/9257127e804b94d42e2baeb648cfdd961327f1c7/output/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.android/build-cache/97155b1480ea2119fdcd314427f8f7c4c87a73bb/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/97155b1480ea2119fdcd314427f8f7c4c87a73bb/output/res" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.jcodecraeer/xrecyclerview/1.2.7/e8b3335a83a9c8e19caf1b263be97796c2e5c67a/xrecyclerview-1.2.7-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>
